@@ -1,0 +1,2033 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)file:///C:/Users/serae/Downloads/index.html -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KUBS DBA 25학번 원우 허브</title>
+<link href="./index_files/css2" rel="stylesheet">
+<style>
+:root {
+  --crimson: #8B0029;
+  --crimson-light: #A8002F;
+  --gold: #B8972A;
+  --gold-light: #D4AF4A;
+  --cream: #FAF7F2;
+  --warm-white: #FFFDF9;
+  --charcoal: #8B0029;
+  --dark: #6B0020;
+  --mid: #48484A;
+  --light: #8E8E93;
+  --border: #E5E0D8;
+  --border-light: #F0EDE8;
+  --surface: #FFFFFF;
+  --surface-warm: #FDF9F4;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--cream);
+  color: var(--charcoal);
+  font-family: 'Noto Sans KR', sans-serif;
+  min-height: 100vh;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--charcoal);
+  color: white;
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  border-bottom: 2px solid var(--crimson);
+}
+
+.logo-area { display: flex; align-items: center; gap: 20px; }
+.ku-emblem {
+  width: 36px; height: 36px;
+  background: white;
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  color: white;
+  letter-spacing: -1px;
+  flex-shrink: 0;
+}
+.header-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: white;
+  line-height: 1.2;
+}
+.header-sub {
+  font-size: 10px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 1px;
+}
+.header-right {
+  display: flex; align-items: center; gap: 16px;
+}
+.live-clock {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+}
+.semester-tag {
+  background: var(--crimson);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 2px;
+  letter-spacing: 0.5px;
+}
+
+/* ── NAV TABS ── */
+nav {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  padding: 0 48px;
+  gap: 0;
+  overflow-x: auto;
+}
+nav::-webkit-scrollbar { height: 0; }
+
+.nav-btn {
+  padding: 16px 20px;
+  border: none;
+  background: none;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--light);
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  display: flex; align-items: center; gap: 6px;
+  margin-bottom: -1px;
+}
+.nav-btn:hover { color: var(--charcoal); }
+.nav-btn.active {
+  color: var(--crimson);
+  border-bottom-color: var(--crimson);
+  font-weight: 700;
+}
+
+/* ── LAYOUT ── */
+main { max-width: 1440px; margin: 0 auto; padding: 36px 48px 60px; }
+
+.section { display: none; }
+.section.active { display: block; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+
+/* ── PAGE HEADER ── */
+.page-header {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.page-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--charcoal);
+  line-height: 1.2;
+}
+.page-title small {
+  display: block;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--light);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.page-meta { font-size: 12px; color: var(--light); text-align: right; }
+
+/* ── CARDS ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+}
+.card-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--light);
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 8px;
+}
+.card-label::before {
+  content: '';
+  width: 12px; height: 2px;
+  background: var(--crimson);
+  display: inline-block;
+}
+
+/* ── GRID ── */
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+/* ════════════════════════════
+   HOME DASHBOARD
+════════════════════════════ */
+.hero {
+  background: var(--charcoal);
+  border-radius: 10px;
+  padding: 40px 48px;
+  margin-bottom: 28px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: 'KU';
+  position: absolute;
+  right: -20px; top: -30px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 200px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.03);
+  line-height: 1;
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--crimson), var(--gold), var(--crimson));
+}
+.hero-left h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 34px;
+  font-weight: 900;
+  color: white;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.hero-left h1 span { color: var(--gold-light); }
+.hero-left p { color: rgba(255,255,255,0.55); font-size: 13px; }
+.hero-stats { display: flex; gap: 32px; }
+.h-stat { text-align: center; }
+.h-stat-num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: white;
+  line-height: 1;
+}
+.h-stat-num span { font-size: 16px; color: var(--gold-light); }
+.h-stat-label { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 4px; letter-spacing: 1px; }
+
+.home-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+
+/* Deadline list */
+.dl-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+.dl-item:last-child { border-bottom: none; padding-bottom: 0; }
+.dl-urgency {
+  width: 4px; height: 40px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.dl-info { flex: 1; }
+.dl-subject { font-size: 13px; color: var(--light); margin-bottom: 2px; }
+.dl-task { font-size: 16px; font-weight: 600; color: var(--charcoal); }
+.dl-dday {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+/* Notice items */
+.notice-row {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-light);
+  cursor: pointer;
+}
+.notice-row:last-child { border-bottom: none; }
+.notice-row:hover .notice-title { color: var(--crimson); }
+.notice-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--crimson); margin-top: 5px; flex-shrink: 0; }
+.notice-dot.old { background: var(--border); }
+.notice-body { flex: 1; }
+.notice-title { font-size: 15px; font-weight: 500; color: var(--dark); margin-bottom: 2px; transition: color 0.15s; }
+.notice-from { font-size: 13px; color: var(--light); }
+.notice-date { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--light); white-space: nowrap; }
+
+/* ════════════════════════════
+   TIMETABLE
+════════════════════════════ */
+.tt-overview {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.tt-day-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.tt-day-header {
+  padding: 10px 18px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: white;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.tt-day-body { padding: 16px 18px; }
+.tt-class-row {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--border-light);
+}
+.tt-class-row:last-child { border-bottom: none; padding-bottom: 0; }
+.tt-time {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--light);
+  white-space: nowrap;
+  min-width: 90px;
+  padding-top: 1px;
+}
+.tt-class-info { flex: 1; }
+.tt-class-name { font-size: 15px; font-weight: 600; color: var(--charcoal); margin-bottom: 2px; }
+.tt-class-prof { font-size: 13px; color: var(--light); }
+.tt-room {
+  font-size: 11px;
+  background: var(--cream);
+  padding: 2px 8px;
+  border-radius: 3px;
+  color: var(--mid);
+  white-space: nowrap;
+  align-self: center;
+}
+
+/* Full schedule table */
+.schedule-table-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.schedule-table-wrap h3 {
+  padding: 16px 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 8px;
+}
+table.sched {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+table.sched thead tr {
+  background: var(--charcoal);
+}
+table.sched thead th {
+  padding: 11px 16px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
+table.sched tbody tr {
+  border-bottom: 1px solid var(--border-light);
+  transition: background 0.15s;
+}
+table.sched tbody tr:hover { background: var(--surface-warm); }
+table.sched td {
+  padding: 15px 18px;
+  vertical-align: middle;
+}
+.sched-subject-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+.pill-red { background: #FDF0F1; color: #8B0029; border: 1px solid #E8C5C8; }
+.pill-blue { background: #EFF4FB; color: #1E4D8C; border: 1px solid #C5D5EB; }
+.pill-green { background: #EFF8F2; color: #1A6B3A; border: 1px solid #BDDEC9; }
+.pill-gold { background: #FDF8EE; color: #7A6020; border: 1px solid #E5D49A; }
+.pill-purple { background: #F4F0FB; color: #5B3DA8; border: 1px solid #D0C0EC; }
+
+.note-box {
+  background: #FFFBF0;
+  border: 1px solid #F0E8C0;
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-top: 16px;
+  font-size: 12px;
+  color: #6B5A20;
+  line-height: 1.7;
+}
+
+/* ════════════════════════════
+   PROFESSORS
+════════════════════════════ */
+.prof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+.prof-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+.prof-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.1); transform: translateY(-2px); }
+.prof-card-top {
+  background: var(--charcoal);
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  position: relative;
+}
+.prof-avatar {
+  width: 68px; height: 68px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--crimson);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: white;
+  border: 2px solid rgba(255,255,255,0.15);
+}
+.prof-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.prof-header-info { flex: 1; }
+.prof-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 4px;
+}
+.prof-name-en { font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 0.5px; margin-bottom: 8px; }
+.prof-course-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 3px 8px;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+.prof-office {
+  position: absolute;
+  top: 16px; right: 16px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: rgba(255,255,255,0.35);
+}
+.prof-card-body { padding: 20px 24px; }
+.prof-section-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--light);
+  margin: 12px 0 6px;
+  display: flex; align-items: center; gap: 6px;
+}
+.prof-section-title:first-child { margin-top: 0; }
+.prof-section-title::before { content: '—'; opacity: 0.4; }
+.prof-detail { font-size: 14px; color: var(--mid); line-height: 1.7; }
+.prof-detail strong { color: var(--charcoal); font-weight: 600; }
+.prof-contact {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-light);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.prof-email {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: var(--crimson);
+}
+.prof-office-hr {
+  font-size: 13px;
+  color: var(--light);
+}
+
+/* ════════════════════════════
+   PAPERS / READINGS
+════════════════════════════ */
+.subject-tabs {
+  display: flex; gap: 4px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.stab {
+  padding: 9px 18px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--mid);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.stab:hover { border-color: var(--crimson); color: var(--crimson); }
+.stab.active { background: var(--crimson); color: white; border-color: var(--crimson); }
+
+.reading-section { display: none; }
+.reading-section.active { display: block; }
+
+.session-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.session-header {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 22px;
+  cursor: pointer;
+  transition: background 0.15s;
+  border-bottom: 1px solid transparent;
+}
+.session-header:hover { background: var(--surface-warm); }
+.session-header.open { border-bottom-color: var(--border-light); }
+.session-num {
+  width: 32px; height: 32px;
+  border-radius: 4px;
+  background: #6B0020;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.session-info { flex: 1; }
+.session-title { font-size: 16px; font-weight: 700; color: var(--charcoal); margin-bottom: 2px; }
+.session-date { font-size: 13px; color: var(--light); font-family: 'DM Mono', monospace; }
+.session-count {
+  font-size: 11px;
+  background: var(--cream);
+  padding: 4px 10px;
+  border-radius: 3px;
+  color: var(--mid);
+}
+.session-arrow { color: var(--light); font-size: 12px; transition: transform 0.2s; }
+.session-header.open .session-arrow { transform: rotate(180deg); }
+
+.session-body { padding: 0 22px 18px; display: none; }
+.session-body.open { display: block; }
+
+.paper-row {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--border-light);
+}
+.paper-row:last-child { border-bottom: none; }
+.paper-type {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 3px 7px;
+  border-radius: 2px;
+  white-space: nowrap;
+  margin-top: 2px;
+  min-width: 52px;
+  text-align: center;
+}
+.type-academic { background: #EFF4FB; color: #1E4D8C; border: 1px solid #C5D5EB; }
+.type-hbr { background: #FDF0F1; color: #8B0029; border: 1px solid #E8C5C8; }
+.type-case { background: #EFF8F2; color: #1A6B3A; border: 1px solid #BDDEC9; }
+.type-rec { background: var(--cream); color: var(--mid); border: 1px solid var(--border); }
+.type-nyt { background: #F5F0FF; color: #5B3DA8; border: 1px solid #D0C0EC; }
+.type-msi { background: #FDF8EE; color: #7A6020; border: 1px solid #E5D49A; }
+
+.paper-text { flex: 1; }
+.paper-title { font-size: 15px; font-weight: 600; color: var(--dark); margin-bottom: 3px; line-height: 1.4; }
+.paper-author { font-size: 13px; color: var(--light); }
+.paper-link {
+  font-size: 11px;
+  color: var(--crimson);
+  text-decoration: none;
+  white-space: nowrap;
+  margin-top: 4px;
+  display: inline-block;
+}
+.paper-link:hover { text-decoration: underline; }
+
+.reading-note {
+  background: #FFFBF0;
+  border: 1px solid #F0E8C0;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 16px;
+  font-size: 12px;
+  color: #6B5A20;
+  line-height: 1.6;
+}
+
+/* ════════════════════════════
+   ASSIGNMENTS
+════════════════════════════ */
+.assign-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+.assign-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.assign-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+.assign-card-top {
+  height: 6px;
+}
+.assign-card-body { padding: 20px; }
+.assign-subject { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--light); margin-bottom: 6px; }
+.assign-title { font-size: 17px; font-weight: 700; color: var(--charcoal); margin-bottom: 10px; line-height: 1.3; }
+.assign-desc { font-size: 14px; color: var(--mid); line-height: 1.7; margin-bottom: 14px; }
+.assign-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--border-light); }
+.assign-deadline { font-family: 'DM Mono', monospace; font-size: 12px; }
+.assign-weight {
+  font-size: 11px;
+  background: var(--cream);
+  padding: 3px 8px;
+  border-radius: 3px;
+  color: var(--mid);
+  font-weight: 600;
+}
+.progress-wrap { margin: 10px 0 6px; }
+.progress-label { display: flex; justify-content: space-between; font-size: 11px; color: var(--light); margin-bottom: 4px; }
+.progress-bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 2px; transition: width 1s ease; }
+.assign-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 8px; }
+.assign-tag {
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 2px;
+  background: var(--cream);
+  color: var(--mid);
+  border: 1px solid var(--border);
+}
+
+/* ════════════════════════════
+   RESOURCES
+════════════════════════════ */
+.resource-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.resource-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 22px;
+  display: flex; gap: 16px;
+  align-items: flex-start;
+  transition: all 0.15s;
+  text-decoration: none;
+  cursor: pointer;
+}
+.resource-card:hover { border-color: var(--crimson); background: #FDF9F9; }
+.resource-icon {
+  width: 44px; height: 44px;
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+.resource-info h4 { font-size: 16px; font-weight: 700; color: var(--charcoal); margin-bottom: 4px; }
+.resource-info p { font-size: 14px; color: var(--light); line-height: 1.5; }
+.resource-url {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--crimson);
+  margin-top: 6px;
+  display: block;
+}
+
+.mail-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 22px;
+  margin-bottom: 12px;
+}
+.mail-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; }
+.mail-from { display: flex; align-items: center; gap: 10px; }
+.mail-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--charcoal);
+  color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.mail-sender-name { font-size: 15px; font-weight: 700; color: var(--charcoal); }
+.mail-sender-role { font-size: 11px; color: var(--light); }
+.mail-date { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--light); }
+.mail-subject { font-size: 16px; font-weight: 700; color: var(--charcoal); margin-bottom: 8px; }
+.mail-body { font-size: 15px; color: var(--mid); line-height: 1.7; }
+.mail-body a { color: var(--crimson); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+@media (max-width: 1024px) {
+  main { padding: 24px; }
+  header { padding: 0 24px; }
+  nav { padding: 0 24px; }
+  .g2, .g3, .g4, .home-grid, .prof-grid, .assign-grid, .resource-grid { grid-template-columns: 1fr; }
+  .tt-overview { grid-template-columns: 1fr; }
+  .hero { flex-direction: column; }
+}
+</style>
+
+<style>
+/* ── LOCK SCREEN ── */
+#lock-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #8B0029;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#lock-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+.lock-box {
+  background: white;
+  border-radius: 16px;
+  padding: 48px 44px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.3);
+  position: relative;
+}
+.lock-ku-logo {
+  width: 56px; height: 56px;
+  background: #8B0029;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: white;
+  margin: 0 auto 20px;
+}
+.lock-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1C1C1E;
+  margin-bottom: 4px;
+}
+.lock-subtitle {
+  font-size: 13px;
+  color: #8E8E93;
+  margin-bottom: 28px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.lock-input {
+  width: 100%;
+  padding: 16px 18px;
+  border: 2px solid #E5E0D8;
+  border-radius: 10px;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 6px;
+  font-family: 'DM Mono', monospace;
+  color: #1C1C1E;
+  outline: none;
+  transition: border-color 0.2s;
+  background: #FAF6F3;
+  margin-bottom: 14px;
+}
+.lock-input:focus { border-color: #8B0029; background: white; }
+.lock-input.error { border-color: #FF3B30; animation: shake 0.4s ease; }
+.lock-btn {
+  width: 100%;
+  padding: 16px;
+  background: #8B0029;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background 0.15s, transform 0.1s;
+}
+.lock-btn:hover { background: #720022; }
+.lock-btn:active { transform: scale(0.98); }
+.lock-error {
+  font-size: 12px;
+  color: #FF3B30;
+  margin-top: 10px;
+  height: 16px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.lock-hint {
+  font-size: 11px;
+  color: #C0C0C8;
+  margin-top: 20px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.lock-divider {
+  width: 40px; height: 3px;
+  background: linear-gradient(90deg, #8B0029, #B8972A);
+  border-radius: 2px;
+  margin: 16px auto;
+}
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
+</style>
+</head>
+<body>
+
+<!-- ── LOCK SCREEN ── -->
+<div id="lock-overlay">
+  <div class="lock-box">
+    <div class="lock-ku-logo">KU</div>
+    <div class="lock-title">KUBS DBA 25학번</div>
+    <div class="lock-subtitle">원우 전용 · 접근 비밀번호를 입력하세요</div>
+    <div class="lock-divider"></div>
+    <input class="lock-input" id="lock-pw" type="password" placeholder="● ● ● ● ●" maxlength="20" autocomplete="off">
+    <button class="lock-btn" id="lock-submit">입장하기</button>
+    <div class="lock-error" id="lock-error"></div>
+    <div class="lock-hint">🔒 KUBS DBA 25학번 원우 전용 공간입니다</div>
+  </div>
+</div>
+
+<script>
+(function() {
+  // ── 비밀번호 설정 (SHA-256 해시로 저장 — 평문 노출 방지) ──
+  // 기본 비밀번호: DBA2025 → 변경하려면 아래 hash 값을 교체하세요
+  var PW_HASH = 'ecf562d0b6feb00da3b7c4697bdffb1cee0579891e0fed652b030c3ee0644a92';
+
+  async function sha256(msg) {
+    var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(msg));
+    return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+  }
+
+  var overlay = document.getElementById('lock-overlay');
+  var input   = document.getElementById('lock-pw');
+  var btn     = document.getElementById('lock-submit');
+  var errEl   = document.getElementById('lock-error');
+  var SESSION_KEY = 'dba25_auth';
+
+  // 이미 인증된 세션이면 바로 해제
+  if (sessionStorage.getItem(SESSION_KEY) === '1') {
+    overlay.style.display = 'none';
+  }
+
+  async function tryUnlock() {
+    var hash = await sha256(input.value.trim());
+    if (hash === PW_HASH) {
+      sessionStorage.setItem(SESSION_KEY, '1');
+      overlay.style.transition = 'opacity 0.4s';
+      overlay.style.opacity = '0';
+      setTimeout(function(){ overlay.style.display = 'none'; }, 400);
+    } else {
+      errEl.textContent = '비밀번호가 올바르지 않습니다.';
+      input.classList.add('error');
+      input.value = '';
+      setTimeout(function(){ input.classList.remove('error'); errEl.textContent = ''; }, 2000);
+      input.focus();
+    }
+  }
+
+  btn.addEventListener('click', tryUnlock);
+  input.addEventListener('keydown', function(e){ if(e.key === 'Enter') tryUnlock(); });
+  input.focus();
+})();
+</script>
+
+
+<header>
+  <div class="logo-area">
+    <div class="ku-emblem">KU</div>
+    <div>
+      <div class="header-title">KUBS DBA 25학번 원우 허브</div>
+      <div class="header-sub">Korea University Business School · Doctor of Business Administration</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="live-clock" id="clock">17:40:08</div>
+    <div class="semester-tag">2026-1학기</div>
+  </div>
+</header>
+
+<nav>
+  <button class="nav-btn" data-section="home" active"="">🏠 홈</button>
+  <button class="nav-btn" data-section="timetable" "="">📅 시간표</button>
+  <button class="nav-btn" data-section="professors" "="">👨‍🏫 교수진</button>
+  <button class="nav-btn" data-section="papers" "="">📚 강의계획 &amp; 논문</button>
+  <button class="nav-btn" data-section="assignments" "="">✏️ 과제 &amp; 평가</button>
+  <button class="nav-btn" data-section="resources" "="">🔗 공지 &amp; 자료</button>
+</nav>
+
+<main>
+
+<!-- ══════════════ HOME ══════════════ -->
+<section class="section active" id="home">
+  <div class="hero">
+    <div class="hero-left">
+      <h1>2026학년도 1학기<br><span>KUBS–DBA 25학번</span></h1>
+      <p>경영전문박사 2년차 · 총 12명 원우 · LG-POSCO 경영관 429호</p>
+    </div>
+    <div class="hero-stats">
+      <div class="h-stat">
+        <div class="h-stat-num">6<span>과목</span></div>
+        <div class="h-stat-label">수강과목</div>
+      </div>
+
+      <div class="h-stat">
+        <div class="h-stat-num">8<span>학점</span></div>
+        <div class="h-stat-label">이번학기</div>
+      </div>
+      <div class="h-stat">
+        <div class="h-stat-num">LP<span>429</span></div>
+        <div class="h-stat-label">강의실</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-grid">
+    <div style="display:flex;flex-direction:column;gap:16px;">
+
+      <!-- 수업 일정 요약 -->
+      <div class="card">
+        <div class="card-label">이번학기 수업 패턴</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div style="background:var(--cream);border-radius:6px;padding:16px 18px;">
+            <div style="font-size:11px;color:var(--light);font-weight:700;letter-spacing:1px;margin-bottom:6px;">금요일 격주</div>
+            <div style="font-size:20px;font-weight:700;font-family:&#39;Montserrat&#39;,sans-serif;color:var(--crimson);margin-bottom:4px;">15:00–18:00</div>
+            <div style="font-size:12px;color:var(--dark);font-weight:600;">경영학 심화연구 1 (전략)</div>
+            <div style="font-size:11px;color:var(--light);margin-top:2px;">이재민 교수</div>
+          </div>
+          <div style="background:var(--cream);border-radius:6px;padding:16px 18px;">
+            <div style="font-size:11px;color:var(--light);font-weight:700;letter-spacing:1px;margin-bottom:6px;">토요일 격주 · 3타임</div>
+            <div style="font-size:13px;font-weight:700;color:var(--charcoal);margin-bottom:8px;">LG-POSCO 429</div>
+            <div style="font-size:12px;color:var(--dark);margin-bottom:3px;"><strong>09:00–12:00</strong> 심화연구 2 (장진욱)</div>
+            <div style="font-size:12px;color:var(--gold);margin-bottom:3px;"><strong>13:00–16:00</strong> 경영인사이트 (김태규)</div>
+            <div style="font-size:12px;color:var(--dark);"><strong>16:00–19:00</strong> 심화연구 3 (유시진)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 마감 과제 -->
+      <div class="card">
+        <div class="card-label">과제 &amp; 평가 개요</div>
+        <div class="dl-item">
+          <div class="dl-urgency" style="background:#A8002F;"></div>
+          <div class="dl-info">
+            <div class="dl-subject">DBA211 · 경영학 심화연구 1 (전략)</div>
+            <div class="dl-task">전략적 시사점 보고서 (매 수업마다, 최대 2페이지)</div>
+          </div>
+          <div class="dl-dday" style="background:#FDF0F1;color:#8B0029;">50%</div>
+        </div>
+        <div class="dl-item">
+          <div class="dl-urgency" style="background:#1E4D8C;"></div>
+          <div class="dl-info">
+            <div class="dl-subject">DBA212 · 경영학 심화연구 2 (조직행동)</div>
+            <div class="dl-task">연구 설계 및 계획서 제출</div>
+          </div>
+          <div class="dl-dday" style="background:#EFF4FB;color:#1E4D8C;">50%</div>
+        </div>
+        <div class="dl-item">
+          <div class="dl-urgency" style="background:#1A6B3A;"></div>
+          <div class="dl-info">
+            <div class="dl-subject">DBA213 · 경영학 심화연구 3 (마케팅)</div>
+            <div class="dl-task">연구제안서 + Oral Defense (6/27)</div>
+          </div>
+          <div class="dl-dday" style="background:#EFF8F2;color:#1A6B3A;">60%</div>
+        </div>
+        <div class="dl-item" style="border-bottom:none;">
+          <div class="dl-urgency" style="background:#7A6020;"></div>
+          <div class="dl-info">
+            <div class="dl-subject">DBA103 · 경영인사이트시리즈 3 / DBA401·DBA500</div>
+            <div class="dl-task">출석 및 참여 중심 · 연구세미나1, 연구지도 포함</div>
+          </div>
+          <div class="dl-dday" style="background:#FDF8EE;color:#7A6020;">출석</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 공지 -->
+    <div class="card">
+      <div class="card-label">최근 공지 &amp; 메일</div>
+      <div class="notice-row" data-section="resources" style="cursor:pointer">
+        <div class="notice-dot"></div>
+        <div class="notice-body">
+          <div class="notice-title">유시진 교수 — 마케팅 강의계획서 &amp; Google Drive 공유</div>
+          <div class="notice-from">Research Priority 2024 (MSI) 꼭 사전 독서</div>
+        </div>
+        <div class="notice-date">3/14</div>
+      </div>
+      <div class="notice-row" data-section="resources" style="cursor:pointer">
+        <div class="notice-dot"></div>
+        <div class="notice-body">
+          <div class="notice-title">옥비나 — 2026-1학기 수강등록 완료 안내</div>
+          <div class="notice-from">LMS 강의계획서 확인 · 행정팀 일괄 등록</div>
+        </div>
+        <div class="notice-date">2/초</div>
+      </div>
+      <div class="notice-row" data-section="papers" style="cursor:pointer">
+        <div class="notice-dot old"></div>
+        <div class="notice-body">
+          <div class="notice-title">구교령 선배 — 장진욱 교수 HBR/NYT 아티클 개인 공유</div>
+          <div class="notice-from">LMS 강의계획서와 비교하며 일자 확인 필요</div>
+        </div>
+        <div class="notice-date">3/초</div>
+      </div>
+      <div class="notice-row" data-section="resources" style="cursor:pointer">
+        <div class="notice-dot old"></div>
+        <div class="notice-body">
+          <div class="notice-title">교재 배포 안내 — HBS 케이스 &amp; NYT/WSJ 구독</div>
+          <div class="notice-from">HBP 학생계정 생성 · 도서관 @korea.ac.kr 인증</div>
+        </div>
+        <div class="notice-date">3/초</div>
+      </div>
+
+      <div style="margin-top:18px;padding-top:16px;border-top:1px solid var(--border-light);">
+        <div class="card-label" style="margin-bottom:12px;">주요 링크</div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <a href="https://lms.korea.ac.kr/" target="_blank" style="font-size:12px;color:var(--crimson);text-decoration:none;display:flex;align-items:center;gap:6px;">
+            <span style="font-size:14px;">📖</span> LMS — lms.korea.ac.kr
+          </a>
+          <a href="https://library.korea.ac.kr/" target="_blank" style="font-size:12px;color:var(--crimson);text-decoration:none;display:flex;align-items:center;gap:6px;">
+            <span style="font-size:14px;">📚</span> 고려대 도서관 — library.korea.ac.kr
+          </a>
+          <a href="https://hbsp.harvard.edu/import/1393481" target="_blank" style="font-size:12px;color:var(--crimson);text-decoration:none;display:flex;align-items:center;gap:6px;">
+            <span style="font-size:14px;">🎓</span> HBS 케이스 다운로드 — HBP 학생계정
+          </a>
+          <a href="https://drive.google.com/drive/folders/1DO9xQh75eukvZv8GOf1njHCuCQjvKPQH" target="_blank" style="font-size:12px;color:var(--crimson);text-decoration:none;display:flex;align-items:center;gap:6px;">
+            <span style="font-size:14px;">☁️</span> 유시진 교수 논문 공유폴더 (수강생 전용)
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ TIMETABLE ══════════════ -->
+<section class="section" id="timetable">
+  <div class="page-header">
+    <div class="page-title">
+      <small>2026 Spring Semester</small>
+      수업 시간표
+    </div>
+    <div class="page-meta">📍 LG-POSCO 경영관 429호 (LP429)<br>금요일 15:00–18:00 / 토요일 09:00–19:00</div>
+  </div>
+
+  <!-- 요일별 카드 -->
+  <div class="tt-overview" style="grid-template-columns:1fr 1fr;margin-bottom:24px;">
+    <div class="tt-day-card">
+      <div class="tt-day-header" style="background:#8B0029;">
+        <span>금요일 (격주) — Friday</span>
+        <span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">3·13, 3·27, 4·10, 4·24, 5·8, 5·29, 6·12, 6·26</span>
+      </div>
+      <div class="tt-day-body">
+        <div class="tt-class-row">
+          <div class="tt-time">15:00–18:00</div>
+          <div class="tt-class-info">
+            <div class="tt-class-name">경영학 심화연구 1 — 전략</div>
+            <div class="tt-class-prof">이재민 교수 · DBA211</div>
+          </div>
+          <div class="tt-room">LP 429</div>
+        </div>
+      </div>
+    </div>
+    <div class="tt-day-card">
+      <div class="tt-day-header" style="background:#8B0029;">
+        <span>토요일 — Saturday</span>
+        <span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">3·14, 3·28, 4·11, 4·25, 5·9, 5·30, 6·13, 6·27</span>
+      </div>
+      <div class="tt-day-body">
+        <div class="tt-class-row">
+          <div class="tt-time">09:00–12:00</div>
+          <div class="tt-class-info">
+            <div class="tt-class-name">경영학 심화연구 2 — 조직행동</div>
+            <div class="tt-class-prof">장진욱 교수 · DBA212</div>
+          </div>
+          <div class="tt-room">LP 429</div>
+        </div>
+        <div class="tt-class-row" style="background:rgba(184,151,42,0.06);border-radius:4px;padding:8px 6px;margin:4px -6px;">
+          <div class="tt-time" style="color:#7A6020;">13:00–15:50<br><span style="font-size:10px;">(5/30은 09:00–11:50)</span></div>
+          <div class="tt-class-info">
+            <div class="tt-class-name" style="color:#7A6020;">경영인사이트시리즈 3</div>
+            <div class="tt-class-prof">김태규 교수 · DBA103 · <span style="color:#B8972A;font-weight:700;">3/14·28, 4/11·25, 5/9·30, 6/13·27</span></div>
+          </div>
+          <div class="tt-room">LP 429</div>
+        </div>
+        <div class="tt-class-row">
+          <div class="tt-time">16:00–19:00</div>
+          <div class="tt-class-info">
+            <div class="tt-class-name">경영학 심화연구 3 — 마케팅</div>
+            <div class="tt-class-prof">유시진 교수 · DBA213 <span style="color:var(--crimson);font-size:10px;">(5/30은 13:00–19:00 전체)</span></div>
+          </div>
+          <div class="tt-room">LP 429</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 전체 일정표 -->
+  <div class="schedule-table-wrap">
+    <h3>📋 2026학년도 1학기 전체 강의 일정</h3>
+    <table class="sched">
+      <thead>
+        <tr>
+          <th>월</th>
+          <th>날짜</th>
+          <th>요일</th>
+          <th>시간</th>
+          <th>교과목</th>
+          <th>담당교수</th>
+          <th>강의실</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td style="font-weight:700;color:var(--crimson);">3</td><td>03/13 (목)</td><td>금</td><td class=""><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">15:00–18:00</span></td><td><span class="sched-subject-pill pill-red">심화연구 1 · 전략</span></td><td style="font-weight:600;">이재민</td><td>LP429</td></tr>
+        <tr><td style="color:var(--light);">3</td><td>03/14 (토)</td><td>토</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">09:00–12:00</span></td><td><span class="sched-subject-pill pill-blue">심화연구 2 · 조직행동</span></td><td style="font-weight:600;">장진욱</td><td>LP429</td></tr>
+        <tr style="background:#FFFBF0;"><td style="color:var(--light);">3</td><td>03/14 (토)</td><td>토</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;color:#7A6020;">13:00–16:00</span></td><td><span class="sched-subject-pill pill-gold">경영인사이트시리즈 3</span></td><td style="font-weight:600;color:#7A6020;">김태규</td><td>LP429</td></tr>
+        <tr><td style="color:var(--light);">3</td><td>03/14 (토)</td><td>토</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">16:00–19:00</span></td><td><span class="sched-subject-pill pill-green">심화연구 3 · 마케팅</span></td><td style="font-weight:600;">유시진</td><td>LP429</td></tr>
+        <tr><td style="font-weight:700;color:var(--crimson);">3</td><td>03/27 (금)</td><td>금</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">15:00–18:00</span></td><td><span class="sched-subject-pill pill-red">심화연구 1 · 전략</span></td><td style="font-weight:600;">이재민</td><td>LP429</td></tr>
+        <tr><td style="color:var(--light);">3</td><td>03/28 (토)</td><td>토</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">09:00–12:00</span></td><td><span class="sched-subject-pill pill-blue">심화연구 2 · 조직행동</span></td><td style="font-weight:600;">장진욱</td><td>LP429</td></tr>
+        <tr style="background:#FFFBF0;"><td style="color:var(--light);">3</td><td>03/28 (토)</td><td>토</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;color:#7A6020;">13:00–16:00</span></td><td><span class="sched-subject-pill pill-gold">경영인사이트시리즈 3</span></td><td style="font-weight:600;color:#7A6020;">김태규</td><td>LP429</td></tr>
+        <tr><td style="color:var(--light);">3</td><td>03/28 (토)</td><td>토</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">16:00–19:00</span></td><td><span class="sched-subject-pill pill-green">심화연구 3 · 마케팅</span></td><td style="font-weight:600;">유시진</td><td>LP429</td></tr>
+        <tr><td style="font-weight:700;color:var(--crimson);">4</td><td>04/10 (금)</td><td>금</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">15:00–18:00</span></td><td><span class="sched-subject-pill pill-red">심화연구 1 · 전략</span></td><td style="font-weight:600;">이재민</td><td>LP429</td></tr>
+        <tr><td style="color:var(--light);">4</td><td>04/11 (토)</td><td>토</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">09:00–12:00</span></td><td><span class="sched-subject-pill pill-blue">심화연구 2 · 조직행동</span></td><td style="font-weight:600;">장진욱</td><td>LP429</td></tr>
+        <tr style="background:#FFFBF0;"><td style="color:var(--light);">4</td><td>04/11 (토)</td><td>토</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;color:#7A6020;">13:00–16:00</span></td><td><span class="sched-subject-pill pill-gold">경영인사이트시리즈 3</span></td><td style="font-weight:600;color:#7A6020;">김태규</td><td>LP429</td></tr>
+        <tr><td style="color:var(--light);">4</td><td>04/11 (토)</td><td>토</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">16:00–19:00</span></td><td><span class="sched-subject-pill pill-green">심화연구 3 · 마케팅</span></td><td style="font-weight:600;">유시진</td><td>LP429</td></tr>
+        <tr><td style="font-weight:700;color:var(--crimson);">4</td><td>04/24 (금)</td><td>금</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">15:00–18:00</span></td><td><span class="sched-subject-pill pill-red">심화연구 1 · 전략</span></td><td style="font-weight:600;">이재민</td><td>LP429</td></tr>
+        <tr><td style="color:var(--light);">4</td><td>04/25 (토)</td><td>토</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">09:00–12:00</span></td><td><span class="sched-subject-pill pill-blue">심화연구 2 · 조직행동</span></td><td style="font-weight:600;">장진욱</td><td>LP429</td></tr>
+        <tr style="background:#FFFBF0;"><td style="color:var(--light);">4</td><td>04/25 (토)</td><td>토</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;color:#7A6020;">13:00–16:00</span></td><td><span class="sched-subject-pill pill-gold">경영인사이트시리즈 3</span></td><td style="font-weight:600;color:#7A6020;">김태규</td><td>LP429</td></tr>
+        <tr><td style="color:var(--light);">4</td><td>04/25 (토)</td><td>토</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">16:00–19:00</span></td><td><span class="sched-subject-pill pill-green">심화연구 3 · 마케팅</span></td><td style="font-weight:600;">유시진</td><td>LP429</td></tr>
+        <tr><td style="font-weight:700;color:var(--crimson);">5</td><td>05/08 (금)</td><td>금</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">15:00–18:00</span></td><td><span class="sched-subject-pill pill-red">심화연구 1 · 전략</span></td><td style="font-weight:600;">이재민</td><td>LP429</td></tr>
+        <tr><td style="color:var(--light);">5</td><td>05/09 (토)</td><td>토</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">09:00–12:00</span></td><td><span class="sched-subject-pill pill-blue">심화연구 2 · 조직행동</span></td><td style="font-weight:600;">장진욱</td><td>LP429</td></tr>
+        <tr style="background:#FFFBF0;"><td style="color:var(--light);">5</td><td>05/09 (토)</td><td>토</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;color:#7A6020;">13:00–16:00</span></td><td><span class="sched-subject-pill pill-gold">경영인사이트시리즈 3</span></td><td style="font-weight:600;color:#7A6020;">김태규</td><td>LP429</td></tr>
+        <tr><td style="color:var(--light);">5</td><td>05/09 (토)</td><td>토</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">16:00–19:00</span></td><td><span class="sched-subject-pill pill-green">심화연구 3 · 마케팅</span></td><td style="font-weight:600;">유시진</td><td>LP429</td></tr>
+        <tr><td style="font-weight:700;color:var(--crimson);">5</td><td>05/29 (금)</td><td>금</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">15:00–18:00</span></td><td><span class="sched-subject-pill pill-red">심화연구 1 · 전략</span></td><td style="font-weight:600;">이재민</td><td>LP429</td></tr>
+        <tr><td style="color:var(--light);">5</td><td>05/30 (토)</td><td>토</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">09:00–12:00</span></td><td><span class="sched-subject-pill pill-blue">심화연구 2 · 조직행동</span></td><td style="font-weight:600;">장진욱</td><td>LP429</td></tr>
+        <tr><td style="color:var(--light);background:#F0FAF4;">5</td><td style="background:#F0FAF4;font-weight:600;">05/30 (토) ★</td><td style="background:#F0FAF4;">토</td><td style="background:#F0FAF4;"><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;color:#1A6B3A;">13:00–16:00<br>16:00–19:00</span></td><td style="background:#F0FAF4;"><span class="sched-subject-pill pill-green">경영학 심화연구 3 · 마케팅 ×2</span></td><td style="font-weight:600;background:#F0FAF4;color:#1A6B3A;">유시진 (2연속)</td><td style="background:#F0FAF4;">LP429</td></tr>
+        <tr><td style="font-weight:700;color:var(--crimson);">6</td><td>06/12 (금)</td><td>금</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">15:00–18:00</span></td><td><span class="sched-subject-pill pill-red">심화연구 1 · 전략</span></td><td style="font-weight:600;">이재민</td><td>LP429</td></tr>
+        <tr style="background:#FFFBF0;"><td style="color:var(--light);">6</td><td>06/13 (토)</td><td>토</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;color:#7A6020;">09:00–12:00</span></td><td><span class="sched-subject-pill pill-gold">경영인사이트시리즈 3</span></td><td style="font-weight:600;color:#7A6020;">김태규</td><td>LP429</td></tr>
+        <tr style="background:#FFFBF0;"><td style="color:var(--light);">6</td><td>06/13 (토)</td><td>토</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;color:#7A6020;">13:00–16:00</span></td><td><span class="sched-subject-pill pill-gold">경영인사이트시리즈 3</span></td><td style="font-weight:600;color:#7A6020;">김태규</td><td>LP429</td></tr>
+        <tr><td style="color:var(--light);">6</td><td>06/13 (토)</td><td>토</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">16:00–19:00</span></td><td><span class="sched-subject-pill pill-blue">심화연구 2 · 조직행동</span></td><td style="font-weight:600;">장진욱</td><td>LP429</td></tr>
+        <tr><td style="font-weight:700;color:var(--crimson);">6</td><td>06/26 (금)</td><td>금</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">15:00–18:00</span></td><td><span class="sched-subject-pill pill-red">심화연구 1 · 전략</span></td><td style="font-weight:600;">이재민</td><td>LP429</td></tr>
+        <tr><td style="color:var(--light);">6</td><td>06/27 (토)</td><td>토</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">09:00–12:00</span></td><td><span class="sched-subject-pill pill-blue">심화연구 2 · 조직행동</span></td><td style="font-weight:600;">장진욱</td><td>LP429</td></tr>
+        <tr style="background:#FFFBF0;"><td style="color:var(--light);">6</td><td>06/27 (토)</td><td>토</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;color:#7A6020;">13:00–16:00</span></td><td><span class="sched-subject-pill pill-gold">경영인사이트시리즈 3</span></td><td style="font-weight:600;color:#7A6020;">김태규</td><td>LP429</td></tr>
+        <tr><td style="color:var(--light);">6</td><td>06/27 (토)</td><td>토</td><td><span style="font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">16:00–19:00</span></td><td><span class="sched-subject-pill pill-green">경영학 심화연구 3 · 마케팅 (최종 Oral Defense)</span></td><td style="font-weight:600;">유시진</td><td>LP429</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="note-box" style="margin-top:16px;">
+    <strong>📌 색상 범례:</strong>
+    <span style="display:inline-flex;align-items:center;gap:4px;margin:0 10px;"><span class="sched-subject-pill pill-red" style="font-size:10px;padding:2px 8px;">심화연구1·전략</span> 이재민</span>
+    <span style="display:inline-flex;align-items:center;gap:4px;margin:0 10px;"><span class="sched-subject-pill pill-blue" style="font-size:10px;padding:2px 8px;">심화연구2·조직행동</span> 장진욱</span>
+    <span style="display:inline-flex;align-items:center;gap:4px;margin:0 10px;"><span class="sched-subject-pill pill-green" style="font-size:10px;padding:2px 8px;">심화연구3·마케팅</span> 유시진</span>
+    <span style="display:inline-flex;align-items:center;gap:4px;margin:0 10px;"><span class="sched-subject-pill pill-gold" style="font-size:10px;padding:2px 8px;">경영인사이트3</span> 김태규</span>
+    &nbsp;·&nbsp; <strong>★ 5/30은 마케팅 수업 13:00–19:00 (2연속)</strong>
+  </div>
+</section>
+
+<!-- ══════════════ PROFESSORS ══════════════ -->
+<section class="section" id="professors">
+  <div class="page-header">
+    <div class="page-title"><small>Faculty Profiles</small>담당 교수진</div>
+    <div class="page-meta">고려대학교 경영대학 · KUBS-DBA<br>사진·이력 상세: <a href="https://biz.korea.ac.kr/" target="_blank" style="color:var(--crimson);">biz.korea.ac.kr</a></div>
+  </div>
+
+  
+<div class="prof-grid">
+
+  <div class="prof-card" style="cursor:pointer;" onclick="window.open(&#39;https://biz.korea.ac.kr/professor/professor_view.html?pinfo=uVGxgcER2V3pGMKV_A9AvQ&amp;refer=%2Fprofessor%2Fstrategy.html%3Fkeyfield%3Dname%26key%3D%EC%9D%B4%EC%9E%AC%EB%AF%BC&#39;,&#39;_blank&#39;)">
+    <div class="prof-card-top" style="background:#720022;">
+      <div class="prof-avatar" style="background:#720022;border:2px solid rgba(255,255,255,0.25);">
+        <img src="./index_files/image_view" alt="이재민 교수" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;" onerror="this.style.display=&#39;none&#39;;this.parentNode.style.display=&#39;flex&#39;;this.parentNode.innerHTML=&#39;&lt;span style=\&#39;font-size:22px;font-weight:900;color:white;\&#39;&gt;이&lt;/span&gt;&#39;;">
+      </div>
+      <div class="prof-header-info">
+        <div class="prof-name">이재민</div>
+        <div class="prof-name-en">Lee, Jaemin · 부교수</div>
+        <span class="prof-course-tag" style="background:#8B0029;color:white;">DBA211 · 심화연구 1 · 전략</span>
+      </div>
+      <div class="prof-office" style="cursor:pointer;color:rgba(255,255,255,0.5);font-size:10px;">KUBS ↗</div>
+    </div>
+    <div class="prof-card-body">
+      <div class="prof-section-title">직위 &amp; 소속</div>
+      <div class="prof-detail">전략 분과 · 부교수<br>고려대학교 경영대학 (KUBS)</div>
+      <div class="prof-section-title">전문 연구 분야</div>
+      <div class="prof-detail">벤처경영, 조직이론, 기업 경계 전략<br>M&amp;A · 전략적 제휴 · CEO 승계<br>AI &amp; Strategy · 신사업 개발(Ambidexterity)</div>
+      <div class="prof-section-title">학력 &amp; 경력</div>
+      <div class="prof-detail">INSEAD, PhD (2016)<br>서울대 MS 전략경영 (2011)<br><span style="color:var(--light);">Imperial College Business School (2016–2022)<br>고려대 경영대학 (2022–현재)</span></div>
+      <div class="prof-contact">
+        <span class="prof-email"><a href="file:///C:/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9cf6fdf9f1f5f2b1f0f9f9dcf7f3eef9fdb2fdffb2f7ee">[email&nbsp;protected]</a></span>
+        <span class="prof-office-hr">LP 402 · ☎ 3290-1931</span>
+      </div>
+      <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--border-light);">
+        <a href="https://biz.korea.ac.kr/professor/professor_view.html?pinfo=uVGxgcER2V3pGMKV_A9AvQ&amp;refer=%2Fprofessor%2Fstrategy.html%3Fkeyfield%3Dname%26key%3D%EC%9D%B4%EC%9E%AC%EB%AF%BC" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#8B0029;text-decoration:none;font-weight:600;" onclick="event.stopPropagation();">
+          <span style="font-size:14px;">🔗</span> KUBS 교수 프로필 페이지 →
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="prof-card" style="cursor:pointer;" onclick="window.open(&#39;https://biz.korea.ac.kr/professor/professor_view.html?pinfo=zVsZI4LcycmtU38hKTpC4w&amp;refer=%2Fprofessor%2Fall.html%3Fpage%3D1%26keyfield%3Dname%26key%3D%EC%9E%A5%EC%A7%84%EC%9A%B1&#39;,&#39;_blank&#39;)">
+    <div class="prof-card-top" style="background:#1E4D8C;">
+      <div class="prof-avatar" style="background:#1E4D8C;border:2px solid rgba(255,255,255,0.25);">
+        <img src="./index_files/image_view(1)" alt="장진욱 교수" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;" onerror="this.style.display=&#39;none&#39;;this.parentNode.style.display=&#39;flex&#39;;this.parentNode.innerHTML=&#39;&lt;span style=\&#39;font-size:22px;font-weight:900;color:white;\&#39;&gt;장&lt;/span&gt;&#39;;">
+      </div>
+      <div class="prof-header-info">
+        <div class="prof-name">장진욱</div>
+        <div class="prof-name-en">Chang, Jin Wook · 부교수</div>
+        <span class="prof-course-tag" style="background:#1E4D8C;color:white;">DBA212 · 심화연구 2 · 조직행동</span>
+      </div>
+      <div class="prof-office" style="cursor:pointer;color:rgba(255,255,255,0.5);font-size:10px;">KUBS ↗</div>
+    </div>
+    <div class="prof-card-body">
+      <div class="prof-section-title">직위 &amp; 소속</div>
+      <div class="prof-detail">경영관리 분과 · 부교수<br>고려대학교 경영대학 (KUBS)</div>
+      <div class="prof-section-title">전문 연구 분야</div>
+      <div class="prof-detail">조직행동, 협상<br>일의 의미 · 직장관계 · 리더십<br>조직문화 · 권력 · AI &amp; 미래 OB</div>
+      <div class="prof-section-title">학력 &amp; 경력</div>
+      <div class="prof-detail">Carnegie Mellon Univ. PhD OB (2015)<br>서울대 MS HR (2009)<br><span style="color:var(--light);">HEC Paris (2015–2020)<br>고려대 경영대학 (2020–현재)</span></div>
+      <div class="prof-contact">
+        <span class="prof-email"><a href="file:///C:/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="650f0c0b120a0a0e060d040b02250e0a1700044b04064b0e17">[email&nbsp;protected]</a></span>
+        <span class="prof-office-hr">LP 515 · ☎ 3290-1917</span>
+      </div>
+      <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--border-light);">
+        <a href="https://biz.korea.ac.kr/professor/professor_view.html?pinfo=zVsZI4LcycmtU38hKTpC4w&amp;refer=%2Fprofessor%2Fall.html%3Fpage%3D1%26keyfield%3Dname%26key%3D%EC%9E%A5%EC%A7%84%EC%9A%B1" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#1E4D8C;text-decoration:none;font-weight:600;" onclick="event.stopPropagation();">
+          <span style="font-size:14px;">🔗</span> KUBS 교수 프로필 페이지 →
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="prof-card" style="cursor:pointer;" onclick="window.open(&#39;https://biz.korea.ac.kr/professor/professor_view.html?pinfo=dVi2SuekqRpb0eBnze04Ig&amp;refer=%2Fprofessor%2Fall.html%3Fpage%3D1%26keyfield%3Dname%26key%3D%EC%9C%A0%EC%8B%9C%EC%A7%84&#39;,&#39;_blank&#39;)">
+    <div class="prof-card-top" style="background:#1A6B3A;">
+      <div class="prof-avatar" style="background:#1A6B3A;border:2px solid rgba(255,255,255,0.25);">
+        <img src="./index_files/image_view(2)" alt="유시진 교수" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;" onerror="this.style.display=&#39;none&#39;;this.parentNode.style.display=&#39;flex&#39;;this.parentNode.innerHTML=&#39;&lt;span style=\&#39;font-size:22px;font-weight:900;color:white;\&#39;&gt;유&lt;/span&gt;&#39;;">
+      </div>
+      <div class="prof-header-info">
+        <div class="prof-name">유시진</div>
+        <div class="prof-name-en">Yoo, Shijin · 교수</div>
+        <span class="prof-course-tag" style="background:#1A6B3A;color:white;">DBA213 · 심화연구 3 · 마케팅</span>
+      </div>
+      <div class="prof-office" style="cursor:pointer;color:rgba(255,255,255,0.5);font-size:10px;">KUBS ↗</div>
+    </div>
+    <div class="prof-card-body">
+      <div class="prof-section-title">직위 &amp; 소속</div>
+      <div class="prof-detail">마케팅 분과 · 교수 (전공주임)<br>고려대학교 경영대학 (KUBS)</div>
+      <div class="prof-section-title">전문 연구 분야</div>
+      <div class="prof-detail">마케팅성과측정, 고객자산, 시계열분석<br>소셜미디어 · 구전(WOM) · AI 마케팅<br>Customer Equity · ROI · 디지털마케팅</div>
+      <div class="prof-section-title">학력 &amp; 경력</div>
+      <div class="prof-detail">UCLA, PhD 마케팅 (2004)<br>서울대 MBA 전략 (1994)<br><span style="color:var(--light);">Singapore Management Univ. (2004–2007)<br>고려대 경영대학 (2007–현재)</span></div>
+      <div class="prof-contact">
+        <span class="prof-email"><a href="file:///C:/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="483b20212221263127270823273a2d2966292b66233a">[email&nbsp;protected]</a></span>
+        <span class="prof-office-hr">LP 517 · ☎ 3290-2827</span>
+      </div>
+      <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--border-light);">
+        <a href="https://biz.korea.ac.kr/professor/professor_view.html?pinfo=dVi2SuekqRpb0eBnze04Ig&amp;refer=%2Fprofessor%2Fall.html%3Fpage%3D1%26keyfield%3Dname%26key%3D%EC%9C%A0%EC%8B%9C%EC%A7%84" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#1A6B3A;text-decoration:none;font-weight:600;" onclick="event.stopPropagation();">
+          <span style="font-size:14px;">🔗</span> KUBS 교수 프로필 페이지 →
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="prof-card" style="cursor:pointer;" onclick="window.open(&#39;https://biz.korea.ac.kr/professor/professor_view.html?pinfo=zo9ou7CcQ9mSD_y8263kDQ&amp;refer=%2Fprofessor%2Fall.html%3Fpage%3D1%26keyfield%3Dname%26key%3D%EA%B9%80%ED%83%9C%EA%B7%9C&#39;,&#39;_blank&#39;)">
+    <div class="prof-card-top" style="background:#7A5C20;">
+      <div class="prof-avatar" style="background:#7A5C20;border:2px solid rgba(255,255,255,0.25);">
+        <img src="./index_files/image_view(3)" alt="김태규 교수" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;" onerror="this.style.display=&#39;none&#39;;this.parentNode.style.display=&#39;flex&#39;;this.parentNode.innerHTML=&#39;&lt;span style=\&#39;font-size:22px;font-weight:900;color:white;\&#39;&gt;김&lt;/span&gt;&#39;;">
+      </div>
+      <div class="prof-header-info">
+        <div class="prof-name">김태규</div>
+        <div class="prof-name-en">Kim, Tai Gyu · 교수</div>
+        <span class="prof-course-tag" style="background:#B8972A;color:white;">DBA103 · 경영인사이트 3</span>
+      </div>
+      <div class="prof-office" style="cursor:pointer;color:rgba(255,255,255,0.5);font-size:10px;">KUBS ↗</div>
+    </div>
+    <div class="prof-card-body">
+      <div class="prof-section-title">직위 &amp; 소속</div>
+      <div class="prof-detail">경영관리 분과 · 교수<br>고려대학교 경영대학 (KUBS)</div>
+      <div class="prof-section-title">전문 연구 분야</div>
+      <div class="prof-detail">조직행동, 조직변화<br>Research Question 탐색 · 지도교수 연결<br>DBA 경영인사이트시리즈 III 담당</div>
+      <div class="prof-section-title">학력 &amp; 경력</div>
+      <div class="prof-detail">고려대학교 경영대학<br><span style="color:var(--light);">고려대 경영대학 교수 (현재)</span></div>
+      <div class="prof-contact">
+        <span class="prof-email"><a href="file:///C:/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="157e7c7861557e7a6770743b74763b7e67">[email&nbsp;protected]</a></span>
+        <span class="prof-office-hr">LP 422 · ☎ 3290-2828</span>
+      </div>
+      <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--border-light);">
+        <a href="https://biz.korea.ac.kr/professor/professor_view.html?pinfo=zo9ou7CcQ9mSD_y8263kDQ&amp;refer=%2Fprofessor%2Fall.html%3Fpage%3D1%26keyfield%3Dname%26key%3D%EA%B9%80%ED%83%9C%EA%B7%9C" target="_blank" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#B8972A;text-decoration:none;font-weight:600;" onclick="event.stopPropagation();">
+          <span style="font-size:14px;">🔗</span> KUBS 교수 프로필 페이지 →
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="note-box" style="margin-top:20px;">
+    💡 <strong>교수님 사진 및 상세 이력:</strong> <a href="https://biz.korea.ac.kr/professor/all.html" target="_blank" style="color:var(--crimson);">biz.korea.ac.kr/professor/all.html</a> → 전공별 스크롤로 확인.
+    &nbsp;·&nbsp; DBA103 김태규 교수님 첫 수업(3/14): <strong>지도교수 후보 2–3명 사전 탐색 필수!</strong>
+  </div>
+</section>
+
+<!-- ══════════════ PAPERS ══════════════ -->
+<section class="section" id="papers">
+  <div class="page-header">
+    <div class="page-title"><small>Syllabi &amp; Required Readings</small>강의계획 &amp; 읽기 자료</div>
+    <div class="page-meta">과목을 선택하세요</div>
+  </div>
+
+  <div class="subject-tabs">
+    <button class="stab" data-reading="r1" active"="">📕 DBA211 · 심화연구1 · 전략 (이재민)</button>
+    <button class="stab" data-reading="r2" "="">📘 DBA212 · 심화연구2 · 조직행동 (장진욱)</button>
+    <button class="stab" data-reading="r3" "="">📗 DBA213 · 심화연구3 · 마케팅 (유시진)</button>
+    <button class="stab" data-reading="r4" "="">🟡 DBA103 · 경영인사이트 (김태규)</button>
+  </div>
+
+  <!-- DBA211 전략 -->
+  <div class="reading-section active" id="r1">
+    <div class="reading-note" style="margin-bottom:16px;">
+      📌 <strong>교재 구성:</strong> 매 수업마다 ①학술논문(이론) ②HBR 아티클(실무) ③HBS 케이스(적용) 3단계 구성.<br>
+      HBS 케이스는 학교에서 구매 배포 예정. <a href="https://hbsp.harvard.edu/import/1393481" target="_blank" style="color:var(--crimson);">HBP 학생계정 생성</a> 필수.
+    </div>
+    <div id="sessions-dba211"><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#8B0029">1</div><div class="session-info"><div class="session-title">경쟁전략 — Competitive Strategy</div><div class="session-date">03/13 (금) 15:00–18:00</div></div><div class="session-count">3편</div><div class="session-arrow">▼</div></div><div class="session-body"><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Teece, Pisano &amp; Shuen (1997). "Dynamic Capabilities and Strategic Management."</div><div class="paper-author">Strategic Management Journal, 18(7): 509–533</div></div></div><div class="paper-row"><span class="paper-type type-hbr">HBR</span><div class="paper-text"><div class="paper-title">Reeves &amp; Deimler (2011). "Adaptability: The New Competitive Advantage."</div><div class="paper-author">HBR, July–August</div></div></div><div class="paper-row"><span class="paper-type type-case">CASE</span><div class="paper-text"><div class="paper-title">Apple Inc. in 2023</div><div class="paper-author">HBS Case No. 724-419 · Yoffie &amp; Baldwin</div></div></div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#8B0029">2</div><div class="session-info"><div class="session-title">M&amp;A / 전략적 제휴</div><div class="session-date">03/27 (금) 15:00–18:00</div></div><div class="session-count">3편</div><div class="session-arrow">▼</div></div><div class="session-body"><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Villalonga &amp; McGahan (2005). "The Choice among Acquisitions, Alliances, and Divestitures."</div><div class="paper-author">Strategic Management Journal, 26(13): 1183–1208</div></div></div><div class="paper-row"><span class="paper-type type-hbr">HBR</span><div class="paper-text"><div class="paper-title">Kale, Dyer &amp; Singh (2004). "When to Ally and When to Acquire."</div><div class="paper-author">HBR, July–August</div></div></div><div class="paper-row"><span class="paper-type type-case">CASE</span><div class="paper-text"><div class="paper-title">Roche' Acquisition of Genentech</div><div class="paper-author">HBS Case No. 210-040</div></div></div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#8B0029">3</div><div class="session-info"><div class="session-title">사업 매각 — Divestitures</div><div class="session-date">04/10 (금) 15:00–18:00</div></div><div class="session-count">3편</div><div class="session-arrow">▼</div></div><div class="session-body"><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Feldman (2014). "Legacy Divestitures: Motives and Implications."</div><div class="paper-author">Organization Science, 25(3): 815–832</div></div></div><div class="paper-row"><span class="paper-type type-hbr">HBR</span><div class="paper-text"><div class="paper-title">Dranikoff, Koller &amp; Schneider (2002). "Divestiture: Strategy' Missing Link."</div><div class="paper-author">HBR, May</div></div></div><div class="paper-row"><span class="paper-type type-case">CASE</span><div class="paper-text"><div class="paper-title">GE' Two-Decade Transformation: Jack Welch' Leadership</div><div class="paper-author">HBS Case No. 399-150</div></div></div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#8B0029">4</div><div class="session-info"><div class="session-title">CEO 승계 — Succession</div><div class="session-date">04/24 (금) 15:00–18:00</div></div><div class="session-count">3편</div><div class="session-arrow">▼</div></div><div class="session-body"><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Zhang &amp; Rajagopalan (2010). "Once an Outsider, Always an Outsider?"</div><div class="paper-author">Strategic Management Journal, 31(3): 334–346</div></div></div><div class="paper-row"><span class="paper-type type-hbr">HBR</span><div class="paper-text"><div class="paper-title">Bower (2007). "Solve the Succession Crisis by Growing Inside-Outside Leaders."</div><div class="paper-author">HBR, November</div></div></div><div class="paper-row"><span class="paper-type type-case">CASE</span><div class="paper-text"><div class="paper-title">Strategy and CEO Succession at Starbucks</div><div class="paper-author">HBS Case No. 125-040</div></div></div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#8B0029">5</div><div class="session-info"><div class="session-title">이사회 / 상층부 이론 — BOD / Upper Echelons</div><div class="session-date">05/08 (금) 15:00–18:00</div></div><div class="session-count">3편</div><div class="session-arrow">▼</div></div><div class="session-body"><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Haynes &amp; Hillman (2010). "The Effect of Board Capital and CEO Power on Strategic Change."</div><div class="paper-author">Strategic Management Journal, 31(11): 1145–1163</div></div></div><div class="paper-row"><span class="paper-type type-hbr">HBR</span><div class="paper-text"><div class="paper-title">Lorsch &amp; Clark (2008). "Leading from the Boardroom."</div><div class="paper-author">HBR, April</div></div></div><div class="paper-row"><span class="paper-type type-case">CASE</span><div class="paper-text"><div class="paper-title">What Went Wrong with Boeing' 737 Max?</div><div class="paper-author">HBS Case No. 320-104</div></div></div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#8B0029">6</div><div class="session-info"><div class="session-title">기업집단 — Business Groups</div><div class="session-date">05/29 (금) 15:00–18:00</div></div><div class="session-count">3편</div><div class="session-arrow">▼</div></div><div class="session-body"><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Morck, Wolfenzon &amp; Yeung (2005). "Corporate Governance, Economic Entrenchment, and Growth."</div><div class="paper-author">Journal of Economic Literature, XLIII: 655–720</div></div></div><div class="paper-row"><span class="paper-type type-hbr">HBR</span><div class="paper-text"><div class="paper-title">Khanna, Palepu &amp; Sinha (2005). "Strategies That Fit Emerging Markets."</div><div class="paper-author">HBR, June</div></div></div><div class="paper-row"><span class="paper-type type-case">CASE</span><div class="paper-text"><div class="paper-title">Samsung Electronics</div><div class="paper-author">HBS Case No. 705-508</div></div></div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#8B0029">7</div><div class="session-info"><div class="session-title">신사업 개발 — Corporate Entrepreneurship</div><div class="session-date">06/12 (금) 15:00–18:00</div></div><div class="session-count">3편</div><div class="session-arrow">▼</div></div><div class="session-body"><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Jansen et al. (2009). "Structural Differentiation and Ambidexterity."</div><div class="paper-author">Organization Science, 20(4): 797–811</div></div></div><div class="paper-row"><span class="paper-type type-hbr">HBR</span><div class="paper-text"><div class="paper-title">O'eilly &amp; Tushman (2004). The Ambidextrous Organization.</div><div class="paper-author">HBR, April</div></div></div><div class="paper-row"><span class="paper-type type-case">CASE</span><div class="paper-text"><div class="paper-title">Amazon.com, 2021</div><div class="paper-author">HBS Case No. 716-402</div></div></div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#8B0029">8</div><div class="session-info"><div class="session-title">AI와 전략 — AI &amp; Strategy</div><div class="session-date">06/26 (금) 15:00–18:00</div></div><div class="session-count">3편</div><div class="session-arrow">▼</div></div><div class="session-body"><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Choudhury, Starr &amp; Agarwal (2020). "Machine Learning and Human Capital Complementarities."</div><div class="paper-author">Strategic Management Journal, 41(8): 1381–1411</div></div></div><div class="paper-row"><span class="paper-type type-hbr">HBR</span><div class="paper-text"><div class="paper-title">Iansiti &amp; Lakhani (2020). "Competing in the Age of AI."</div><div class="paper-author">HBR, January–February</div></div></div><div class="paper-row"><span class="paper-type type-case">CASE</span><div class="paper-text"><div class="paper-title">Predicting Consumer Tastes with Big Data at Gap</div><div class="paper-author">HBS Case No. 517-115</div></div></div></div></div></div>
+  </div>
+
+  <!-- DBA212 조직행동 -->
+  <div class="reading-section" id="r2">
+    <div class="reading-note" style="margin-bottom:16px;">
+      📌 <strong>교재:</strong> KU LMS에 게시. HBR/McKinsey/NYT 아티클은 선배 원우(구교령)가 개별 공유. 고려대 도서관(<a href="https://library.korea.ac.kr/" target="_blank" style="color:var(--crimson);">library.korea.ac.kr</a>)으로 접근.<br>
+      <strong>NYT 구독:</strong> @korea.ac.kr 도메인 인증 + 회원가입(처음 1회) 필요.
+    </div>
+    <div id="sessions-dba212"><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#1E4D8C">1</div><div class="session-info"><div class="session-title">일의 의미 — The Meaning of Work</div><div class="session-date">03/14 (토) 09:00–12:00</div></div><div class="session-count">3편</div><div class="session-arrow">▼</div></div><div class="session-body"><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Bailey &amp; Madden (2016). "What makes work meaningful—or meaningless."</div><div class="paper-author">MIT Sloan Management Review, 57: 53–61</div></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Bunderson &amp; Thompson (2009). "The call of the wild."</div><div class="paper-author">Administrative Science Quarterly, 54: 32–57</div></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Colbert, Bono &amp; Purvanova (2016). "Flourishing via workplace relationships."</div><div class="paper-author">Academy of Management Journal, 59: 1199–1223</div></div></div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#1E4D8C">2</div><div class="session-info"><div class="session-title">직장 내의 관계 — Relationships at Work</div><div class="session-date">03/28 (토) 09:00–12:00</div></div><div class="session-count">3편</div><div class="session-arrow">▼</div></div><div class="session-body"><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Dutton &amp; Heaphy (2003). "The power of high-quality connections."</div><div class="paper-author">Positive Organizational Scholarship</div></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Owens et al. (2016). "Relational energy at work."</div><div class="paper-author">Journal of Applied Psychology, 101: 35–49</div></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Wu et al. (2016). "Why and when workplace ostracism inhibits OCB."</div><div class="paper-author">Journal of Applied Psychology, 101: 362–378</div></div></div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#1E4D8C">3</div><div class="session-info"><div class="session-title">조직 내 정체성과 동일시</div><div class="session-date">04/11 (토) 09:00–12:00</div></div><div class="session-count">3편</div><div class="session-arrow">▼</div></div><div class="session-body"><div class="paper-row"><span class="paper-type type-nyt">NYT/MKZ</span><div class="paper-text"><div class="paper-title">De Smet et al. (2021). "Great Attrition or Great Attraction?"</div><div class="paper-author">McKinsey Quarterly</div><a href="https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/great-attrition-or-great-attraction-the-choice-is-yours" target="_blank" class="paper-link">→ 링크</a></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Dukerich, Golden &amp; Shortell (2002). "Beauty is in the eye of the beholder."</div><div class="paper-author">Administrative Science Quarterly, 47: 507–533</div></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Besharov (2014). "The relational ecology of identification."</div><div class="paper-author">Academy of Management Journal, 57: 1485–1512</div></div></div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#1E4D8C">4</div><div class="session-info"><div class="session-title">리더십 — Leadership</div><div class="session-date">04/25 (토) 09:00–12:00</div></div><div class="session-count">3편</div><div class="session-arrow">▼</div></div><div class="session-body"><div class="paper-row"><span class="paper-type type-hbr">HBR</span><div class="paper-text"><div class="paper-title">Decker &amp; Decker (2015). "Communicating a corporate vision to your team."</div><div class="paper-author">HBR</div><a href="https://hbr.org/2015/07/communicating-a-corporate-vision-to-your-team" target="_blank" class="paper-link">→ 링크</a></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Carton (2018). "I' not mopping the floors, I' putting a man on the moon."</div><div class="paper-author">Administrative Science Quarterly, 63: 323–369</div></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Stam, Van Knippenberg &amp; Wisse (2010). "The role of regulatory fit in visionary leadership."</div><div class="paper-author">Journal of Organizational Behavior, 31: 499–518</div></div></div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#1E4D8C">5</div><div class="session-info"><div class="session-title">권력과 조직 정치</div><div class="session-date">05/09 (토) 09:00–12:00</div></div><div class="session-count">3편</div><div class="session-arrow">▼</div></div><div class="session-body"><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Pfeffer (1992). "Understanding power in organizations."</div><div class="paper-author">California Management Review, 34: 29–50</div></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Kaplan (2008). "Framing contests: Strategy making under uncertainty."</div><div class="paper-author">Organization Science, 19: 729–752</div></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Gentry et al. (2012). "Political skill as an indicator of promotability."</div><div class="paper-author">Journal of Organizational Behavior, 33: 89–104</div></div></div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#1E4D8C">6</div><div class="session-info"><div class="session-title">협력과 갈등 — Collaboration and Conflict</div><div class="session-date">05/30 (토) 09:00–12:00</div></div><div class="session-count">3편</div><div class="session-arrow">▼</div></div><div class="session-body"><div class="paper-row"><span class="paper-type type-hbr">HBR</span><div class="paper-text"><div class="paper-title">Eisenhardt, Kahwajy &amp; Bourgeois (1997). "How management teams can have a good fight."</div><div class="paper-author">HBR, 75: 77–85</div></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Sutton &amp; Hargadon (1996). "Brainstorming groups in context."</div><div class="paper-author">Administrative Science Quarterly, 41: 685–718</div></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Groysberg, Polzer &amp; Elfenbein (2011). "Too many cooks spoil the broth."</div><div class="paper-author">Organization Science, 22: 722–737</div></div></div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#1E4D8C">7</div><div class="session-info"><div class="session-title">조직문화와 조직풍토</div><div class="session-date">06/13 (토) 16:00–19:00</div></div><div class="session-count">3편</div><div class="session-arrow">▼</div></div><div class="session-body"><div class="paper-row"><span class="paper-type type-nyt">NYT/MKZ</span><div class="paper-text"><div class="paper-title">Duhigg (2016). "What Google learned from its quest to build the perfect team."</div><div class="paper-author">NYT Magazine</div><a href="https://www.nytimes.com/2016/02/28/magazine/what-google-learned-from-its-quest-to-build-the-perfect-team.html" target="_blank" class="paper-link">→ 링크</a></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Edmondson (1999). "Psychological safety and learning behavior in work teams."</div><div class="paper-author">Administrative Science Quarterly, 44: 350–383</div></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Coutifaris &amp; Grant (2022). "Taking your team behind the curtain."</div><div class="paper-author">Organization Science, 33: 1574–1598</div></div></div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#1E4D8C">8</div><div class="session-info"><div class="session-title">조직행동의 미래 — Future of OB</div><div class="session-date">06/27 (토) 09:00–12:00</div></div><div class="session-count">3편</div><div class="session-arrow">▼</div></div><div class="session-body"><div class="paper-row"><span class="paper-type type-nyt">NYT/MKZ</span><div class="paper-text"><div class="paper-title">Davenport &amp; Westerman (2021). "How HR leaders are preparing for the AI-enabled workforce."</div><div class="paper-author">MIT Sloan Management Review, 62: 14–17</div></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Cameron (2024). "The making of the good bad job."</div><div class="paper-author">Administrative Science Quarterly, 69: 458–514</div></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Jia et al. (2024). "When and how AI augments employee creativity."</div><div class="paper-author">Academy of Management Journal, 67: 5–32</div></div></div></div></div></div>
+  </div>
+
+  <!-- DBA213 마케팅 -->
+  <div class="reading-section" id="r3">
+    <div class="reading-note" style="margin-bottom:16px;">
+      📌 <strong>교재 접근:</strong> Google Scholar, 고려대 도서관, 또는 유시진 교수 공유폴더 (<a href="https://drive.google.com/drive/folders/1DO9xQh75eukvZv8GOf1njHCuCQjvKPQH" target="_blank" style="color:var(--crimson);">Google Drive - 수강생 전용</a>).<br>
+      <strong>첫 세션 사전 필독:</strong> Research Priorities 2024 (MSI 보고서) — 교수 강조사항
+    </div>
+    <div id="sessions-dba213"><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#1A6B3A">1</div><div class="session-info"><div class="session-title">마케팅의 본질과 연구 개괄</div><div class="session-date">03/14 (토) 16:00–19:00</div></div><div class="session-count">3편</div><div class="session-arrow">▼</div></div><div class="session-body"><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Srivastava, Shervani &amp; Fahey (1998). "Market-based assets and shareholder value."</div><div class="paper-author">Journal of Marketing 62(1): 2–18</div></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Katsikeas et al. (2016). "Assessing performance outcomes in marketing."</div><div class="paper-author">Journal of Marketing 80(2): 1–20</div></div></div><div class="paper-row"><span class="paper-type type-msi">MSI</span><div class="paper-text"><div class="paper-title">Research Priorities 2024 — Marketing Science Institute</div><div class="paper-author">★ 첫 수업 전 필독</div></div></div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#1A6B3A">2</div><div class="session-info"><div class="session-title">고객 의사결정과 소비자 행동</div><div class="session-date">03/28 (토) 16:00–19:00</div></div><div class="session-count">3편</div><div class="session-arrow">▼</div></div><div class="session-body"><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Lemon &amp; Verhoef (2016). "Understanding customer experience throughout the customer journey."</div><div class="paper-author">Journal of Marketing 80(6): 69–96</div></div></div><div class="paper-row"><span class="paper-type type-hbr">HBR</span><div class="paper-text"><div class="paper-title">Edelman &amp; Abraham (2022). "Customer Experience in the Age of AI."</div><div class="paper-author">HBR 100(3-4): 116–125</div></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">★ Byun, Park, Yoo &amp; Cho (2023). "Has COVID-19 changed the influence of WOM?"</div><div class="paper-author">Journal of Retailing and Consumer Services 74</div></div></div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#1A6B3A">3</div><div class="session-info"><div class="session-title">브랜드 가치와 기업 평판</div><div class="session-date">04/11 (토) 16:00–19:00</div></div><div class="session-count">3편</div><div class="session-arrow">▼</div></div><div class="session-body"><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Simon &amp; Sullivan (1993). "The measurement and determinants of brand equity."</div><div class="paper-author">Marketing Science 12(1): 28–52</div></div></div><div class="paper-row"><span class="paper-type type-hbr">HBR</span><div class="paper-text"><div class="paper-title">De Freitas &amp; Ofek (2024). "How AI Can Power Brand Management."</div><div class="paper-author">HBR 102(5): 108–114</div></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">★ Che, Katayama &amp; Lee (2023). "Product-harm crises and spillover effects."</div><div class="paper-author">Journal of Marketing Research 60(2): 409–424</div></div></div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#1A6B3A">4</div><div class="session-info"><div class="session-title">제품 혁신과 서비스 디자인</div><div class="session-date">04/25 (토) 16:00–19:00</div></div><div class="session-count">3편</div><div class="session-arrow">▼</div></div><div class="session-body"><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Tellis, Stremersch &amp; Yin (2003). "The international takeoff of new products."</div><div class="paper-author">Marketing Science 22(2): 188–208</div></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">★ Barone &amp; Jewell (2013). "The innovator' license."</div><div class="paper-author">Journal of Marketing 77(1): 120–134</div></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Cooper (2019). "The drivers of success in new-product development."</div><div class="paper-author">Industrial Marketing Management 76: 36–47</div></div></div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#1A6B3A">5</div><div class="session-info"><div class="session-title">고객가치와 기업가치</div><div class="session-date">05/09 (토) 16:00–19:00</div></div><div class="session-count">3편</div><div class="session-arrow">▼</div></div><div class="session-body"><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Gupta, Lehmann &amp; Stuart (2004). "Valuing customers."</div><div class="paper-author">Journal of Marketing Research 41(1): 7–18</div></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">★ Choi, Lee, Yoo &amp; Yoo (2019). "Value Relevance of Customer Equity."</div><div class="paper-author">Asia-Pacific Journal of Accounting &amp; Economics 26(3)</div></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">★ Wolters, Schulze &amp; Gedenk (2020). "Referral reward size and new customer profitability."</div><div class="paper-author">Marketing Science 39(6): 1166–1180</div></div></div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#1A6B3A">6</div><div class="session-info"><div class="session-title">소셜미디어와 구전 (1부)</div><div class="session-date">05/30 (토) 13:00–16:00</div></div><div class="session-count">3편</div><div class="session-arrow">▼</div></div><div class="session-body"><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Godes &amp; Mayzlin (2004). "Using online conversations to study WOM."</div><div class="paper-author">Marketing Science 23(4): 545–560</div></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">★ Berger &amp; Milkman (2012). "What makes online content viral?"</div><div class="paper-author">Journal of Marketing Research 49(2): 192–205</div></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">★ Kim &amp; Yoo (2025). "When help backfires."</div><div class="paper-author">Journal of Retailing and Consumer Services 87</div></div></div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#1A6B3A">7</div><div class="session-info"><div class="session-title">마케팅 애널리틱스와 AI (2부)</div><div class="session-date">05/30 (토) 16:00–19:00</div></div><div class="session-count">3편</div><div class="session-arrow">▼</div></div><div class="session-body"><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">Huang &amp; Rust (2021). "A strategic framework for AI in marketing."</div><div class="paper-author">JAMS 49(1): 30–50</div></div></div><div class="paper-row"><span class="paper-type type-nyt">NYT/MKZ</span><div class="paper-text"><div class="paper-title">Deveau, Griffin &amp; Reis (2023). "AI-powered marketing and sales."</div><div class="paper-author">McKinsey &amp; Company</div></div></div><div class="paper-row"><span class="paper-type type-academic">논문</span><div class="paper-text"><div class="paper-title">★ Byun, Yoo et al. (2026). "Nonhuman, Yet Convincing: Digital Humans."</div><div class="paper-author">Working Paper (2026)</div></div></div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#1A6B3A">8</div><div class="session-info"><div class="session-title">연구제안서 발표 및 Oral Defense</div><div class="session-date">06/27 (토) 16:00–19:00</div></div><div class="session-count">1편</div><div class="session-arrow">▼</div></div><div class="session-body"><div class="paper-row"><span class="paper-type type-msi">MSI</span><div class="paper-text"><div class="paper-title">인당 15분 발표 (발표 8분 + Q&amp;A 7분)</div><div class="paper-author">평가기준: 독창성 · 공헌도 · 논리적 완결성 · 방법론 타당성 · 방어 능력</div></div></div></div></div></div>
+  </div>
+
+  <!-- DBA103 경영인사이트 -->
+  <div class="reading-section" id="r4">
+    <div class="reading-note" style="margin-bottom:16px;background:#FFFBF0;border-color:#F0E8C0;">
+      🟡 <strong>DBA103 · 경영인사이트시리즈 3 · 김태규 교수 (<a href="file:///C:/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8ae1e3e7fecae1e5f8efeba4ebe9a4e1f8">[email&nbsp;protected]</a> / LP422 / ☎3290-2828)</strong><br>
+      수업 시간: 토요일 <strong>13:00–15:50</strong> (5/30은 <strong>09:00–11:50</strong>) · LP429<br>
+      수업 일자: 3/14, 3/28, 4/11, 4/25, 5/9, 5/30, 6/13, 6/27 (총 8회)<br><br>
+      <strong>⭐ 3/14 첫 수업 특별 준비사항:</strong> 지금까지 발전시켜온 <strong>Research Question</strong>을 정리하고,
+      <strong>지도교수 후보 2–3명</strong>을 사전 탐색해 올 것.<br>
+      교수진 탐색: <a href="https://biz.korea.ac.kr/professor/all.html" target="_blank" style="color:var(--crimson);">biz.korea.ac.kr/professor/all.html</a> (전공별 스크롤)
+    </div>
+    <div class="session-block">
+      <div class="session-header open" data-toggle="session">
+        <div class="session-num" style="background:#B8972A;">—</div>
+        <div class="session-info">
+          <div class="session-title">수업 구조 &amp; 발표 Sign-up 일정</div>
+          <div class="session-date">3/14 · 3/28 · 4/11 · 4/25 · 5/9 · 5/30 · 6/13 · 6/27</div>
+        </div>
+        <div class="session-count">8회</div>
+        <div class="session-arrow">▼</div>
+      </div>
+      <div class="session-body open">
+        <div style="overflow-x:auto;">
+          <table style="width:100%;border-collapse:collapse;font-size:13px;">
+            <thead>
+              <tr style="background:var(--cream);">
+                <th style="padding:10px 14px;text-align:left;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--light);text-transform:uppercase;border-bottom:1px solid var(--border);">수업일</th>
+                <th style="padding:10px 14px;text-align:left;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--light);text-transform:uppercase;border-bottom:1px solid var(--border);">요일·시간</th>
+                <th style="padding:10px 14px;text-align:left;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--light);text-transform:uppercase;border-bottom:1px solid var(--border);">발표자 (Sign-up)</th>
+                <th style="padding:10px 14px;text-align:left;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--light);text-transform:uppercase;border-bottom:1px solid var(--border);">내용</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background:#FFFBF0;border-bottom:1px solid var(--border-light);">
+                <td style="padding:12px 14px;font-family:&#39;DM Mono&#39;,monospace;font-size:12px;font-weight:700;color:#B8972A;">3/14</td>
+                <td style="padding:12px 14px;font-size:12px;color:var(--mid);">토 13:00–15:50</td>
+                <td style="padding:12px 14px;"><span style="font-size:12px;background:#FDF8EE;color:#7A6020;padding:3px 10px;border-radius:3px;border:1px solid #E5D49A;font-weight:600;">특별: 지도교수 탐색</span></td>
+                <td style="padding:12px 14px;font-size:12px;color:var(--mid);">각자 Research Q 발표 + 지도교수 후보 2–3명 공유</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border-light);">
+                <td style="padding:12px 14px;font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">3/28</td>
+                <td style="padding:12px 14px;font-size:12px;color:var(--mid);">토 13:00–15:50</td>
+                <td style="padding:12px 14px;font-size:13px;color:var(--light);font-style:italic;">Sign-up 필요</td>
+                <td style="padding:12px 14px;font-size:12px;color:var(--mid);">Research Q 발표 (1–2명) + 원우 토론 &amp; 피드백</td>
+              </tr>
+              <tr style="background:var(--surface-warm);border-bottom:1px solid var(--border-light);">
+                <td style="padding:12px 14px;font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">4/11</td>
+                <td style="padding:12px 14px;font-size:12px;color:var(--mid);">토 13:00–15:50</td>
+                <td style="padding:12px 14px;font-size:13px;color:var(--light);font-style:italic;">Sign-up 필요</td>
+                <td style="padding:12px 14px;font-size:12px;color:var(--mid);">Research Q 발표 (1–2명) + 원우 토론 &amp; 피드백</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border-light);">
+                <td style="padding:12px 14px;font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">4/25</td>
+                <td style="padding:12px 14px;font-size:12px;color:var(--mid);">토 13:00–15:50</td>
+                <td style="padding:12px 14px;font-size:13px;color:var(--light);font-style:italic;">Sign-up 필요</td>
+                <td style="padding:12px 14px;font-size:12px;color:var(--mid);">Research Q 발표 (1–2명) + 원우 토론 &amp; 피드백</td>
+              </tr>
+              <tr style="background:var(--surface-warm);border-bottom:1px solid var(--border-light);">
+                <td style="padding:12px 14px;font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">5/9</td>
+                <td style="padding:12px 14px;font-size:12px;color:var(--mid);">토 13:00–15:50</td>
+                <td style="padding:12px 14px;font-size:13px;color:var(--light);font-style:italic;">Sign-up 필요</td>
+                <td style="padding:12px 14px;font-size:12px;color:var(--mid);">Research Q 발표 (1–2명) + 원우 토론 &amp; 피드백</td>
+              </tr>
+              <tr style="background:#F0FAF4;border-bottom:1px solid var(--border-light);">
+                <td style="padding:12px 14px;font-family:&#39;DM Mono&#39;,monospace;font-size:12px;color:#1A6B3A;font-weight:700;">5/30 ★</td>
+                <td style="padding:12px 14px;font-size:12px;color:#1A6B3A;font-weight:600;">토 <strong>09:00–11:50</strong></td>
+                <td style="padding:12px 14px;font-size:13px;color:var(--light);font-style:italic;">Sign-up 필요</td>
+                <td style="padding:12px 14px;font-size:12px;color:var(--mid);">⚠️ 이날만 오전 시간 (오후는 마케팅 2연속)</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border-light);">
+                <td style="padding:12px 14px;font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">6/13</td>
+                <td style="padding:12px 14px;font-size:12px;color:var(--mid);">토 13:00–15:50</td>
+                <td style="padding:12px 14px;font-size:13px;color:var(--light);font-style:italic;">Sign-up 필요</td>
+                <td style="padding:12px 14px;font-size:12px;color:var(--mid);">Research Q 발표 (1–2명) + 원우 토론 &amp; 피드백</td>
+              </tr>
+              <tr>
+                <td style="padding:12px 14px;font-family:&#39;DM Mono&#39;,monospace;font-size:12px;">6/27</td>
+                <td style="padding:12px 14px;font-size:12px;color:var(--mid);">토 13:00–15:50</td>
+                <td style="padding:12px 14px;font-size:13px;color:var(--light);font-style:italic;">Sign-up 필요</td>
+                <td style="padding:12px 14px;font-size:12px;color:var(--mid);">Research Q 발표 (1–2명) + 원우 토론 &amp; 피드백</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="reading-note" style="margin-top:14px;">
+          📋 <strong>발표 준비 내용:</strong> ① Research Question ② Research Contents ③ 지도교수 후보 및 선정 이유<br>
+          💬 <strong>피드백 기준:</strong> 과학적 연구 결과물 생산 가능성, 독창성·실무적 의의, 연구 실현 가능성
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════ ASSIGNMENTS ══════════════ -->
+<section class="section" id="assignments">
+  <div class="page-header">
+    <div class="page-title"><small>Evaluation &amp; Assignments</small>과제 &amp; 평가 방식</div>
+  </div>
+
+  <div class="assign-grid">
+
+    <div class="assign-card">
+      <div class="assign-card-top" style="background:#8B0029;"></div>
+      <div class="assign-card-body">
+        <div class="assign-subject">DBA211 · 전략 · 이재민 교수</div>
+        <div class="assign-title">참여점수 / 출석</div>
+        <div class="assign-desc">능동적 학습 기반 토론 참여. AI 시대에 더 중요해진 비판적 사고 중심. 적극적이고 능동적인 참여 필수.</div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>비중</span><span>50%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:50%;background:#8B0029;"></div></div>
+        </div>
+        <div class="assign-tags"><span class="assign-tag">출석</span><span class="assign-tag">토론 참여</span><span class="assign-tag">비판적 사고</span></div>
+      </div>
+      <div class="assign-footer">
+        <span class="assign-deadline" style="color:#8B0029;">매 수업</span>
+        <span class="assign-weight">50%</span>
+      </div>
+    </div>
+
+    <div class="assign-card">
+      <div class="assign-card-top" style="background:#A8002F;"></div>
+      <div class="assign-card-body">
+        <div class="assign-subject">DBA211 · 전략 · 이재민 교수</div>
+        <div class="assign-title">전략적 시사점 보고서</div>
+        <div class="assign-desc">
+          매 수업마다 제출 (최대 2페이지, bullet-point 형식):<br>
+          ① 학습자료 간단 요약<br>
+          ② 현업 경험 기반 이론의 비판적 평가 및 한계점<br>
+          ③ (선택) 졸업논문과의 연관성
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>비중</span><span>50%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:50%;background:#A8002F;"></div></div>
+        </div>
+        <div class="assign-tags"><span class="assign-tag">A4 2p 이내</span><span class="assign-tag">bullet-point</span><span class="assign-tag">매 수업 제출</span></div>
+      </div>
+      <div class="assign-footer">
+        <span class="assign-deadline" style="color:#8B0029;">수업 후 제출</span>
+        <span class="assign-weight">50%</span>
+      </div>
+    </div>
+
+    <div class="assign-card">
+      <div class="assign-card-top" style="background:#1E4D8C;"></div>
+      <div class="assign-card-body">
+        <div class="assign-subject">DBA212 · 조직행동 · 장진욱 교수</div>
+        <div class="assign-title">수업 준비 및 참여</div>
+        <div class="assign-desc">지정 읽기 자료 숙지 후 심층 토론. 의견 개진 + 타인 의견에 대한 질문 + 대안 건설적 제시 모두 포함.</div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>비중</span><span>50%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:50%;background:#1E4D8C;"></div></div>
+        </div>
+        <div class="assign-tags"><span class="assign-tag">토론 참여</span><span class="assign-tag">사전 독서 필수</span></div>
+      </div>
+      <div class="assign-footer">
+        <span class="assign-deadline" style="color:#1E4D8C;">매 수업</span>
+        <span class="assign-weight">50%</span>
+      </div>
+    </div>
+
+    <div class="assign-card">
+      <div class="assign-card-top" style="background:#1A6B3A;"></div>
+      <div class="assign-card-body">
+        <div class="assign-subject">DBA212 · 조직행동 · 장진욱 교수</div>
+        <div class="assign-title">연구 설계 및 계획서</div>
+        <div class="assign-desc">
+          실증 연구 계획: 이론적 이해 + 실제 경영 상황 적용.<br>
+          평가기준: ① 연구주제 학문적·실무적 중요성 ② 이론적 기반 및 선행연구 ③ 연구문제 명확성 ④ 방법론 타당성·실행가능성
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>비중</span><span>50%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:50%;background:#1A6B3A;"></div></div>
+        </div>
+        <div class="assign-tags"><span class="assign-tag">연구계획서</span><span class="assign-tag">실증연구설계</span><span class="assign-tag">학기말 제출</span></div>
+      </div>
+      <div class="assign-footer">
+        <span class="assign-deadline" style="color:#1A6B3A;">학기말</span>
+        <span class="assign-weight">50%</span>
+      </div>
+    </div>
+
+    <div class="assign-card">
+      <div class="assign-card-top" style="background:#2C7A3A;"></div>
+      <div class="assign-card-body">
+        <div class="assign-subject">DBA213 · 마케팅 · 유시진 교수</div>
+        <div class="assign-title">출석 및 참여 + 기존 연구 분석</div>
+        <div class="assign-desc">
+          <strong>출석·참여 20%:</strong> 수업 출석 및 토론<br>
+          <strong>기존 연구실적물 분석 20%:</strong> 지정 논문(*) 분석 및 발표 (연구주제·주장·방법론·발견점·함의점)
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>합산 비중</span><span>40%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:40%;background:#2C7A3A;"></div></div>
+        </div>
+        <div class="assign-tags"><span class="assign-tag">논문 발표</span><span class="assign-tag">토론 참여</span></div>
+      </div>
+      <div class="assign-footer">
+        <span class="assign-deadline" style="color:#2C7A3A;">매 수업</span>
+        <span class="assign-weight">40%</span>
+      </div>
+    </div>
+
+    <div class="assign-card">
+      <div class="assign-card-top" style="background:#0D5A2E;"></div>
+      <div class="assign-card-body">
+        <div class="assign-subject">DBA213 · 마케팅 · 유시진 교수</div>
+        <div class="assign-title">연구제안서 + Oral Defense</div>
+        <div class="assign-desc">
+          <strong>발표 20%:</strong> 연구 아이디어 발표 및 토론<br>
+          <strong>제안서 20%:</strong> 마케팅연구 학술지 투고요령에 맞게 작성<br>
+          <strong>Oral Defense 20%:</strong> 6/27 인당 15분 (발표 8분 + Q&amp;A 7분)
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>비중</span><span>60%</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:60%;background:#0D5A2E;"></div></div>
+        </div>
+        <div class="assign-tags"><span class="assign-tag">연구제안서</span><span class="assign-tag">마케팅연구 형식</span><span class="assign-tag">6/27 디펜스</span></div>
+      </div>
+      <div class="assign-footer">
+        <span class="assign-deadline" style="color:#0D5A2E;">최종: 6/27</span>
+        <span class="assign-weight">60%</span>
+      </div>
+    </div>
+
+    <div class="assign-card">
+      <div class="assign-card-top" style="background:#B8972A;"></div>
+      <div class="assign-card-body">
+        <div class="assign-subject">DBA103 · 경영인사이트시리즈 3 · 김태규 교수</div>
+        <div class="assign-title">Research Question 발표 &amp; 원우 피드백</div>
+        <div class="assign-desc">
+          매 수업 <strong>1–2명</strong>이 Research Q + Contents 발표.<br>
+          원우 토론 &amp; 피드백으로 과학적 연구 방향 가다듬기.<br>
+          <strong>3/14 특별:</strong> 지도교수 후보 2–3명 탐색 &amp; 공유.<br>
+          → 2학기 본격적인 담당 지도교수 선정 준비.
+        </div>
+        <div class="assign-tags"><span class="assign-tag">발표 Sign-up</span><span class="assign-tag">Research Q</span><span class="assign-tag">지도교수 탐색</span></div>
+      </div>
+      <div class="assign-footer">
+        <span class="assign-deadline" style="color:#B8972A;">매 수업 (순번)</span>
+        <span class="assign-weight">출석·참여</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="resources">
+  <div class="page-header">
+    <div class="page-title"><small>Notices &amp; Resources</small>공지 &amp; 자료 링크</div>
+  </div>
+
+  <div class="g2" style="margin-bottom:24px;">
+    <div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--light);text-transform:uppercase;margin-bottom:12px;">주요 학습 플랫폼</div>
+      <div class="resource-grid">
+        <a class="resource-card" href="https://lms.korea.ac.kr/" target="_blank">
+          <div class="resource-icon" style="background:#EFF4FB;">📖</div>
+          <div class="resource-info">
+            <h4>KU LMS</h4>
+            <p>강의계획서·공지·과제물 확인</p>
+            <span class="resource-url">lms.korea.ac.kr</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://library.korea.ac.kr/" target="_blank">
+          <div class="resource-icon" style="background:#FDF0F1;">📚</div>
+          <div class="resource-info">
+            <h4>고려대 도서관</h4>
+            <p>논문 전문 검색 및 다운로드</p>
+            <span class="resource-url">library.korea.ac.kr</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://hbsp.harvard.edu/import/1393481" target="_blank">
+          <div class="resource-icon" style="background:#EFF8F2;">🎓</div>
+          <div class="resource-info">
+            <h4>HBP 케이스팩</h4>
+            <p>HBS 케이스 학생 계정 생성 및 다운로드</p>
+            <span class="resource-url">hbsp.harvard.edu</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://drive.google.com/drive/folders/1DO9xQh75eukvZv8GOf1njHCuCQjvKPQH" target="_blank">
+          <div class="resource-icon" style="background:#FDF8EE;">☁️</div>
+          <div class="resource-info">
+            <h4>유시진 교수 논문 폴더</h4>
+            <p>마케팅 읽기 자료 (수강생 전용)</p>
+            <span class="resource-url">Google Drive 공유폴더</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://biz.korea.ac.kr/" target="_blank">
+          <div class="resource-icon" style="background:#FDF0F1;">🏛️</div>
+          <div class="resource-info">
+            <h4>KUBS 홈페이지</h4>
+            <p>교수진 사진·이력 확인</p>
+            <span class="resource-url">biz.korea.ac.kr</span>
+          </div>
+        </a>
+        <a class="resource-card" href="https://biz.korea.ac.kr/professor/all.html" target="_blank">
+          <div class="resource-icon" style="background:#FDF8EE;">🔍</div>
+          <div class="resource-info">
+            <h4>교수진 탐색 (지도교수 후보)</h4>
+            <p>전공별 스크롤로 DBA 지도교수 후보 탐색 — 3/14 전 필수</p>
+            <span class="resource-url">biz.korea.ac.kr/professor/all.html</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--light);text-transform:uppercase;margin-bottom:12px;">수신 메일 아카이브</div>
+
+      <div class="mail-card">
+        <div class="mail-header">
+          <div class="mail-from">
+            <div class="mail-avatar" style="background:#1A6B3A;">유</div>
+            <div>
+              <div class="mail-sender-name">유시진 교수</div>
+              <div class="mail-sender-role">마케팅 분과 · DBA213 담당</div>
+            </div>
+          </div>
+          <div class="mail-date">2026. 3월 초</div>
+        </div>
+        <div class="mail-subject">DBA213 마케팅 강의계획서 및 첫 세션 안내</div>
+        <div class="mail-body">
+          강의계획서 첨부. <strong>첫 세션 전 필독: Research Priority 2024 (MSI 보고서)</strong>.<br>
+          읽기 자료는 Google Scholar, 고려대 도서관, 또는 공유폴더 이용.<br>
+          <a href="https://drive.google.com/drive/folders/1DO9xQh75eukvZv8GOf1njHCuCQjvKPQH" target="_blank">공유폴더 링크</a> (수강생 외 유출 금지)
+        </div>
+      </div>
+
+      <div class="mail-card" style="border-left:3px solid #B8972A;">
+        <div class="mail-header">
+          <div class="mail-from">
+            <div class="mail-avatar" style="background:#B8972A;">김</div>
+            <div>
+              <div class="mail-sender-name">김태규 교수</div>
+              <div class="mail-sender-role">경영인사이트시리즈 3 담당 · DBA103</div>
+            </div>
+          </div>
+          <div class="mail-date">3/14 수업 전</div>
+        </div>
+        <div class="mail-subject">⭐ 3/14 첫 수업 준비: 지도교수 탐색 &amp; Research Question 정리</div>
+        <div class="mail-body">
+          <strong>지금까지 발전시켜온 Research Question</strong>을 돌아보고,<br>
+          계획한 연구 분야의 <strong>교수님 2–3분을 마음에 두고</strong> 수업에 참석.<br>
+          14일 수업에서 순차적으로 의견 나눌 예정.<br><br>
+          교수진 탐색: <a href="https://biz.korea.ac.kr/professor/all.html" target="_blank">biz.korea.ac.kr/professor/all.html</a> → 전공별 스크롤
+        </div>
+      </div>
+
+      <div class="mail-card">
+        <div class="mail-header">
+          <div class="mail-from">
+            <div class="mail-avatar" style="background:#8B0029;">옥</div>
+            <div>
+              <div class="mail-sender-name">옥비나</div>
+              <div class="mail-sender-role">KUBS MBA Office · 행정팀</div>
+            </div>
+          </div>
+          <div class="mail-date">2026. 1–2월</div>
+        </div>
+        <div class="mail-subject">2026학년도 1학기 수강등록 완료 및 안내</div>
+        <div class="mail-body">
+          전 과목 필수 → 행정팀 일괄 수강등록 완료.<br>
+          연구세미나1(DBA401)은 1월 수강, 최종 성적은 2026-1학기 부여.<br>
+          LMS에서 강의계획서 및 공지 확인. 교재(유료)는 수업 2주 전 배포 예정.<br>
+          <strong>NYT/WSJ 구독:</strong> @korea.ac.kr 도메인 인증 후 무료 이용 가능.
+        </div>
+      </div>
+
+      <div class="mail-card">
+        <div class="mail-header">
+          <div class="mail-from">
+            <div class="mail-avatar" style="background:#48484A;">구</div>
+            <div>
+              <div class="mail-sender-name">구교령 교수</div>
+              <div class="mail-sender-role">교수</div>
+            </div>
+          </div>
+          <div class="mail-date">2026. 3월 초</div>
+        </div>
+        <div class="mail-subject">장진욱 교수 HBR/McKinsey/NYT 아티클 개인 공유</div>
+        <div class="mail-body">
+          도서관에서 검색 안 되는 자료 6개 개인 공유.<br>
+          <strong>주의:</strong> 주차 매칭 없이 발송했으므로 LMS 강의계획서와 비교하며 일자 확인 필요.<br>
+          추가 자료 검색 어려울 경우 편하게 요청.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script data-cfasync="false" src="file:///C:/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="file:///C:/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="file:///C:/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="file:///C:/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  // ── Clock ──
+  (function tick(){
+    const d = new Date();
+    const p = n => String(n).padStart(2,'0');
+    const el = document.getElementById('clock');
+    if(el) el.textContent = p(d.getHours())+':'+p(d.getMinutes())+':'+p(d.getSeconds());
+    setTimeout(tick, 1000);
+  })();
+
+  // ── Tab navigation ──
+  function showSection(id, activeBtn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    var el = document.getElementById(id);
+    if(el) el.classList.add('active');
+    if(activeBtn) activeBtn.classList.add('active');
+  }
+
+  document.querySelectorAll('.nav-btn[data-section]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      showSection(this.dataset.section, this);
+    });
+  });
+
+  // ── Reading subject tabs ──
+  function showReading(id, activeBtn) {
+    document.querySelectorAll('.reading-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.stab').forEach(b => b.classList.remove('active'));
+    var el = document.getElementById(id);
+    if(el) el.classList.add('active');
+    if(activeBtn) activeBtn.classList.add('active');
+  }
+
+  document.querySelectorAll('.stab[data-reading]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      showReading(this.dataset.reading, this);
+    });
+  });
+
+  // ── Session accordion ──
+  document.querySelectorAll('[data-toggle="session"]').forEach(function(header) {
+    header.addEventListener('click', function() {
+      this.classList.toggle('open');
+      var body = this.nextElementSibling;
+      if(body) body.classList.toggle('open');
+    });
+  });
+
+  // ── Render session papers ──
+  var dba211 = [
+    { num:1, title:'경쟁전략 — Competitive Strategy', date:'03/13 (금) 15:00–18:00',
+      papers:[
+        {type:'academic', title:'Teece, Pisano & Shuen (1997). "Dynamic Capabilities and Strategic Management."', journal:'Strategic Management Journal, 18(7): 509–533'},
+        {type:'hbr', title:'Reeves & Deimler (2011). "Adaptability: The New Competitive Advantage."', journal:'HBR, July–August'},
+        {type:'case', title:'Apple Inc. in 2023', journal:'HBS Case No. 724-419 · Yoffie & Baldwin'},
+      ]},
+    { num:2, title:'M&A / 전략적 제휴', date:'03/27 (금) 15:00–18:00',
+      papers:[
+        {type:'academic', title:'Villalonga & McGahan (2005). "The Choice among Acquisitions, Alliances, and Divestitures."', journal:'Strategic Management Journal, 26(13): 1183–1208'},
+        {type:'hbr', title:'Kale, Dyer & Singh (2004). "When to Ally and When to Acquire."', journal:'HBR, July–August'},
+        {type:'case', title:"Roche\'\2 Acquisition of Genentech", journal:'HBS Case No. 210-040'},
+      ]},
+    { num:3, title:'사업 매각 — Divestitures', date:'04/10 (금) 15:00–18:00',
+      papers:[
+        {type:'academic', title:'Feldman (2014). "Legacy Divestitures: Motives and Implications."', journal:'Organization Science, 25(3): 815–832'},
+        {type:'hbr', title:'Dranikoff, Koller & Schneider (2002). "Divestiture: Strategy\'\2 Missing Link."', journal:'HBR, May'},
+        {type:'case', title:"GE\'\2 Two-Decade Transformation: Jack Welch\'\2 Leadership", journal:'HBS Case No. 399-150'},
+      ]},
+    { num:4, title:'CEO 승계 — Succession', date:'04/24 (금) 15:00–18:00',
+      papers:[
+        {type:'academic', title:'Zhang & Rajagopalan (2010). "Once an Outsider, Always an Outsider?"', journal:'Strategic Management Journal, 31(3): 334–346'},
+        {type:'hbr', title:'Bower (2007). "Solve the Succession Crisis by Growing Inside-Outside Leaders."', journal:'HBR, November'},
+        {type:'case', title:'Strategy and CEO Succession at Starbucks', journal:'HBS Case No. 125-040'},
+      ]},
+    { num:5, title:'이사회 / 상층부 이론 — BOD / Upper Echelons', date:'05/08 (금) 15:00–18:00',
+      papers:[
+        {type:'academic', title:'Haynes & Hillman (2010). "The Effect of Board Capital and CEO Power on Strategic Change."', journal:'Strategic Management Journal, 31(11): 1145–1163'},
+        {type:'hbr', title:'Lorsch & Clark (2008). "Leading from the Boardroom."', journal:'HBR, April'},
+        {type:'case', title:"What Went Wrong with Boeing\'\2 737 Max?", journal:'HBS Case No. 320-104'},
+      ]},
+    { num:6, title:'기업집단 — Business Groups', date:'05/29 (금) 15:00–18:00',
+      papers:[
+        {type:'academic', title:'Morck, Wolfenzon & Yeung (2005). "Corporate Governance, Economic Entrenchment, and Growth."', journal:'Journal of Economic Literature, XLIII: 655–720'},
+        {type:'hbr', title:'Khanna, Palepu & Sinha (2005). "Strategies That Fit Emerging Markets."', journal:'HBR, June'},
+        {type:'case', title:'Samsung Electronics', journal:'HBS Case No. 705-508'},
+      ]},
+    { num:7, title:'신사업 개발 — Corporate Entrepreneurship', date:'06/12 (금) 15:00–18:00',
+      papers:[
+        {type:'academic', title:'Jansen et al. (2009). "Structural Differentiation and Ambidexterity."', journal:'Organization Science, 20(4): 797–811'},
+        {type:'hbr', title:"O\'\2eilly & Tushman (2004). The Ambidextrous Organization.", journal:'HBR, April'},
+        {type:'case', title:'Amazon.com, 2021', journal:'HBS Case No. 716-402'},
+      ]},
+    { num:8, title:'AI와 전략 — AI & Strategy', date:'06/26 (금) 15:00–18:00',
+      papers:[
+        {type:'academic', title:'Choudhury, Starr & Agarwal (2020). "Machine Learning and Human Capital Complementarities."', journal:'Strategic Management Journal, 41(8): 1381–1411'},
+        {type:'hbr', title:'Iansiti & Lakhani (2020). "Competing in the Age of AI."', journal:'HBR, January–February'},
+        {type:'case', title:'Predicting Consumer Tastes with Big Data at Gap', journal:'HBS Case No. 517-115'},
+      ]},
+  ];
+
+  var dba212 = [
+    { num:1, title:'일의 의미 — The Meaning of Work', date:'03/14 (토) 09:00–12:00',
+      papers:[
+        {type:'academic', title:'Bailey & Madden (2016). "What makes work meaningful—or meaningless."', journal:'MIT Sloan Management Review, 57: 53–61'},
+        {type:'academic', title:'Bunderson & Thompson (2009). "The call of the wild."', journal:'Administrative Science Quarterly, 54: 32–57'},
+        {type:'academic', title:'Colbert, Bono & Purvanova (2016). "Flourishing via workplace relationships."', journal:'Academy of Management Journal, 59: 1199–1223'},
+      ]},
+    { num:2, title:'직장 내의 관계 — Relationships at Work', date:'03/28 (토) 09:00–12:00',
+      papers:[
+        {type:'academic', title:'Dutton & Heaphy (2003). "The power of high-quality connections."', journal:'Positive Organizational Scholarship'},
+        {type:'academic', title:'Owens et al. (2016). "Relational energy at work."', journal:'Journal of Applied Psychology, 101: 35–49'},
+        {type:'academic', title:'Wu et al. (2016). "Why and when workplace ostracism inhibits OCB."', journal:'Journal of Applied Psychology, 101: 362–378'},
+      ]},
+    { num:3, title:'조직 내 정체성과 동일시', date:'04/11 (토) 09:00–12:00',
+      papers:[
+        {type:'nyt', title:'De Smet et al. (2021). "Great Attrition or Great Attraction?"', journal:'McKinsey Quarterly', link:'https://www.mckinsey.com/capabilities/people-and-organizational-performance/our-insights/great-attrition-or-great-attraction-the-choice-is-yours'},
+        {type:'academic', title:'Dukerich, Golden & Shortell (2002). "Beauty is in the eye of the beholder."', journal:'Administrative Science Quarterly, 47: 507–533'},
+        {type:'academic', title:'Besharov (2014). "The relational ecology of identification."', journal:'Academy of Management Journal, 57: 1485–1512'},
+      ]},
+    { num:4, title:'리더십 — Leadership', date:'04/25 (토) 09:00–12:00',
+      papers:[
+        {type:'hbr', title:'Decker & Decker (2015). "Communicating a corporate vision to your team."', journal:'HBR', link:'https://hbr.org/2015/07/communicating-a-corporate-vision-to-your-team'},
+        {type:'academic', title:'Carton (2018). "I\'\2 not mopping the floors, I\'\2 putting a man on the moon."', journal:'Administrative Science Quarterly, 63: 323–369'},
+        {type:'academic', title:'Stam, Van Knippenberg & Wisse (2010). "The role of regulatory fit in visionary leadership."', journal:'Journal of Organizational Behavior, 31: 499–518'},
+      ]},
+    { num:5, title:'권력과 조직 정치', date:'05/09 (토) 09:00–12:00',
+      papers:[
+        {type:'academic', title:'Pfeffer (1992). "Understanding power in organizations."', journal:'California Management Review, 34: 29–50'},
+        {type:'academic', title:'Kaplan (2008). "Framing contests: Strategy making under uncertainty."', journal:'Organization Science, 19: 729–752'},
+        {type:'academic', title:'Gentry et al. (2012). "Political skill as an indicator of promotability."', journal:'Journal of Organizational Behavior, 33: 89–104'},
+      ]},
+    { num:6, title:'협력과 갈등 — Collaboration and Conflict', date:'05/30 (토) 09:00–12:00',
+      papers:[
+        {type:'hbr', title:'Eisenhardt, Kahwajy & Bourgeois (1997). "How management teams can have a good fight."', journal:'HBR, 75: 77–85'},
+        {type:'academic', title:'Sutton & Hargadon (1996). "Brainstorming groups in context."', journal:'Administrative Science Quarterly, 41: 685–718'},
+        {type:'academic', title:'Groysberg, Polzer & Elfenbein (2011). "Too many cooks spoil the broth."', journal:'Organization Science, 22: 722–737'},
+      ]},
+    { num:7, title:'조직문화와 조직풍토', date:'06/13 (토) 16:00–19:00',
+      papers:[
+        {type:'nyt', title:'Duhigg (2016). "What Google learned from its quest to build the perfect team."', journal:'NYT Magazine', link:'https://www.nytimes.com/2016/02/28/magazine/what-google-learned-from-its-quest-to-build-the-perfect-team.html'},
+        {type:'academic', title:'Edmondson (1999). "Psychological safety and learning behavior in work teams."', journal:'Administrative Science Quarterly, 44: 350–383'},
+        {type:'academic', title:'Coutifaris & Grant (2022). "Taking your team behind the curtain."', journal:'Organization Science, 33: 1574–1598'},
+      ]},
+    { num:8, title:'조직행동의 미래 — Future of OB', date:'06/27 (토) 09:00–12:00',
+      papers:[
+        {type:'nyt', title:'Davenport & Westerman (2021). "How HR leaders are preparing for the AI-enabled workforce."', journal:'MIT Sloan Management Review, 62: 14–17'},
+        {type:'academic', title:'Cameron (2024). "The making of the good bad job."', journal:'Administrative Science Quarterly, 69: 458–514'},
+        {type:'academic', title:'Jia et al. (2024). "When and how AI augments employee creativity."', journal:'Academy of Management Journal, 67: 5–32'},
+      ]},
+  ];
+
+  var dba213 = [
+    { num:1, title:'마케팅의 본질과 연구 개괄', date:'03/14 (토) 16:00–19:00',
+      papers:[
+        {type:'academic', title:'Srivastava, Shervani & Fahey (1998). "Market-based assets and shareholder value."', journal:'Journal of Marketing 62(1): 2–18'},
+        {type:'academic', title:'Katsikeas et al. (2016). "Assessing performance outcomes in marketing."', journal:'Journal of Marketing 80(2): 1–20'},
+        {type:'msi', title:'Research Priorities 2024 — Marketing Science Institute', journal:'★ 첫 수업 전 필독'},
+      ]},
+    { num:2, title:'고객 의사결정과 소비자 행동', date:'03/28 (토) 16:00–19:00',
+      papers:[
+        {type:'academic', title:'Lemon & Verhoef (2016). "Understanding customer experience throughout the customer journey."', journal:'Journal of Marketing 80(6): 69–96'},
+        {type:'hbr', title:'Edelman & Abraham (2022). "Customer Experience in the Age of AI."', journal:'HBR 100(3-4): 116–125'},
+        {type:'academic', title:'★ Byun, Park, Yoo & Cho (2023). "Has COVID-19 changed the influence of WOM?"', journal:'Journal of Retailing and Consumer Services 74'},
+      ]},
+    { num:3, title:'브랜드 가치와 기업 평판', date:'04/11 (토) 16:00–19:00',
+      papers:[
+        {type:'academic', title:'Simon & Sullivan (1993). "The measurement and determinants of brand equity."', journal:'Marketing Science 12(1): 28–52'},
+        {type:'hbr', title:'De Freitas & Ofek (2024). "How AI Can Power Brand Management."', journal:'HBR 102(5): 108–114'},
+        {type:'academic', title:'★ Che, Katayama & Lee (2023). "Product-harm crises and spillover effects."', journal:'Journal of Marketing Research 60(2): 409–424'},
+      ]},
+    { num:4, title:'제품 혁신과 서비스 디자인', date:'04/25 (토) 16:00–19:00',
+      papers:[
+        {type:'academic', title:'Tellis, Stremersch & Yin (2003). "The international takeoff of new products."', journal:'Marketing Science 22(2): 188–208'},
+        {type:'academic', title:'★ Barone & Jewell (2013). "The innovator\'\2 license."', journal:'Journal of Marketing 77(1): 120–134'},
+        {type:'academic', title:'Cooper (2019). "The drivers of success in new-product development."', journal:'Industrial Marketing Management 76: 36–47'},
+      ]},
+    { num:5, title:'고객가치와 기업가치', date:'05/09 (토) 16:00–19:00',
+      papers:[
+        {type:'academic', title:'Gupta, Lehmann & Stuart (2004). "Valuing customers."', journal:'Journal of Marketing Research 41(1): 7–18'},
+        {type:'academic', title:'★ Choi, Lee, Yoo & Yoo (2019). "Value Relevance of Customer Equity."', journal:'Asia-Pacific Journal of Accounting & Economics 26(3)'},
+        {type:'academic', title:'★ Wolters, Schulze & Gedenk (2020). "Referral reward size and new customer profitability."', journal:'Marketing Science 39(6): 1166–1180'},
+      ]},
+    { num:6, title:'소셜미디어와 구전 (1부)', date:'05/30 (토) 13:00–16:00',
+      papers:[
+        {type:'academic', title:'Godes & Mayzlin (2004). "Using online conversations to study WOM."', journal:'Marketing Science 23(4): 545–560'},
+        {type:'academic', title:'★ Berger & Milkman (2012). "What makes online content viral?"', journal:'Journal of Marketing Research 49(2): 192–205'},
+        {type:'academic', title:'★ Kim & Yoo (2025). "When help backfires."', journal:'Journal of Retailing and Consumer Services 87'},
+      ]},
+    { num:7, title:'마케팅 애널리틱스와 AI (2부)', date:'05/30 (토) 16:00–19:00',
+      papers:[
+        {type:'academic', title:'Huang & Rust (2021). "A strategic framework for AI in marketing."', journal:'JAMS 49(1): 30–50'},
+        {type:'nyt', title:'Deveau, Griffin & Reis (2023). "AI-powered marketing and sales."', journal:'McKinsey & Company'},
+        {type:'academic', title:'★ Byun, Yoo et al. (2026). "Nonhuman, Yet Convincing: Digital Humans."', journal:'Working Paper (2026)'},
+      ]},
+    { num:8, title:'연구제안서 발표 및 Oral Defense', date:'06/27 (토) 16:00–19:00',
+      papers:[
+        {type:'msi', title:'인당 15분 발표 (발표 8분 + Q&A 7분)', journal:'평가기준: 독창성 · 공헌도 · 논리적 완결성 · 방법론 타당성 · 방어 능력'},
+      ]},
+  ];
+
+  function typeLabel(t) {
+    return {academic:'논문', hbr:'HBR', case:'CASE', nyt:'NYT/MKZ', msi:'MSI', rec:'추천'}[t] || t;
+  }
+  function typeClass(t) {
+    return {academic:'type-academic', hbr:'type-hbr', case:'type-case', nyt:'type-nyt', msi:'type-msi', rec:'type-rec'}[t] || 'type-rec';
+  }
+
+  function renderSessions(sessions, containerId, numColor) {
+    var container = document.getElementById(containerId);
+    if(!container) return;
+    sessions.forEach(function(s) {
+      var div = document.createElement('div');
+      div.className = 'session-block';
+      var papersHTML = s.papers.map(function(p) {
+        return '<div class="paper-row">'
+          + '<span class="paper-type ' + typeClass(p.type) + '">' + typeLabel(p.type) + '</span>'
+          + '<div class="paper-text">'
+          + '<div class="paper-title">' + p.title + '</div>'
+          + '<div class="paper-author">' + p.journal + '</div>'
+          + (p.link ? '<a href="' + p.link + '" target="_blank" class="paper-link">→ 링크</a>' : '')
+          + '</div></div>';
+      }).join('');
+      var presenterHTML = s.presenters ? '<div style="font-size:11px;background:#FFF5F5;border:1px solid #E8C5C8;border-radius:4px;padding:6px 10px;margin-bottom:10px;color:#8B0029;line-height:1.6;">' + s.presenters + '</div>' : '';
+      var noteHTML = s.note ? '<div style="font-size:11px;background:#F8F4FF;border:1px solid #D8C8F0;border-radius:4px;padding:6px 10px;margin-bottom:10px;color:#5B3DA8;line-height:1.6;">' + s.note + '</div>' : '';
+      div.innerHTML =
+        '<div class="session-header" data-toggle="session">'
+        + '<div class="session-num" style="background:' + numColor + '">' + s.num + '</div>'
+        + '<div class="session-info">'
+        + '<div class="session-title">' + s.title + '</div>'
+        + '<div class="session-date">' + s.date + (s.presenters ? ' &nbsp;·&nbsp; 📢 발표 있음' : '') + '</div>'
+        + '</div>'
+        + '<div class="session-count">' + s.papers.length + '편</div>'
+        + '<div class="session-arrow">▼</div>'
+        + '</div>'
+        + '<div class="session-body">' + presenterHTML + noteHTML + papersHTML + '</div>';
+      container.appendChild(div);
+      // attach toggle listener to newly added header
+      div.querySelector('[data-toggle="session"]').addEventListener('click', function() {
+        this.classList.toggle('open');
+        var body = this.nextElementSibling;
+        if(body) body.classList.toggle('open');
+      });
+    });
+  }
+
+  renderSessions(dba211, 'sessions-dba211', '#8B0029');
+  renderSessions(dba212, 'sessions-dba212', '#1E4D8C');
+  renderSessions(dba213, 'sessions-dba213', '#1A6B3A');
+
+  // ── Notice rows with data-section ──
+  document.querySelectorAll('.notice-row[data-section]').forEach(function(row) {
+    row.addEventListener('click', function() {
+      var sid = this.dataset.section;
+      var btn = document.querySelector('.nav-btn[data-section="' + sid + '"]');
+      showSection(sid, btn);
+    });
+  });
+
+}); // end DOMContentLoaded
+</script>
+
+</body></html>
