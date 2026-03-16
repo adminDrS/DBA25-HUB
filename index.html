@@ -769,37 +769,109 @@ table.sched td {
   .hero { flex-direction: column; }
 }
 @media (max-width: 768px) {
-  header { padding: 8px 14px 6px; min-height: auto; height: auto !important; flex-wrap: wrap; align-items: flex-start; gap: 4px; }
+  /* ── 기본 레이아웃 ── */
+  body { font-size: 15px; }
+  main { padding: 12px; }
+
+  /* ── 헤더 ── */
+  header { padding: 8px 12px 6px; min-height: auto; height: auto !important; flex-wrap: wrap; align-items: flex-start; gap: 4px; }
   .logo-area { flex: 1; min-width: 0; width: 100%; }
   .header-title { font-size: 13px !important; white-space: normal !important; overflow: visible !important; text-overflow: unset !important; line-height: 1.4; word-break: keep-all; }
   .header-sub { display: none !important; }
   .header-right { flex-shrink: 0; gap: 6px; align-self: flex-start; }
   .live-clock { font-size: 10px; white-space: nowrap; }
   .semester-tag { font-size: 10px; padding: 2px 8px; white-space: nowrap; }
-  [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
-  [style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
-  body { font-size: 16px; }
-  main { padding: 16px; }
+
+  /* ── 내비게이션 ── */
   nav { padding: 6px 8px 0; overflow-x: auto; gap: 3px; position: sticky; top: 0; }
-  .nav-btn { font-size: 12px; padding: 8px 11px 10px; white-space: nowrap; border-radius: 6px 6px 0 0; }
-  .page-title { font-size: 24px !important; }
+  .nav-btn { font-size: 11px; padding: 7px 10px 9px; white-space: nowrap; border-radius: 6px 6px 0 0; }
+
+  /* ── 홈: hero ── */
+  .hero { flex-direction: column; padding: 20px 16px; gap: 16px; }
+  .hero-left h1 { font-size: 22px !important; }
+  .hero-stats { width: 100% !important; }
+
+  /* ── 홈: home-grid → 1열 ── */
+  .home-grid { grid-template-columns: 1fr !important; gap: 14px; }
+
+  /* ── 홈: 카드 ── */
+  .card { padding: 16px; border-radius: 10px; }
+  .card-label { font-size: 11px; margin-bottom: 10px; }
+
+  /* ── 홈: 수업패턴 교수정보 축약 ── */
+  [style*="font-size:11px;color:#8E8E93;margin-top:2px"] {
+    font-size: 10px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* ── 홈: 과제&평가 그리드 → 1열 ── */
+  [style*="display:grid;grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+
+  /* ── 홈: 공지 카드 ── */
+  #home-notices-container > div { padding: 12px !important; margin-bottom: 8px !important; }
+  #home-notices-container .notice-title { font-size: 13px !important; }
+
+  /* ── 홈: 최근공지 헤더 버튼 ── */
+  [style*="전체보기"] { font-size: 10px !important; padding: 4px 8px !important; }
+
+  /* ── 홈: 앞으로 2주 ── */
+  #upcoming-list > div { padding: 10px 12px !important; }
+  #upcoming-list .session-title { font-size: 13px !important; }
+
+  /* ── 공지&링크 탭: 플랫폼 그리드 → 1열 ── */
+  [style*="display:grid;grid-template-columns:repeat(2"] { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns:repeat(2,1fr)"] { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns: repeat(2"] { grid-template-columns: 1fr !important; }
+
+  /* ── 공지&링크 탭: 아카이브 카드 ── */
+  #notice-archive-section > div > div { padding: 12px 14px !important; }
+  .mail-card { padding: 14px; }
+  .mail-header { flex-wrap: wrap; gap: 6px; }
+  .mail-body { font-size: 12px; }
+
+  /* ── 강의읽기자료 탭 ── */
+  .page-title { font-size: 22px !important; }
+  [style*="grid-template-columns:repeat(2,1fr)"] { grid-template-columns: 1fr !important; }
+  .session-title { font-size: 14px !important; }
+  .paper-title { font-size: 13px !important; }
+  .paper-type { font-size: 10px !important; min-width: 36px !important; }
+
+  /* ── 선택 과목 바 ── */
+  #selected-subject-bar { flex-wrap: wrap !important; gap: 8px !important; padding: 12px 14px !important; }
+  #selected-subject-btns { flex-wrap: wrap !important; gap: 6px !important; }
+
+  /* ── 과제일정관리 탭 ── */
+  table.sched { font-size: 12px; }
+  table.sched td { padding: 8px; }
+  #view-table { overflow-x: auto; }
+  #view-table table { min-width: 560px; }
+  .stab { font-size: 12px; padding: 7px 11px; }
+
+  /* ── 교수진 탭 ── */
   .prof-card-top { flex-wrap: wrap; }
   .prof-avatar { width: 70px; height: 90px; }
-  .prof-name { font-size: 18px !important; }
-  .session-title { font-size: 15px !important; }
-  .paper-title { font-size: 15px !important; }
-  table.sched { font-size: 13px; }
-  table.sched td { padding: 10px 10px; }
-  #view-table { overflow-x: auto; }
-  #view-table table { min-width: 600px; }
-  .stab { font-size: 13px; padding: 8px 12px; }
-  [style*="grid-template-columns:repeat(4,1fr)"] { grid-template-columns: repeat(2,1fr) !important; }
+  .prof-name { font-size: 17px !important; }
+
+  /* ── 잠금화면 ── */
+  .lock-box { padding: 28px 20px; }
+  .lock-title { font-size: 15px; }
+
+  /* ── 기타 그리드 강제 1열 ── */
+  [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns:repeat(4"] { grid-template-columns: repeat(2,1fr) !important; }
+
+  /* ── 스케줄표 ── */
   .assign-grid { grid-template-columns: 1fr; }
   .resource-grid { grid-template-columns: 1fr; }
-  .lock-box { padding: 32px 24px; }
-  .lock-title { font-size: 16px; }
+
+  /* ── 통계 ── */
   .hero-stats { flex-wrap: wrap; }
-  .stat-card { min-width: 120px; }
+  .stat-card { min-width: 110px; }
 }
 </style>
 
@@ -917,6 +989,46 @@ table.sched td {
   40% { transform: translateX(8px); }
   60% { transform: translateX(-6px); }
   80% { transform: translateX(6px); }
+}
+
+@media (max-width: 480px) {
+  /* ── 극소형 모바일 추가 최적화 ── */
+  main { padding: 10px; }
+  .hero-left h1 { font-size: 19px !important; }
+  .card { padding: 13px; }
+
+  /* 홈: 수업패턴 시간 크기 축소 */
+  [style*="font-size:18px;font-weight:800"] { font-size: 16px !important; }
+
+  /* 홈: 과제&평가 숫자 크기 축소 */
+  [style*="font-size:24px;font-weight:900"] { font-size: 20px !important; }
+  [style*="font-size:20px;font-weight:900"] { font-size: 18px !important; }
+
+  /* 홈: 수업패턴 교수 정보 2줄 허용 */
+  [style*="white-space:nowrap;overflow:hidden;text-overflow:ellipsis"] {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+    font-size: 10px !important;
+  }
+
+  /* 공지&링크: 플랫폼 카드 아이콘+텍스트 세로 배치 */
+  [style*="width:42px;height:42px"] { width: 36px !important; height: 36px !important; font-size: 16px !important; }
+
+  /* 마케팅 연구제안 3분할 → 세로 */
+  [style*="grid-template-columns:1fr 1fr 1fr"] { grid-template-columns: 1fr !important; }
+
+  /* nav 버튼 더 작게 */
+  .nav-btn { font-size: 10px !important; padding: 6px 8px 8px !important; }
+
+  /* 선택 과목 바 */
+  #selected-subject-bar { padding: 10px 12px !important; }
+  #selected-subject-name { font-size: 15px !important; }
+}
+
+/* ── 플랫폼 그리드 모바일 ── */
+@media (max-width: 768px) {
+  .platform-grid { grid-template-columns: 1fr !important; }
 }
 </style>
 </head>
@@ -1174,7 +1286,7 @@ table.sched td {
             </div>
             <div style="flex:1;min-width:0;">
               <div style="font-size:13px;font-weight:700;color:#1C1C1E;">전략 <span style="font-weight:500;color:#6C6C6C;">· 이재민 교수님</span></div>
-              <div style="font-size:11px;color:#8E8E93;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">✉ jaemin-lee@korea.ac.kr · TEL. 02-3290-1931 · 연구실 LP402</div>
+              <div style="font-size:11px;color:#8E8E93;margin-top:2px;overflow:hidden;text-overflow:ellipsis;word-break:break-all;">✉ jaemin-lee@korea.ac.kr · TEL. 02-3290-1931 · 연구실 LP402</div>
             </div>
           </div>
         </div>
@@ -1192,7 +1304,7 @@ table.sched td {
             </div>
             <div style="flex:1;min-width:0;">
               <div style="font-size:13px;font-weight:700;color:#1C1C1E;">조직행동 <span style="font-weight:500;color:#6C6C6C;">· 장진욱 교수님</span></div>
-              <div style="font-size:11px;color:#8E8E93;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">✉ jinwookchang@korea.ac.kr · TEL. 02-3290-1917 · 연구실 LP515</div>
+              <div style="font-size:11px;color:#8E8E93;margin-top:2px;overflow:hidden;text-overflow:ellipsis;word-break:break-all;">✉ jinwookchang@korea.ac.kr · TEL. 02-3290-1917 · 연구실 LP515</div>
             </div>
           </div>
         </div>
@@ -1210,7 +1322,7 @@ table.sched td {
             </div>
             <div style="flex:1;min-width:0;">
               <div style="font-size:13px;font-weight:700;color:#1C1C1E;">경영인사이트 <span style="font-weight:500;color:#6C6C6C;">· 김태규 교수님</span></div>
-              <div style="font-size:11px;color:#8E8E93;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">✉ kimt@korea.ac.kr · TEL. 02-3290-2828 · 연구실 LP422</div>
+              <div style="font-size:11px;color:#8E8E93;margin-top:2px;overflow:hidden;text-overflow:ellipsis;word-break:break-all;">✉ kimt@korea.ac.kr · TEL. 02-3290-2828 · 연구실 LP422</div>
             </div>
           </div>
         </div>
@@ -1228,7 +1340,7 @@ table.sched td {
             </div>
             <div style="flex:1;min-width:0;">
               <div style="font-size:13px;font-weight:700;color:#1C1C1E;">마케팅 <span style="font-weight:500;color:#6C6C6C;">· 유시진 교수님</span></div>
-              <div style="font-size:11px;color:#8E8E93;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">✉ shijinyoo@korea.ac.kr · TEL. 010-8277-2714 · 연구실 LP517</div>
+              <div style="font-size:11px;color:#8E8E93;margin-top:2px;overflow:hidden;text-overflow:ellipsis;word-break:break-all;">✉ shijinyoo@korea.ac.kr · TEL. 010-8277-2714 · 연구실 LP517</div>
             </div>
           </div>
         </div>
@@ -2159,7 +2271,7 @@ table.sched td {
       <div style="width:4px;height:22px;background:linear-gradient(180deg,#8B0029,#B8972A);border-radius:2px;"></div>
       <span style="font-size:13px;font-weight:800;color:#1C1C1E;letter-spacing:0.5px;">🔗 주요 학습 플랫폼</span>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;">
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;" class="platform-grid">
 
       <a href="https://lms.korea.ac.kr/" target="_blank" style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:linear-gradient(135deg,#EFF4FB,#DCEAF7);border:1.5px solid #C5D5EB;border-radius:12px;text-decoration:none;">
         <div style="width:42px;height:42px;background:#1E4D8C;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">🎓</div>
@@ -2984,14 +3096,14 @@ document.addEventListener('DOMContentLoaded', function() {
     { num:3, title:'조직 내 정체성과 동일시 — Identity & Identification', date:'04/11 (토) 09:00–12:00',
       note:'📝 매주 과제: 지정 읽기자료 완독 후 심층적인 토론 준비 (비판적 분석 · 실무 시사점 정리)',
       assigned:[
-        {type:'nyt', title:'De Smet et al. (2021). Great attrition or great attraction? The choice is yours.', journal:'McKinsey Quarterly, September 8'},
-        {type:'academic', title:'Dukerich, Golden & Shortell (2002). Beauty is in the eye of the beholder.', journal:'Administrative Science Quarterly 47: 507–533'},
-        {type:'academic', title:'Besharov (2014). The relational ecology of identification.', journal:'Academy of Management Journal 57: 1485–1512'},
+        {type:'nyt', title:'De Smet et al. (2021). Great attrition or great attraction? The choice is yours.', journal:'McKinsey Quarterly, September 8', link:'https://drive.google.com/file/d/1Qi0aiEIoNg6XeTmnIWx2K-6OV8TrZExD/view?usp=drive_link'},
+        {type:'academic', title:'Dukerich, Golden & Shortell (2002). Beauty is in the eye of the beholder.', journal:'Administrative Science Quarterly 47: 507–533', link:'https://drive.google.com/file/d/1N6nNJpeJhtsnJPk-ZWh1YKHWLGqQdiEl/view?usp=drive_link'},
+        {type:'academic', title:'Besharov (2014). The relational ecology of identification.', journal:'Academy of Management Journal 57: 1485–1512', link:'https://drive.google.com/file/d/15Kc8LN12121S090A-7sIbWTPTcsKafxH/view?usp=drive_link'},
       ],
       recommended:[
-        {type:'academic', title:'Ashforth & Mael (1989). Social identity theory and the organization.', journal:'Academy of Management Review 14: 20–39'},
-        {type:'academic', title:'Dutton, Dukerich & Harquail (1994). Organizational images and member identification.', journal:'Administrative Science Quarterly 39: 239–263'},
-        {type:'academic', title:'Bednar et al. (2020). Putting identification in motion: A dynamic view.', journal:'Organization Science 31: 200–222'},
+        {type:'academic', title:'Ashforth & Mael (1989). Social identity theory and the organization.', journal:'Academy of Management Review 14: 20–39', link:'https://drive.google.com/file/d/11p6rMrj2O0UYezNchlFd_usBgjZ8ojg2/view?usp=drive_link'},
+        {type:'academic', title:'Dutton, Dukerich & Harquail (1994). Organizational images and member identification.', journal:'Administrative Science Quarterly 39: 239–263', link:'https://drive.google.com/file/d/1eYQUByOfvZgz0M23CQC5V0DvnhJbzV0P/view?usp=drive_link'},
+        {type:'academic', title:'Bednar et al. (2020). Putting identification in motion: A dynamic view.', journal:'Organization Science 31: 200–222', link:'https://drive.google.com/file/d/1zGl3020JZ2IoJ1_xO_On5ciJOZv55bJt/view?usp=drive_link'},
       ]},
     { num:4, title:'리더십 — Leadership', date:'04/25 (토) 09:00–12:00',
       note:'📝 매주 과제: 지정 읽기자료 완독 후 심층적인 토론 준비 (비판적 분석 · 실무 시사점 정리)',
