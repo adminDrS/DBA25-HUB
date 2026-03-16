@@ -31,6 +31,7 @@ body {
   min-height: 100vh;
   font-size: 17px;
   line-height: 1.8;
+  overflow-x: hidden;
 }
 
 /* ── HEADER ── */
@@ -770,8 +771,8 @@ table.sched td {
 }
 @media (max-width: 768px) {
   /* ── 기본 레이아웃 ── */
-  body { font-size: 15px; }
-  main { padding: 12px; }
+  body { font-size: 15px; overflow-x: hidden; }
+  main { padding: 10px; overflow-x: hidden; }
 
   /* ── 헤더 ── */
   header { padding: 8px 12px 6px; min-height: auto; height: auto !important; flex-wrap: wrap; align-items: flex-start; gap: 4px; }
@@ -784,26 +785,37 @@ table.sched td {
 
   /* ── 내비게이션 ── */
   nav { padding: 6px 8px 0; overflow-x: auto; gap: 3px; position: sticky; top: 0; }
-  .nav-btn { font-size: 11px; padding: 7px 10px 9px; white-space: nowrap; border-radius: 6px 6px 0 0; }
+  .nav-btn { font-size: 11px; padding: 7px 9px 9px; white-space: nowrap; border-radius: 6px 6px 0 0; }
 
   /* ── 홈: hero ── */
-  .hero { flex-direction: column; padding: 20px 16px; gap: 16px; }
-  .hero-left h1 { font-size: 22px !important; }
+  .hero { flex-direction: column; padding: 16px 14px; gap: 14px; border-radius: 8px; }
+  .hero-left { width: 100%; }
+  .hero-left h1 { font-size: 20px !important; }
+  .hero-left p { font-size: 12px !important; }
   .hero-stats { width: 100% !important; }
+  #semester-progress-widget > div { width: 100% !important; }
 
   /* ── 홈: home-grid → 1열 ── */
-  .home-grid { grid-template-columns: 1fr !important; gap: 14px; }
+  .home-grid { grid-template-columns: 1fr !important; gap: 12px; }
 
   /* ── 홈: 카드 ── */
-  .card { padding: 16px; border-radius: 10px; }
+  .card { padding: 14px; border-radius: 10px; }
   .card-label { font-size: 11px; margin-bottom: 10px; }
 
-  /* ── 홈: 수업패턴 교수정보 축약 ── */
+  /* ── 홈: 수업패턴 교수정보 - 줄바꿈 허용 ── */
   [style*="font-size:11px;color:#8E8E93;margin-top:2px"] {
     font-size: 10px !important;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+    word-break: break-all;
+    line-height: 1.5;
+  }
+
+  /* ── 홈: 수업패턴 카드 전체 ── */
+  [style*="background:#8B0029;width:6px"], [style*="background:#1E4D8C;width:6px"],
+  [style*="background:#B8972A;width:6px"], [style*="background:#1A6B3A;width:6px"] {
+    width: 4px !important;
   }
 
   /* ── 홈: 과제&평가 그리드 → 1열 ── */
@@ -811,38 +823,45 @@ table.sched td {
   [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
   [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
 
+  /* ── 홈: 앞으로 2주 헤더 ── */
+  #upcoming-range { font-size: 11px !important; }
+  #ubtn-list, #ubtn-cal, #ubtn-table { font-size: 10px !important; padding: 5px 8px !important; }
+
+  /* ── 홈: 앞으로 2주 일정 카드 버튼 ── */
+  .btn-syllabus, .btn-lec, .btn-reading, .btn-assign { font-size: 10px !important; padding: 4px 7px !important; }
+  [style*="강의계획서"], [style*="읽기자료"], [style*="과제보기"], [style*="아직 자료"] {
+    font-size: 10px !important;
+    padding: 4px 7px !important;
+    white-space: nowrap;
+  }
+
   /* ── 홈: 공지 카드 ── */
-  #home-notices-container > div { padding: 12px !important; margin-bottom: 8px !important; }
-  #home-notices-container .notice-title { font-size: 13px !important; }
-
-  /* ── 홈: 최근공지 헤더 버튼 ── */
-  [style*="전체보기"] { font-size: 10px !important; padding: 4px 8px !important; }
-
-  /* ── 홈: 앞으로 2주 ── */
-  #upcoming-list > div { padding: 10px 12px !important; }
-  #upcoming-list .session-title { font-size: 13px !important; }
+  #home-notices-container > div { padding: 11px 12px !important; margin-bottom: 8px !important; }
+  #home-notices-container .notice-title { font-size: 12px !important; }
 
   /* ── 공지&링크 탭: 플랫폼 그리드 → 1열 ── */
+  .platform-grid { grid-template-columns: 1fr !important; }
   [style*="display:grid;grid-template-columns:repeat(2"] { grid-template-columns: 1fr !important; }
   [style*="grid-template-columns:repeat(2,1fr)"] { grid-template-columns: 1fr !important; }
   [style*="grid-template-columns: repeat(2"] { grid-template-columns: 1fr !important; }
 
   /* ── 공지&링크 탭: 아카이브 카드 ── */
   #notice-archive-section > div > div { padding: 12px 14px !important; }
-  .mail-card { padding: 14px; }
+  .mail-card { padding: 12px; }
   .mail-header { flex-wrap: wrap; gap: 6px; }
   .mail-body { font-size: 12px; }
 
   /* ── 강의읽기자료 탭 ── */
-  .page-title { font-size: 22px !important; }
+  .page-title { font-size: 20px !important; }
   [style*="grid-template-columns:repeat(2,1fr)"] { grid-template-columns: 1fr !important; }
   .session-title { font-size: 14px !important; }
   .paper-title { font-size: 13px !important; }
-  .paper-type { font-size: 10px !important; min-width: 36px !important; }
+  .paper-type { font-size: 10px !important; min-width: 34px !important; }
 
   /* ── 선택 과목 바 ── */
-  #selected-subject-bar { flex-wrap: wrap !important; gap: 8px !important; padding: 12px 14px !important; }
+  #selected-subject-bar { flex-wrap: wrap !important; gap: 8px !important; padding: 11px 13px !important; }
   #selected-subject-btns { flex-wrap: wrap !important; gap: 6px !important; }
+  #selected-subject-name { font-size: 16px !important; }
 
   /* ── 과제일정관리 탭 ── */
   table.sched { font-size: 12px; }
@@ -865,11 +884,8 @@ table.sched td {
   [style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
   [style*="grid-template-columns:repeat(4"] { grid-template-columns: repeat(2,1fr) !important; }
 
-  /* ── 스케줄표 ── */
   .assign-grid { grid-template-columns: 1fr; }
   .resource-grid { grid-template-columns: 1fr; }
-
-  /* ── 통계 ── */
   .hero-stats { flex-wrap: wrap; }
   .stat-card { min-width: 110px; }
 }
@@ -1257,7 +1273,7 @@ table.sched td {
       <!-- 앞으로 2주 주요 일정 -->
   <div style="margin-bottom:28px;">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px;">
-      <div style="font-size:18px;font-weight:700;color:#1C1C1E;font-family:Montserrat,sans-serif;">앞으로 2주 주요 일정</div>
+      <div style="font-size:16px;font-weight:700;color:#1C1C1E;font-family:Montserrat,sans-serif;white-space:nowrap;">앞으로 2주 주요 일정</div>
       <div style="display:flex;gap:4px;align-items:center;">
         <div id="upcoming-range" style="font-size:12px;color:#8E8E93;font-family:monospace;margin-right:8px;">3/14 ~ 3/28</div>
         <button id="ubtn-list" data-uview="list" style="padding:6px 14px;border:1.5px solid #D4CFC8;border-radius:5px;background:white;color:#8E8E93;font-size:12px;font-weight:700;cursor:pointer;font-family:&#39;Noto Sans KR&#39;,sans-serif;">리스트</button>
@@ -1474,21 +1490,6 @@ table.sched td {
         <!-- JS로 렌더링 (공지&링크탭 아카이브에서 최신 5개 연동) -->
         <div style="text-align:center;padding:20px;color:#8E8E93;font-size:13px;">
           불러오는 중...
-        </div>
-      </div>
-      <div style="margin-top:18px;padding-top:16px;border-top:1px solid var(--border-light);">
-        <div class="card-label" style="margin-bottom:12px;">주요 링크</div>
-        <div style="display:flex;flex-direction:column;gap:6px;">
-          <a href="https://lms.korea.ac.kr/" target="_blank" style="font-size:12px;color:var(--crimson);text-decoration:none;display:flex;align-items:center;gap:6px;">
-            <span style="font-size:14px;"></span> LMS — lms.korea.ac.kr
-          </a>
-          <a href="https://library.korea.ac.kr/" target="_blank" style="font-size:12px;color:var(--crimson);text-decoration:none;display:flex;align-items:center;gap:6px;">
-            <span style="font-size:14px;"></span> 고려대 도서관 — library.korea.ac.kr
-          </a>
-          <a href="https://hbsp.harvard.edu/import/1393481" target="_blank" style="font-size:12px;color:var(--crimson);text-decoration:none;display:flex;align-items:center;gap:6px;">
-            <span style="font-size:14px;"></span> HBS 케이스 다운로드 — HBP 학생계정
-          </a>
-
         </div>
       </div>
     </div>
@@ -2242,7 +2243,6 @@ table.sched td {
         <thead>
           <tr style="background:#8B0029;color:white;">
             <th style="padding:14px 18px;text-align:left;font-family:&#39;Montserrat&#39;,sans-serif;font-size:12px;letter-spacing:1px;">날짜</th>
-            <th style="padding:14px 18px;text-align:left;font-family:&#39;Montserrat&#39;,sans-serif;font-size:12px;letter-spacing:1px;">과목</th>
             <th style="padding:14px 18px;text-align:left;font-family:&#39;Montserrat&#39;,sans-serif;font-size:12px;letter-spacing:1px;">내용</th>
             <th style="padding:14px 18px;text-align:left;font-family:&#39;Montserrat&#39;,sans-serif;font-size:12px;letter-spacing:1px;">유형</th>
             <th style="padding:14px 18px;text-align:left;font-family:&#39;Montserrat&#39;,sans-serif;font-size:12px;letter-spacing:1px;">비중</th>
@@ -2262,14 +2262,14 @@ table.sched td {
 
 <section class="section" id="resources">
   <div class="page-header">
-    <div class="page-title"><small>Notices &amp; Links</small>공지 &amp; 링크</div>
+    <div class="page-title" style="color:#8B0029;"><small style="color:#B8972A;">Notices &amp; Links</small>공지 &amp; 링크</div>
   </div>
 
   <!-- ── 주요 학습 플랫폼 (맨 위) ── -->
   <div style="margin-bottom:28px;">
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
       <div style="width:4px;height:22px;background:linear-gradient(180deg,#8B0029,#B8972A);border-radius:2px;"></div>
-      <span style="font-size:13px;font-weight:800;color:#1C1C1E;letter-spacing:0.5px;">🔗 주요 학습 플랫폼</span>
+      <span style="font-size:13px;font-weight:800;color:#8B0029;letter-spacing:0.5px;">주요 학습 플랫폼</span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;" class="platform-grid">
 
@@ -2404,7 +2404,7 @@ table.sched td {
   <div class="notice-archive-section" id="notice-archive-section" style="margin-bottom:24px;">
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
       <div style="width:4px;height:22px;background:linear-gradient(180deg,#8B0029,#B8972A);border-radius:2px;"></div>
-      <span style="font-size:13px;font-weight:800;color:#1C1C1E;letter-spacing:0.5px;">📬 공지 및 수신메일 아카이브</span>
+      <span style="font-size:13px;font-weight:800;color:#8B0029;letter-spacing:0.5px;">공지 및 수신메일 아카이브</span>
     </div>
 
     <!-- 3/14 김태규 교수님 -->
@@ -3441,7 +3441,6 @@ function renderTable() {
     var typeLabel = e.type==='assign' ? '<span style="background:#FFF0F0;color:#FF3B30;padding:3px 8px;border-radius:4px;font-size:12px;font-weight:700;">과제</span>' : '<span style="background:#F0F4FF;color:#1E4D8C;padding:3px 8px;border-radius:4px;font-size:12px;font-weight:700;">수업</span>';
     return '<tr style="background:'+bg+';border-bottom:1px solid #F0EDE8;">' +
       '<td style="padding:14px 18px;font-family:monospace;font-size:13px;white-space:nowrap;color:#48484A;">'+e.date.replace('2026-','')+'</td>' +
-      '<td style="padding:14px 18px;"><span style="background:'+e.color+';color:white;padding:3px 10px;border-radius:4px;font-size:12px;font-weight:700;">'+e.course+'</span></td>' +
       '<td style="padding:14px 18px;font-size:14px;color:#1C1C1E;font-weight:600;">'+e.title+'<br><span style="font-size:12px;color:#8E8E93;font-weight:400;">'+e.detail+'</span></td>' +
       '<td style="padding:14px 18px;">'+typeLabel+'</td>' +
       '<td style="padding:14px 18px;font-size:13px;font-weight:700;color:'+e.color+';">'+(e.weight||'—')+'</td>' +
@@ -3479,7 +3478,6 @@ function renderList() {
           '</div>' +
           '<div style="flex:1;">' +
           '<div style="display:flex;gap:8px;align-items:center;margin-bottom:4px;">' +
-          '<span style="background:'+e.color+';color:white;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;">'+e.course+'</span>' +
           (e.type==='assign'?getLabelBadge(e):'<span style="background:#F0F4FF;color:#1E4D8C;font-size:11px;padding:2px 6px;border-radius:4px;font-weight:700;">수업</span>') +
           '</div>' +
           '<div style="font-size:15px;font-weight:700;color:#1C1C1E;">'+e.title+'</div>' +
@@ -3556,15 +3554,15 @@ function renderList() {
 
       var labelTag = getLabelBadge(e);
 
-      return '<div style="display:flex;align-items:center;gap:12px;padding:14px 18px;background:white;border:1px solid ' + (isAssign ? '#FFCDD0' : '#E5E0D8') + ';border-left:4px solid ' + e.color + ';border-radius:8px;">'
-        + '<div style="min-width:64px;text-align:center;">'
-        + '<div style="font-size:12px;color:#8E8E93;font-family:monospace;">' + e.date.replace('2026-','') + '</div>'
-        + '<div style="margin-top:4px;padding:3px 8px;background:' + ddayBg + ';color:white;border-radius:4px;font-size:12px;font-weight:700;display:inline-block;">' + ddayText + '</div>'
+      return '<div style="display:flex;align-items:flex-start;gap:10px;padding:12px 14px;background:white;border:1px solid ' + (isAssign ? '#FFCDD0' : '#E5E0D8') + ';border-left:4px solid ' + e.color + ';border-radius:8px;">'
+        + '<div style="min-width:54px;flex-shrink:0;text-align:center;">'
+        + '<div style="font-size:11px;color:#8E8E93;font-family:monospace;">' + e.date.replace('2026-','') + '</div>'
+        + '<div style="margin-top:4px;padding:3px 6px;background:' + ddayBg + ';color:white;border-radius:4px;font-size:11px;font-weight:700;display:inline-block;">' + ddayText + '</div>'
         + '</div>'
         + '<div style="flex:1;min-width:0;">'
-        + '<div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;flex-wrap:wrap;">' + labelTag + '</div>'
-        + '<div style="font-size:15px;font-weight:700;color:#1C1C1E;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">' + e.title + '</div>'
-        + '<div style="font-size:12px;color:#8E8E93;margin-top:1px;">' + e.detail + '</div>'
+        + '<div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;flex-wrap:wrap;">' + labelTag + '</div>'
+        + '<div style="font-size:14px;font-weight:700;color:#1C1C1E;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">' + e.title + '</div>'
+        + '<div style="font-size:11px;color:#8E8E93;margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">' + e.detail + '</div>'
         + '</div>'
         + (e.weight ? '<div style="font-size:14px;font-weight:700;color:' + e.color + ';white-space:nowrap;">' + e.weight + '</div>' : '')
         + '</div>';
@@ -3630,13 +3628,13 @@ function renderList() {
       if (lk2 && e.type === 'class') {
         var lecMat2 = (lk2.lecMaterials && lk2.lecMaterials[e.date]) ? lk2.lecMaterials[e.date] : null;
         var lecBtn2 = lecMat2
-          ? '<a href="'+lecMat2.url+'" target="_blank" style="padding:5px 10px;background:'+e.color+';color:white;border-radius:5px;font-size:11px;font-weight:700;text-decoration:none;white-space:nowrap;">📂 '+lecMat2.name+'</a>'
-          : '<span style="padding:5px 10px;background:#F2F2F7;color:#8E8E93;border-radius:5px;font-size:11px;font-weight:600;white-space:nowrap;">📂 아직 자료가 없습니다</span>';
-        btns2 = '<div style="display:flex;gap:5px;margin-top:8px;flex-wrap:wrap;">'
-          + (lk2.syllabus ? '<a href="'+lk2.syllabus+'" target="_blank" style="padding:5px 10px;background:white;color:'+e.color+';border:1.5px solid '+e.color+';border-radius:5px;font-size:11px;font-weight:700;text-decoration:none;white-space:nowrap;">📄 강의계획서</a>' : '')
+          ? '<a href="'+lecMat2.url+'" target="_blank" style="padding:4px 8px;background:'+e.color+';color:white;border-radius:5px;font-size:10px;font-weight:700;text-decoration:none;white-space:nowrap;">📂 '+lecMat2.name+'</a>'
+          : '<span style="padding:4px 8px;background:#F2F2F7;color:#8E8E93;border-radius:5px;font-size:10px;font-weight:600;white-space:nowrap;">📂 아직 자료가 없습니다</span>';
+        btns2 = '<div style="display:flex;gap:4px;margin-top:8px;flex-wrap:wrap;">'
+          + (lk2.syllabus ? '<a href="'+lk2.syllabus+'" target="_blank" style="padding:4px 8px;background:white;color:'+e.color+';border:1.5px solid '+e.color+';border-radius:5px;font-size:10px;font-weight:700;text-decoration:none;white-space:nowrap;">📄 강의계획서</a>' : '')
           + lecBtn2
-          + '<button onclick="goToSection(&apos;papers&apos;)" style="padding:5px 10px;background:white;color:'+e.color+';border:1.5px solid '+e.color+';border-radius:5px;font-size:11px;font-weight:700;cursor:pointer;white-space:nowrap;">📖 읽기자료</button>'
-          + '<button onclick="goToSection(&apos;assignments&apos;)" style="padding:5px 10px;background:white;color:'+e.color+';border:1.5px solid '+e.color+';border-radius:5px;font-size:11px;font-weight:700;cursor:pointer;white-space:nowrap;">📝 과제보기</button>'
+          + '<button onclick="goToSection(&apos;papers&apos;)" style="padding:4px 8px;background:white;color:'+e.color+';border:1.5px solid '+e.color+';border-radius:5px;font-size:10px;font-weight:700;cursor:pointer;white-space:nowrap;">📖 읽기자료</button>'
+          + '<button onclick="goToSection(&apos;assignments&apos;)" style="padding:4px 8px;background:white;color:'+e.color+';border:1.5px solid '+e.color+';border-radius:5px;font-size:10px;font-weight:700;cursor:pointer;white-space:nowrap;">📝 과제보기</button>'
           + '</div>';
       }
       return '<div style="background:white;border:1px solid '+(isAssign?'#FFCDD0':'#E5E0D8')+';border-left:4px solid '+e.color+';border-radius:8px;margin-bottom:8px;padding:13px 16px;">'
