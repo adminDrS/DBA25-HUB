@@ -1522,6 +1522,7 @@ table.sched td {
 <!-- ══════════════ TIMETABLE ══════════════ -->
 <section class="section" id="timetable">
 
+  <div id="bd-banner-tt" style="margin-bottom:10px;"></div>
 
   <!-- ── 뷰 전환 버튼 ── -->
   <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;">
@@ -2233,6 +2234,23 @@ table.sched td {
 
   <!-- ── CALENDAR VIEW ── -->
   <div id="view-calendar">
+    <div id="bd-banner-cal" style="margin-bottom:8px;"></div>
+    <!-- 생일 안내 -->
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px;padding:10px 14px;background:#FFF0F8;border:1px solid #F8BBD9;border-radius:10px;">
+      <div style="font-size:13px;color:#C2185B;font-weight:700;">🎂 원우님들 생일 표시해두었습니다.</div>
+      <button onclick="toggleBirthdayList()" id="bd-toggle-btn"
+        style="padding:6px 14px;background:#C2185B;color:white;border:none;border-radius:6px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">
+        생일 리스트 보기
+      </button>
+    </div>
+    <!-- 생일 리스트 (토글) -->
+    <div id="birthday-list" style="display:none;margin-bottom:14px;background:white;border:1px solid #F8BBD9;border-radius:10px;overflow:hidden;">
+      <div style="background:#C2185B;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;">
+        <span style="font-size:14px;font-weight:800;color:white;">🎂 2026학번 원우 생일 리스트</span>
+        <button onclick="toggleBirthdayList()" style="background:none;border:none;color:white;font-size:18px;cursor:pointer;padding:0 4px;">×</button>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;" id="birthday-grid"></div>
+    </div>
     <div style="background:white;border:1px solid var(--border);border-radius:12px;overflow:hidden;">
       <!-- Month header -->
       <div style="background:#8B0029;color:white;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;">
@@ -2261,6 +2279,7 @@ table.sched td {
 
   <!-- ── TABLE VIEW ── -->
   <div id="view-table" style="display:none;">
+    <div id="bd-banner-table" style="margin-bottom:8px;"></div>
     <div style="background:white;border:1px solid var(--border);border-radius:12px;overflow:hidden;">
       <table style="width:100%;border-collapse:collapse;font-size:15px;">
         <thead>
@@ -2278,6 +2297,7 @@ table.sched td {
 
   <!-- ── LIST VIEW ── -->
   <div id="view-list" style="display:none;">
+    <div id="bd-banner-list" style="margin-bottom:8px;"></div>
     <div id="list-body" style="display:flex;flex-direction:column;gap:12px;"></div>
   </div>
 
@@ -2646,6 +2666,45 @@ table.sched td {
 </section>
 
 <script>
+// ── 생일 리스트 토글 ──
+function toggleBirthdayList() {
+  var list = document.getElementById('birthday-list');
+  var btn = document.getElementById('bd-toggle-btn');
+  var isOpen = list.style.display !== 'none';
+  list.style.display = isOpen ? 'none' : 'block';
+  if (btn) btn.textContent = isOpen ? '생일 리스트 보기' : '리스트 닫기';
+  if (!isOpen) renderBirthdayGrid();
+}
+
+function renderBirthdayGrid() {
+  var grid = document.getElementById('birthday-grid');
+  if (!grid) return;
+  var months = ['','1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
+  var today = new Date();
+  var sorted = birthdays.slice().sort(function(a,b){
+    // 올해 기준 다음 생일 순
+    var da = new Date(today.getFullYear(), a.month-1, a.day);
+    var db = new Date(today.getFullYear(), b.month-1, b.day);
+    if (da < today) da.setFullYear(da.getFullYear()+1);
+    if (db < today) db.setFullYear(db.getFullYear()+1);
+    return da - db;
+  });
+  grid.innerHTML = sorted.map(function(b) {
+    var bDate = new Date(today.getFullYear(), b.month-1, b.day);
+    if (bDate < today) bDate.setFullYear(bDate.getFullYear()+1);
+    var diff = Math.ceil((bDate - today) / (1000*60*60*24));
+    var isToday = diff === 0;
+    var soon = diff <= 30;
+    return '<div style="padding:10px 12px;border-bottom:1px solid #FDE8F0;border-right:1px solid #FDE8F0;text-align:center;">'
+      + '<div style="font-size:11px;color:#C2185B;font-weight:700;margin-bottom:2px;">🎂 Birthday · ' + months[b.month] + ' ' + b.day + '일</div>'
+      + '<div style="font-size:13px;font-weight:800;color:#1C1C1E;">' + b.name + ' 원우님</div>'
+      + '<div style="margin-top:4px;">'
+      + (isToday ? '<span style="background:#FF3B30;color:white;padding:1px 7px;border-radius:4px;font-size:10px;font-weight:700;">🎉 오늘!</span>'
+        : '<span style="background:'+(soon?'#FFF0F8':'#F5F5F7')+';color:'+(soon?'#C2185B':'#8E8E93')+';padding:1px 7px;border-radius:4px;font-size:10px;font-weight:600;">D-'+diff+'</span>')
+      + '</div></div>';
+  }).join('');
+}
+
 // ── 홈 최근 공지 연동 (공지&링크탭 아카이브에서 최신 5개) ──
 function renderHomeNotices() {
   var container = document.getElementById('home-notices-container');
@@ -2739,6 +2798,22 @@ function closeModal(id){document.getElementById('modal-'+id).style.display='none
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── 시간표 데이터 ──
+
+// ── 원우 생일 데이터 ──
+var birthdays = [
+  {month:2,  day:21, name:'박유상'},
+  {month:2,  day:27, name:'박성준'},
+  {month:4,  day:20, name:'황용철'},
+  {month:5,  day:25, name:'정효이'},
+  {month:5,  day:31, name:'김영환'},
+  {month:6,  day:24, name:'조제효'},
+  {month:7,  day:9,  name:'정영아'},
+  {month:8,  day:3,  name:'문형규'},
+  {month:10, day:15, name:'장우석'},
+  {month:12, day:19, name:'은경아'},
+  {month:12, day:25, name:'조수연'},
+];
+
 var ttEvents = [
   {date:'2026-03-13', time:'15:00-18:00', subject:'전략', prof:'이재민', color:'#8B0029', room:'LP429'},
   {date:'2026-03-14', time:'09:00-12:00', subject:'조직행동', prof:'장진욱', color:'#1E4D8C', room:'LP429'},
@@ -2777,6 +2852,9 @@ var ttEvents = [
 var ttYear = 2026, ttMonth = 2; // 0-indexed: 2=3월
 
 function switchTTView(v) {
+  // 생일 배너
+  var bdEl = document.getElementById('bd-banner-tt');
+  if (bdEl && typeof getBirthdayAlert === 'function') bdEl.innerHTML = getBirthdayAlert();
   ['cal','table','list'].forEach(function(n) {
     var el = document.getElementById('tt-view-'+n);
     var btn = document.getElementById('tt-btn-'+n);
@@ -2829,6 +2907,15 @@ function renderTTCal() {
       more.style.cssText = 'font-size:9px;color:#8E8E93;margin-top:1px;';
       more.textContent = '+' + (dayEvts.length-4) + '개';
       cell.appendChild(more);
+    }
+    // 생일 표시
+    if (typeof birthdays !== 'undefined') {
+      birthdays.filter(function(b){ return b.month===(ttMonth+1) && b.day===d; }).forEach(function(b) {
+        var bdot = document.createElement('div');
+        bdot.style.cssText = 'font-size:9px;padding:1px 4px;border-radius:2px;margin-top:2px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;background:#FFF0F8;color:#C2185B;border:1px solid #F8BBD9;';
+        bdot.textContent = b.name + ' 원우님 Birthday 🎂';
+        cell.appendChild(bdot);
+      });
     }
     (function(ds, evts) {
       cell.onclick = function() {
@@ -2887,6 +2974,19 @@ function renderTTList() {
           + '<div style="font-size:12px;color:#8E8E93;">'+e.prof+'</div></div>'
           + '</div>';
       }).join('')
+      + (function(){
+          if (typeof birthdays === 'undefined') return '';
+          var dtParts = ds.split('-');
+          var m = parseInt(dtParts[1]); var d = parseInt(dtParts[2]);
+          return birthdays.filter(function(b){ return b.month===m && b.day===d; }).map(function(b){
+            return '<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed #F0EDE8;">'
+              + '<div style="font-family:monospace;font-size:11px;color:#C2185B;white-space:nowrap;min-width:80px;">🎂</div>'
+              + '<div style="width:4px;height:32px;background:#F8BBD9;border-radius:2px;flex-shrink:0;"></div>'
+              + '<div><div style="font-size:14px;font-weight:700;color:#C2185B;">'+b.name+' 원우님 Birthday 🎂</div>'
+              + '<div style="font-size:12px;color:#E91E63;">'+b.month+'/'+b.day+'</div></div>'
+              + '</div>';
+          }).join('');
+        })()
       + '</div></div>';
   }).join('');
 }
@@ -3071,11 +3171,10 @@ var scheduleEvents = [
 {date:'2026-05-09', type:'class', course:'DBA103', label:'인사이트', title:'경영인사이트 (김태규 교수님) · 5주차', detail:'발표: 황용철 · 김영환 · 13:00–15:50', color:'#B8972A'},
 {date:'2026-05-29', type:'class', course:'DBA211', label:'전략', title:'전략 (이재민 교수님) · 6주차', detail:'기업집단 — Business Groups · 15:00–18:00', color:'#8B0029'},
 {date:'2026-05-30', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 6주차', detail:'협력과 갈등 — Collaboration & Conflict · 09:00–12:00 · 📝 심층적인 토론 준비', color:'#1E4D8C'},
-{date:'2026-05-16', type:'class', course:'DBA213', label:'마케팅', title:'마케팅 (유시진 교수님) · 6주차', detail:'소셜미디어와 구전 · 13:00–16:00 · 💭 구전의 마케팅 역할 · 소셜미디어 연구주제', color:'#1A6B3A'},
+{date:'2026-05-30', type:'class', course:'DBA213', label:'마케팅', title:'마케팅 (유시진 교수님) · 6주차', detail:'소셜미디어와 구전 · 13:00–16:00 · 💭 구전의 마케팅 역할 · 소셜미디어 연구주제', color:'#1A6B3A'},
 {date:'2026-06-13', type:'class', course:'DBA103', label:'인사이트', title:'경영인사이트 (김태규 교수님) · 6주차', detail:'발표: 정효이 · 장우석 · 09:00–11:50', color:'#B8972A'},
 {date:'2026-06-12', type:'class', course:'DBA211', label:'전략', title:'전략 (이재민 교수님) · 7주차', detail:'신사업 개발 — Corporate Entrepreneurship · 15:00–18:00', color:'#8B0029'},
 {date:'2026-06-13', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 7주차', detail:'조직문화와 조직풍토 — Organizational Culture & Climate · 16:00–19:00 · 📝 심층적인 토론 준비', color:'#1E4D8C'},
-{date:'2026-05-30', type:'class', course:'DBA213', label:'마케팅', title:'마케팅 (유시진 교수님) · 6주차', detail:'소셜미디어와 구전 · 13:00–16:00 · 💭 구전의 마케팅 역할 · 소셜미디어 연구주제', color:'#1A6B3A'},
 {date:'2026-05-30', type:'class', course:'DBA213', label:'마케팅', title:'마케팅 (유시진 교수님) · 7주차', detail:'마케팅 애널리틱스와 AI · 16:00–19:00 · 💭 AI 마케팅 연구주제 · 애널리틱스 적용 분야', color:'#1A6B3A'},
 {date:'2026-06-13', type:'class', course:'DBA103', label:'인사이트', title:'경영인사이트 (김태규 교수님) · 7주차', detail:'발표: 정영아 · 박성준 · 13:00–15:50', color:'#B8972A'},
 {date:'2026-06-26', type:'class', course:'DBA211', label:'전략', title:'전략 (이재민 교수님) · 8주차', detail:'AI와 전략 — AI & Strategy · 15:00–18:00', color:'#8B0029'},
@@ -3106,8 +3205,8 @@ var scheduleEvents = [
 {date:'2026-04-25', type:'assign', course:'DBA213', label:'마케팅 ②아이디어', title:'마케팅 연구아이디어 발표 — 정효이·조수연·조제효·황용철', detail:'연구아이디어 4명 · 세션4 · 16:00–19:00', color:'#0D5A2E', weight:'20%'},
 {date:'2026-05-09', type:'assign', course:'DBA213', label:'마케팅 ①발제', title:'마케팅 기존문헌발제 — 안재진·은경아', detail:'문헌 발제 2명 · 세션5 · 16:00–19:00', color:'#1A6B3A', weight:'20%'},
 {date:'2026-05-09', type:'assign', course:'DBA213', label:'마케팅 ②아이디어', title:'마케팅 연구아이디어 발표 — 김영환·문형규·박성준·박유상', detail:'연구아이디어 4명 · 세션5 · 16:00–19:00', color:'#0D5A2E', weight:'20%'},
-{date:'2026-05-16', type:'assign', course:'DBA213', label:'마케팅 ①발제', title:'마케팅 기존문헌발제 — 박성준·박유상', detail:'문헌 발제 2명 · 세션6 · 13:00–16:00', color:'#1A6B3A', weight:'20%'},
-{date:'2026-05-16', type:'assign', course:'DBA213', label:'마케팅 ②아이디어', title:'마케팅 연구아이디어 발표 — 안재진·은경아·장우석·정영아', detail:'연구아이디어 4명 · 세션6 · 13:00–16:00', color:'#0D5A2E', weight:'20%'},
+{date:'2026-05-30', type:'assign', course:'DBA213', label:'마케팅 ①발제', title:'마케팅 기존문헌발제 — 박성준·박유상', detail:'문헌 발제 2명 · 세션6 · 13:00–16:00', color:'#1A6B3A', weight:'20%'},
+{date:'2026-05-30', type:'assign', course:'DBA213', label:'마케팅 ②아이디어', title:'마케팅 연구아이디어 발표 — 안재진·은경아·장우석·정영아', detail:'연구아이디어 4명 · 세션6 · 13:00–16:00', color:'#0D5A2E', weight:'20%'},
 {date:'2026-05-30', type:'assign', course:'DBA213', label:'마케팅 ①발제', title:'마케팅 기존문헌발제 — 김영환·문형규', detail:'문헌 발제 2명 · 세션7 · 16:00–19:00', color:'#1A6B3A', weight:'20%'},
 {date:'2026-05-30', type:'assign', course:'DBA213', label:'마케팅 ②아이디어', title:'마케팅 연구아이디어 발표 — 정효이·조수연·조제효·황용철', detail:'연구아이디어 4명 · 세션7 · 16:00–19:00', color:'#0D5A2E', weight:'20%'},
 {date:'2026-03-13', type:'assign', course:'DBA211', label:'전략 과제', title:'전략 시사점 보고서 1주차 — 경쟁전략 — Competitive Strategy', detail:'최대 2page · bullet 형식 · 수업 당일 제출', color:'#8B0029', weight:'50%'},
@@ -3521,6 +3620,12 @@ document.addEventListener('DOMContentLoaded', function() {
 // ── 일정 데이터 ──
 // ── View switcher ──
 function switchView(v) {
+  // 생일 배너 표시
+  var bdHtml = (typeof getBirthdayAlert === 'function') ? getBirthdayAlert() : '';
+  ['calendar','table','list'].forEach(function(n) {
+    var bdEl = document.getElementById('bd-banner-'+n);
+    if (bdEl) bdEl.innerHTML = bdHtml;
+  });
   ['calendar','table','list'].forEach(function(n) {
     document.getElementById('view-'+n).style.display = (n===v) ? 'block' : 'none';
     var btn = document.getElementById('btn-'+n);
@@ -3574,6 +3679,14 @@ function renderCalendar() {
       dot.style.cssText = 'font-size:10px;padding:2px 5px;border-radius:3px;margin-top:2px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:white;background:'+e.color+';';
       dot.textContent = (e.type==='assign'?'📌':'') + e.label;
       cell.appendChild(dot);
+    });
+    // 생일 표시
+    var bdays = birthdays.filter(function(b){ return b.month===(calMonth+1) && b.day===d; });
+    bdays.forEach(function(b) {
+      var bdot = document.createElement('div');
+      bdot.style.cssText = 'font-size:10px;padding:2px 5px;border-radius:3px;margin-top:2px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;background:#FFF0F8;color:#C2185B;border:1px solid #F8BBD9;';
+      bdot.textContent = b.name + ' 원우님 Birthday 🎂';
+      cell.appendChild(bdot);
     });
     if (dayEvents.length > 5) {
       var more = document.createElement('div');
@@ -3664,6 +3777,16 @@ function renderList() {
 
 // Init calendar on load
   renderCalendar();
+  // 생일 배너 초기 로드 (모든 탭)
+  setTimeout(function() {
+    var bdHtml = (typeof getBirthdayAlert === 'function') ? getBirthdayAlert() : '';
+    ['cal','table','list'].forEach(function(n) {
+      var el = document.getElementById('bd-banner-'+n);
+      if (el) el.innerHTML = bdHtml;
+    });
+    var ttEl = document.getElementById('bd-banner-tt');
+    if (ttEl) ttEl.innerHTML = bdHtml;
+  }, 300);
 
   // View toggle buttons
   document.querySelectorAll('[data-view]').forEach(function(btn) {
@@ -3772,6 +3895,39 @@ function renderList() {
   }
 
   // ── 리스트 뷰 ──
+
+  // ── 4주 이내 생일 알림 ──
+  function getBirthdayAlert() {
+    if (typeof birthdays === 'undefined') return '';
+    var today = new Date(); today.setHours(0,0,0,0);
+    var upcoming = [];
+    birthdays.forEach(function(b) {
+      // 올해 생일
+      var bdThis = new Date(today.getFullYear(), b.month-1, b.day);
+      bdThis.setHours(0,0,0,0);
+      // 내년 생일 (연말 경계 처리)
+      var bdNext = new Date(today.getFullYear()+1, b.month-1, b.day);
+      bdNext.setHours(0,0,0,0);
+      var bd = bdThis >= today ? bdThis : bdNext;
+      var diff = Math.ceil((bd - today) / (1000*60*60*24));
+      if (diff <= 28) {
+        upcoming.push({name: b.name, month: b.month, day: b.day, diff: diff});
+      }
+    });
+    if (!upcoming.length) return '';
+    upcoming.sort(function(a,b){ return a.diff - b.diff; });
+    var html = '<div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:#FFF0F8;border:1px solid #F8BBD9;border-radius:10px;margin-bottom:10px;flex-wrap:wrap;gap:6px;">'
+      + '<span style="font-size:14px;">🎂</span>'
+      + '<span style="font-size:12px;font-weight:700;color:#C2185B;">4주 이내 생일</span>'
+      + upcoming.map(function(b) {
+          var label = b.diff === 0 ? '🎉 오늘!' : b.diff === 1 ? '내일!' : 'D-'+b.diff;
+          var bg = b.diff === 0 ? '#C2185B' : b.diff <= 3 ? '#E91E63' : '#F06292';
+          return '<span style="background:'+bg+';color:white;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:700;white-space:nowrap;">'+b.name+' 원우님 Birthday '+b.month+'/'+b.day+' ('+label+')</span>';
+        }).join('')
+      + '</div>';
+    return html;
+  }
+
   function renderUpcomingList() {
     var el = document.getElementById('upcoming-list');
     var rangeEl = document.getElementById('upcoming-range');
@@ -3781,12 +3937,14 @@ function renderList() {
     var twoWeeks = new Date(today); twoWeeks.setDate(today.getDate()+14);
     var fmt = function(d){ return (d.getMonth()+1)+'/'+d.getDate(); };
     if (rangeEl) rangeEl.textContent = fmt(today)+' ~ '+fmt(twoWeeks);
+    // 생일 알림 배너
+    var bdBanner = getBirthdayAlert();
     if (!events.length) {
-      el.innerHTML = '<div style="text-align:center;padding:24px;color:#8E8E93;font-size:15px;background:white;border-radius:10px;border:1px solid #E5E0D8;">앞으로 2주간 일정이 없습니다.</div>';
+      el.innerHTML = bdBanner + '<div style="text-align:center;padding:24px;color:#8E8E93;font-size:15px;background:white;border-radius:10px;border:1px solid #E5E0D8;">앞으로 2주간 일정이 없습니다.</div>';
       return;
     }
     el.style.flexDirection = 'column';
-    el.innerHTML = events.map(function(e) {
+    el.innerHTML = (bdBanner||getBirthdayAlert()) + events.map(function(e) {
       var eDate = new Date(e.date); eDate.setHours(0,0,0,0);
       var diff = Math.ceil((eDate-today)/(1000*60*60*24));
       var ddayBg = diff===0?'#FF3B30':diff<=3?'#FF9500':diff<=7?'#8B0029':'#48484A';
@@ -3839,8 +3997,10 @@ function renderList() {
     // Group by date
     var byDate = {};
     events.forEach(function(e){ if (!byDate[e.date]) byDate[e.date]=[]; byDate[e.date].push(e); });
+    // 생일 알림 배너
+    var bdBanner = getBirthdayAlert();
     if (!events.length) {
-      el.innerHTML = '<div style="text-align:center;padding:24px;color:#8E8E93;font-size:15px;background:white;border-radius:10px;border:1px solid #E5E0D8;">앞으로 2주간 일정이 없습니다.</div>';
+      el.innerHTML = bdBanner + '<div style="text-align:center;padding:24px;color:#8E8E93;font-size:15px;background:white;border-radius:10px;border:1px solid #E5E0D8;">앞으로 2주간 일정이 없습니다.</div>';
       return;
     }
     // Show as date-grouped cards
@@ -3898,8 +4058,10 @@ function renderList() {
     if (!el) return;
     var events = getUpcomingEvents();
     var today = new Date(); today.setHours(0,0,0,0);
+    // 생일 알림 배너
+    var bdBanner = getBirthdayAlert();
     if (!events.length) {
-      el.innerHTML = '<div style="text-align:center;padding:24px;color:#8E8E93;font-size:15px;background:white;border-radius:10px;border:1px solid #E5E0D8;">앞으로 2주간 일정이 없습니다.</div>';
+      el.innerHTML = bdBanner + '<div style="text-align:center;padding:24px;color:#8E8E93;font-size:15px;background:white;border-radius:10px;border:1px solid #E5E0D8;">앞으로 2주간 일정이 없습니다.</div>';
       return;
     }
     el.innerHTML = '<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;background:white;border-radius:10px;overflow:hidden;border:1px solid #E5E0D8;font-size:14px;">'
