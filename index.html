@@ -2173,9 +2173,10 @@ table.sched td {
          style="display:inline-flex;align-items:center;gap:6px;padding:9px 16px;background:#1E4D8C;color:white;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;">
         📄 강의계획서
       </a>
-      <span style="display:inline-flex;align-items:center;gap:6px;padding:9px 16px;background:#F2F2F7;color:#8E8E93;border-radius:8px;font-size:13px;font-weight:600;">
-        📂 강의자료가 아직없습니다
-      </span>
+      <a href="https://drive.google.com/file/d/1ueySd3Y3XNB-Ea0rPkwhzMwl9QLQ8wp9/view?usp=drive_link" target="_blank"
+         style="display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border:2px solid #1E4D8C;color:#1E4D8C;background:white;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;">
+        📂 1주차 강의자료
+      </a>
     </div>
     <p style="font-size:13px;color:#8E8E93;margin:0 0 16px 0;line-height:1.6;">
       필요하신 주차를 선택하시면, 주차별로 해당하는 읽기자료와 강의자료를 보실 수 있습니다.
@@ -3323,7 +3324,8 @@ var courseLinks = {
     // 조직행동 (장진욱 교수님) DBA212
     'DBA212': {
       syllabus: 'https://drive.google.com/file/d/1vV2FWOKubLnaXReXG6plMpP0RQdsYtwk/view?usp=drivesdk',
-      lecMaterials: {},
+      lecMaterials: {'2026-03-14': {url: 'https://drive.google.com/file/d/1ueySd3Y3XNB-Ea0rPkwhzMwl9QLQ8wp9/view?usp=drive_link', name: '1주차 강의자료'}},
+
       papers: 'papers',
       assign: 'assignments'
     },
@@ -3354,31 +3356,32 @@ var scheduleEvents = [
 {date:'2026-03-14', type:'class', course:'DBA213', label:'마케팅', title:'마케팅 (유시진 교수님) · 1주차', detail:'마케팅의 본질과 연구 개괄 · 16:00–19:00 · 💭 마케팅의 본질적 역할 · 관심 연구문제', color:'#1A6B3A'},
 {date:'2026-03-14', type:'class', course:'DBA103', label:'인사이트', title:'경영인사이트 (김태규 교수님) · 1주차', detail:'지도교수 탐색 — Advisor Discussion · 13:00–15:50', color:'#B8972A'},
 {date:'2026-03-27', type:'class', course:'DBA211', label:'전략', title:'전략 (이재민 교수님) · 2주차', detail:'M&A / 전략적 제휴 · 15:00–18:00', color:'#8B0029'},
-{date:'2026-03-28', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 2주차', detail:'직장 내의 관계 — Relationships at Work · 09:00–12:00 · 📝 심층적인 토론 준비', color:'#1E4D8C'},
+{date:'2026-03-28', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 2주차', detail:'직장 내의 관계 — Relationships at Work · 09:00–12:00 · 📝 심층적인 토론 준비 · 🎤 박유상 · 정영아', color:'#1E4D8C'},
 {date:'2026-03-28', type:'class', course:'DBA213', label:'마케팅', title:'마케팅 (유시진 교수님) · 2주차', detail:'고객 의사결정과 소비자 행동 · 16:00–19:00 · 💭 고객의사결정 단계 구분 · 소비자 행동 연구문제', color:'#1A6B3A'},
 {date:'2026-03-28', type:'class', course:'DBA103', label:'인사이트', title:'경영인사이트 (김태규 교수님) · 2주차', detail:'경영인사이트 발표, 안재진 원우 관련 특별수업으로 대체 · 발표자 다음 주로 연기 · 13:00–15:50', color:'#B8972A'},
 {date:'2026-04-10', type:'class', course:'DBA211', label:'전략', title:'전략 (이재민 교수님) · 3주차', detail:'사업 매각 — Divestitures · 15:00–18:00', color:'#8B0029'},
-{date:'2026-04-11', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 3주차', detail:'조직 내 정체성과 동일시 — Identity & Identification · 09:00–12:00 · 📝 심층적인 토론 준비', color:'#1E4D8C'},
+{date:'2026-04-11', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 3주차', detail:'조직 내 정체성과 동일시 — Identity & Identification · 09:00–12:00 · 📝 심층적인 토론 준비 · 🎤 정효이 · 장우석', color:'#1E4D8C'},
 {date:'2026-04-11', type:'class', course:'DBA213', label:'마케팅', title:'마케팅 (유시진 교수님) · 3주차', detail:'브랜드 가치와 기업 평판 · 16:00–19:00 · 💭 브랜드 가치 측정 방법 · 산업에서의 브랜드 영향', color:'#1A6B3A'},
 {date:'2026-04-11', type:'class', course:'DBA103', label:'인사이트', title:'경영인사이트 (김태규 교수님) · 3주차', detail:'발표: 조제효 · 은경아 · 13:00–15:50', color:'#B8972A'},
 {date:'2026-04-11', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — 조제효 · 은경아', detail:'Research Q 발표 · 13:00–15:50', color:'#B8972A', weight:'—'},
 {date:'2026-04-24', type:'class', course:'DBA211', label:'전략', title:'전략 (이재민 교수님) · 4주차', detail:'CEO 승계 — Succession · 15:00–18:00', color:'#8B0029'},
-{date:'2026-04-25', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 4주차', detail:'리더십 — Leadership · 09:00–12:00 · 📝 심층적인 토론 준비', color:'#1E4D8C'},
+{date:'2026-04-25', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 4주차', detail:'리더십 — Leadership · 09:00–12:00 · 📝 심층적인 토론 준비 · 🎤 박성준 · 조제효', color:'#1E4D8C'},
 {date:'2026-04-25', type:'class', course:'DBA213', label:'마케팅', title:'마케팅 (유시진 교수님) · 4주차', detail:'제품 혁신과 서비스 디자인 · 16:00–19:00 · 💭 혁신상품 시장침투 과정 · 성공·실패 제품서비스', color:'#1A6B3A'},
 {date:'2026-04-25', type:'class', course:'DBA103', label:'인사이트', title:'경영인사이트 (김태규 교수님) · 4주차', detail:'발표: 박유상 · 문형규 · 13:00–15:50', color:'#B8972A'},
 {date:'2026-05-08', type:'class', course:'DBA211', label:'전략', title:'전략 (이재민 교수님) · 5주차', detail:'이사회 / 상층부 이론 — Upper Echelons · 15:00–18:00', color:'#8B0029'},
-{date:'2026-05-09', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 5주차', detail:'권력과 조직 정치 — Power & Organizational Politics · 09:00–12:00 · 📝 심층적인 토론 준비', color:'#1E4D8C'},
+{date:'2026-05-09', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 5주차', detail:'권력과 조직 정치 — Power & Organizational Politics · 09:00–12:00 · 📝 심층적인 토론 준비 · 🎤 문형규 · 황용철', color:'#1E4D8C'},
 {date:'2026-05-09', type:'class', course:'DBA213', label:'마케팅', title:'마케팅 (유시진 교수님) · 5주차', detail:'고객가치와 기업가치 · 16:00–19:00 · 💭 고객가치 측정 방법 · 구성 요소', color:'#1A6B3A'},
 {date:'2026-05-09', type:'class', course:'DBA103', label:'인사이트', title:'경영인사이트 (김태규 교수님) · 5주차', detail:'발표: 황용철 · 김영환 · 13:00–15:50', color:'#B8972A'},
 {date:'2026-05-29', type:'class', course:'DBA211', label:'전략', title:'전략 (이재민 교수님) · 6주차', detail:'기업집단 — Business Groups · 15:00–18:00', color:'#8B0029'},
-{date:'2026-05-30', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 6주차', detail:'협력과 갈등 — Collaboration & Conflict · 09:00–12:00 · 📝 심층적인 토론 준비', color:'#1E4D8C'},
+{date:'2026-05-30', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 6주차', detail:'협력과 갈등 — Collaboration & Conflict · 09:00–12:00 · 📝 심층적인 토론 준비 · 🎤 김영환 · 은경아', color:'#1E4D8C'},
 {date:'2026-05-30', type:'class', course:'DBA213', label:'마케팅', title:'마케팅 (유시진 교수님) · 6주차', detail:'소셜미디어와 구전 · 13:00–16:00 · 💭 구전의 마케팅 역할 · 소셜미디어 연구주제', color:'#1A6B3A'},
 {date:'2026-06-13', type:'class', course:'DBA103', label:'인사이트', title:'경영인사이트 (김태규 교수님) · 6주차', detail:'발표: 정효이 · 장우석 · 09:00–11:50', color:'#B8972A'},
 {date:'2026-06-12', type:'class', course:'DBA211', label:'전략', title:'전략 (이재민 교수님) · 7주차', detail:'신사업 개발 — Corporate Entrepreneurship · 15:00–18:00', color:'#8B0029'},
-{date:'2026-06-13', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 7주차', detail:'조직문화와 조직풍토 — Organizational Culture & Climate · 16:00–19:00 · 📝 심층적인 토론 준비', color:'#1E4D8C'},
+{date:'2026-06-13', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 7주차', detail:'조직문화와 조직풍토 — Organizational Culture & Climate · 16:00–19:00 · 📝 심층적인 토론 준비 · 🎤 안재진 · 조수연', color:'#1E4D8C'},
 {date:'2026-05-30', type:'class', course:'DBA213', label:'마케팅', title:'마케팅 (유시진 교수님) · 7주차', detail:'마케팅 애널리틱스와 AI · 16:00–19:00 · 💭 AI 마케팅 연구주제 · 애널리틱스 적용 분야', color:'#1A6B3A'},
 {date:'2026-06-13', type:'class', course:'DBA103', label:'인사이트', title:'경영인사이트 (김태규 교수님) · 7주차', detail:'발표: 정영아 · 박성준 · 13:00–15:50', color:'#B8972A'},
 {date:'2026-06-26', type:'class', course:'DBA211', label:'전략', title:'전략 (이재민 교수님) · 8주차', detail:'AI와 전략 — AI & Strategy · 15:00–18:00', color:'#8B0029'},
+{date:'2026-06-27', type:'assign', course:'DBA212', label:'조직행동 연구계획서', title:'조직행동 연구계획서 제출 (Due)', detail:'연구주제 자율선정 · 15매 내외 · 실증연구 계획', color:'#1E4D8C', weight:'30%'},
 {date:'2026-06-27', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 8주차', detail:'조직행동의 미래 — Future of Organizational Behavior · 09:00–12:00 · 📝 심층적인 토론 준비', color:'#1E4D8C'},
 {date:'2026-06-27', type:'class', course:'DBA213', label:'마케팅', title:'마케팅 (유시진 교수님) · 8주차', detail:'연구제안서 발표 및 Oral Defense · 16:00–19:00 · 💭 연구제안서 발표 — 독창성·공헌도·방법론 검증', color:'#1A6B3A'},
 {date:'2026-06-27', type:'class', course:'DBA103', label:'인사이트', title:'경영인사이트 (김태규 교수님) · 8주차', detail:'발표: 조수연 · 13:00–15:50', color:'#B8972A'},
@@ -3542,7 +3545,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var dba212 = [
     { num:1, title:'일의 의미 — The Meaning of Work', date:'03/14 (토) 09:00–12:00',
+      lec_material:{name:'1주차 강의자료', view:'https://drive.google.com/file/d/1ueySd3Y3XNB-Ea0rPkwhzMwl9QLQ8wp9/view?usp=drive_link', dl:'https://drive.google.com/uc?export=download&id=1ueySd3Y3XNB-Ea0rPkwhzMwl9QLQ8wp9'},
       note:'📝 매주 과제: 지정 읽기자료 완독 후 심층적인 토론 준비 (비판적 분석 · 실무 시사점 정리)',
+      presenter:'🎤 발제·진행: 안재진 · 조수연',
+      presenter:'🎤 발제·진행: 김영환 · 은경아',
+      presenter:'🎤 발제·진행: 문형규 · 황용철',
+      presenter:'🎤 발제·진행: 박성준 · 조제효',
+      presenter:'🎤 발제·진행: 정효이 · 장우석',
+      presenter:'🎤 발제·진행: 박유상 · 정영아',
       assigned:[
         {type:'academic', title:'Bailey & Madden (2016). What makes work meaningful—or meaningless.', journal:'MIT Sloan Management Review 57: 53–61', link:'https://drive.google.com/file/d/1WwfNQV_EOC_UjtabYuuCd3t0ljapdiHR/view?usp=drive_link'},
         {type:'academic', title:'Bunderson & Thompson (2009). The call of the wild: Zookeepers, callings, and the double-edged sword of deeply meaningful work.', journal:'Administrative Science Quarterly 54: 32–57', link:'https://drive.google.com/file/d/1TrJ2Gqistfb8P727MpgcyO_aSu477cdn/view?usp=drive_link'},
@@ -3626,7 +3636,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {type:'academic', title:'Schneider, Ehrhart & Macey (2013). Organizational climate and culture.', journal:'Annual Review of Psychology 64: 361–388', link:'https://drive.google.com/file/d/1JWRoYCuV7RQvnSHIQlgevmoDu5roX-9B/view?usp=drive_link'},
       ]},
     { num:8, title:'조직행동의 미래 — Future of Organizational Behavior', date:'06/27 (토) 09:00–12:00',
-      note:'📝 매주 과제: 지정 읽기자료 완독 후 심층적인 토론 준비 (비판적 분석 · 실무 시사점 정리)',
+      note:'📝 매주 과제: 지정 읽기자료 완독 후 심층적인 토론 준비 | 📋 연구계획서 제출 (Due: 6/27) · 15매 내외 · 자율주제',
       assigned:[
         {type:'academic', title:'Davenport & Westerman (2021). How HR leaders are preparing for the AI-enabled workforce.', journal:'MIT Sloan Management Review 62: 14–17', link:'https://drive.google.com/file/d/1sM9lakadVdSMJHp6KkSI8eXUwkizxYTX/view?usp=drive_link'},
         {type:'academic', title:'Cameron (2024). The making of the &#34;good bad&#34; job: How algorithmic management manufactures consent.', journal:'Administrative Science Quarterly 69: 458–514', link:'https://drive.google.com/file/d/14I363nCI7YNV3K71ur2s4Uf3v-lbF2gG/view?usp=drive_link'},
@@ -3636,7 +3646,18 @@ document.addEventListener('DOMContentLoaded', function() {
         {type:'academic', title:'Kellogg, Valentine & Christin (2020). Algorithms at work: The new contested terrain of control.', journal:'Academy of Management Annals 14: 366–410', link:'https://drive.google.com/file/d/1YSCONYrgXVoGbp0h9SaK3uPZ_hh-s7Nv/view?usp=drive_link'},
         {type:'academic', title:'Bankins et al. (2024). A multilevel review of artificial intelligence in organizations.', journal:'Journal of Organizational Behavior 45: 159–182', link:'https://drive.google.com/file/d/123m8Wh9_zXkbGA1K0Ny0l8P9PEQpuLlu/view?usp=drive_link'},
         {type:'academic', title:'Karunakaran et al. (2025). Artificial intelligence at work: An integrative perspective on workplace inequality.', journal:'Academy of Management Annals 19: 693–735', link:'https://drive.google.com/file/d/1_Vm-68GK_CgqMyasZtisU-hJbVRxEL_o/view?usp=drive_link'},
-      ]},
+      ],
+      research_plan: {
+        due: '2026-06-27',
+        title: '연구계획서 (Research Proposal)',
+        details: [
+          '연구주제는 자율적으로 선정 (조직행동 외 주제 상관없음)',
+          '분량: 15매 내외 (제한없음)',
+          '실증연구 수행을 위한 연구 주제 도출 및 구체적인 연구계획으로 발전',
+          '평가기준: 학문적·실무적 중요성 / 이론적 기반 및 선행연구 검토 / 연구문제·목표 명확성 / 연구방법론 타당성·실행가능성'
+        ]
+      }
+    },
   ];
 
   var dba213 = [
