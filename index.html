@@ -1803,7 +1803,7 @@ table.sched td {
             <div style="padding:12px 16px;background:white;display:flex;flex-direction:column;gap:8px;">
               <div style="padding:8px 12px;background:#FDF8EE;border-radius:7px;border-left:3px solid #B8972A;">
                 <div style="font-size:10px;font-weight:700;color:#7A6020;margin-bottom:3px;">🏛 경영인사이트</div>
-                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">조수연</div>
+                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">안재진</div>
               </div>
               <div style="padding:8px 12px;background:#FFF0F0;border-radius:7px;border-left:3px solid #FF3B30;">
                 <div style="font-size:10px;font-weight:700;color:#FF3B30;margin-bottom:3px;">🎓 마케팅 최종발표</div>
@@ -2176,6 +2176,10 @@ table.sched td {
       <a href="https://drive.google.com/file/d/1ueySd3Y3XNB-Ea0rPkwhzMwl9QLQ8wp9/view?usp=drive_link" target="_blank"
          style="display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border:2px solid #1E4D8C;color:#1E4D8C;background:white;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;">
         📂 1주차 강의자료
+      </a>
+      <a href="https://drive.google.com/file/d/1Od_9KXcnyWkLyA7Y8YIkkaiBaMmMTNK9/view?usp=drive_link" target="_blank"
+         style="display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border:2px solid #1E4D8C;color:#1E4D8C;background:white;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;">
+        📂 2주차 강의자료
       </a>
     </div>
     <p style="font-size:13px;color:#8E8E93;margin:0 0 16px 0;line-height:1.6;">
@@ -3019,6 +3023,7 @@ var birthdays = [
   {month:10, day:15, name:'장우석'},
   {month:12, day:19, name:'은경아'},
   {month:12, day:25, name:'조수연'},
+  {month:10, day:13, name:'안재진'},
 ];
 
 var ttEvents = [
@@ -3054,6 +3059,8 @@ var ttEvents = [
   {date:'2026-06-27', time:'09:00-12:00', subject:'조직행동', prof:'장진욱', color:'#1E4D8C', room:'LP429'},
   {date:'2026-06-27', time:'13:00-16:00', subject:'경영인사이트3', prof:'김태규', color:'#B8972A', room:'LP429'},
   {date:'2026-06-27', time:'16:00-19:00', subject:'마케팅 (Oral Defense)', prof:'유시진', color:'#1A6B3A', room:'LP429'},
+,
+  {date:'2026-07-11', time:'09:00-19:00', subject:'여름학기 특강', prof:'전체 과목', color:'#8B0029', room:'TBD'}
 ];
 
 var ttYear = 2026, ttMonth = 2; // 0-indexed: 2=3월
@@ -3324,7 +3331,7 @@ var courseLinks = {
     // 조직행동 (장진욱 교수님) DBA212
     'DBA212': {
       syllabus: 'https://drive.google.com/file/d/1vV2FWOKubLnaXReXG6plMpP0RQdsYtwk/view?usp=drivesdk',
-      lecMaterials: {'2026-03-14': {url: 'https://drive.google.com/file/d/1ueySd3Y3XNB-Ea0rPkwhzMwl9QLQ8wp9/view?usp=drive_link', name: '1주차 강의자료'}},
+      lecMaterials: {'2026-03-14': {url: 'https://drive.google.com/file/d/1ueySd3Y3XNB-Ea0rPkwhzMwl9QLQ8wp9/view?usp=drive_link', name: '1주차 강의자료'}, '2026-03-28': {url: 'https://drive.google.com/file/d/1Od_9KXcnyWkLyA7Y8YIkkaiBaMmMTNK9/view?usp=drive_link', name: '2주차 강의자료'}},
 
       papers: 'papers',
       assign: 'assignments'
@@ -3363,6 +3370,7 @@ var scheduleEvents = [
 {date:'2026-04-11', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 3주차', detail:'조직 내 정체성과 동일시 — Identity & Identification · 09:00–12:00 · 📝 심층적인 토론 준비 · 🎤 정효이 · 장우석', color:'#1E4D8C'},
 {date:'2026-04-11', type:'class', course:'DBA213', label:'마케팅', title:'마케팅 (유시진 교수님) · 3주차', detail:'브랜드 가치와 기업 평판 · 16:00–19:00 · 💭 브랜드 가치 측정 방법 · 산업에서의 브랜드 영향', color:'#1A6B3A'},
 {date:'2026-04-11', type:'class', course:'DBA103', label:'인사이트', title:'경영인사이트 (김태규 교수님) · 3주차', detail:'발표: 조제효 · 은경아 · 13:00–15:50', color:'#B8972A'},
+{date:'2026-04-11', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — 안재진', detail:'Research Q 발표 · 13:00–15:50', color:'#B8972A', weight:''},
 {date:'2026-04-11', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — 조제효 · 은경아', detail:'Research Q 발표 · 13:00–15:50', color:'#B8972A', weight:'—'},
 {date:'2026-04-24', type:'class', course:'DBA211', label:'전략', title:'전략 (이재민 교수님) · 4주차', detail:'CEO 승계 — Succession · 15:00–18:00', color:'#8B0029'},
 {date:'2026-04-25', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 4주차', detail:'리더십 — Leadership · 09:00–12:00 · 📝 심층적인 토론 준비 · 🎤 박성준 · 조제효', color:'#1E4D8C'},
@@ -3385,17 +3393,16 @@ var scheduleEvents = [
 {date:'2026-06-27', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 8주차', detail:'조직행동의 미래 — Future of Organizational Behavior · 09:00–12:00 · 📝 심층적인 토론 준비', color:'#1E4D8C'},
 {date:'2026-06-27', type:'class', course:'DBA213', label:'마케팅', title:'마케팅 (유시진 교수님) · 8주차', detail:'연구제안서 발표 및 Oral Defense · 16:00–19:00 · 💭 연구제안서 발표 — 독창성·공헌도·방법론 검증', color:'#1A6B3A'},
 {date:'2026-06-27', type:'class', course:'DBA103', label:'인사이트', title:'경영인사이트 (김태규 교수님) · 8주차', detail:'발표: 조수연 · 13:00–15:50', color:'#B8972A'},
-{date:'2026-03-14', type:'assign', course:'DBA212', label:'조직행동 과제', title:'조직행동 심층 토론 준비 1주차 — 일의 의미 — The Meaning of Work', detail:'수업 전 지정 읽기자료 완독 · 비판적 분석 준비 · 09:00–12:00', color:'#1E4D8C', weight:'50%'},
-{date:'2026-03-28', type:'assign', course:'DBA212', label:'조직행동 과제', title:'조직행동 심층 토론 준비 2주차 — 직장 내의 관계 — Relationships at Work', detail:'수업 전 지정 읽기자료 완독 · 비판적 분석 준비 · 09:00–12:00', color:'#1E4D8C', weight:'50%'},
-{date:'2026-04-11', type:'assign', course:'DBA212', label:'조직행동 과제', title:'조직행동 심층 토론 준비 3주차 — 조직 내 정체성과 동일시 — Identity & Identification', detail:'수업 전 지정 읽기자료 완독 · 비판적 분석 준비 · 09:00–12:00', color:'#1E4D8C', weight:'50%'},
-{date:'2026-04-25', type:'assign', course:'DBA212', label:'조직행동 과제', title:'조직행동 심층 토론 준비 4주차 — 리더십 — Leadership', detail:'수업 전 지정 읽기자료 완독 · 비판적 분석 준비 · 09:00–12:00', color:'#1E4D8C', weight:'50%'},
-{date:'2026-05-09', type:'assign', course:'DBA212', label:'조직행동 과제', title:'조직행동 심층 토론 준비 5주차 — 권력과 조직 정치 — Power & Organizational Politics', detail:'수업 전 지정 읽기자료 완독 · 비판적 분석 준비 · 09:00–12:00', color:'#1E4D8C', weight:'50%'},
-{date:'2026-05-30', type:'assign', course:'DBA212', label:'조직행동 과제', title:'조직행동 심층 토론 준비 6주차 — 협력과 갈등 — Collaboration & Conflict', detail:'수업 전 지정 읽기자료 완독 · 비판적 분석 준비 · 09:00–12:00', color:'#1E4D8C', weight:'50%'},
-{date:'2026-06-13', type:'assign', course:'DBA212', label:'조직행동 과제', title:'조직행동 심층 토론 준비 7주차 — 조직문화와 조직풍토 — Organizational Culture & Climate', detail:'수업 전 지정 읽기자료 완독 · 비판적 분석 준비 · 16:00–19:00', color:'#1E4D8C', weight:'50%'},
+{date:'2026-03-14', type:'assign', course:'DBA212', label:'조직행동 과제', title:'조직행동 심층 토론 준비 및 발표 — 박유상 · 정영아', detail:'수업 전 지정 읽기자료 완독 · 비판적 분석 준비 · 09:00–12:00', color:'#1E4D8C', weight:'50%'},
+{date:'2026-03-28', type:'assign', course:'DBA212', label:'조직행동 과제', title:'조직행동 심층 토론 준비 및 발표 — 박유상 · 정영아', detail:'수업 전 지정 읽기자료 완독 · 비판적 분석 준비 · 09:00–12:00', color:'#1E4D8C', weight:'50%'},
+{date:'2026-04-11', type:'assign', course:'DBA212', label:'조직행동 과제', title:'조직행동 심층 토론 준비 및 발표 — 정효이 · 장우석', detail:'수업 전 지정 읽기자료 완독 · 비판적 분석 준비 · 09:00–12:00', color:'#1E4D8C', weight:'50%'},
+{date:'2026-04-25', type:'assign', course:'DBA212', label:'조직행동 과제', title:'조직행동 심층 토론 준비 및 발표 — 박성준 · 조제효', detail:'수업 전 지정 읽기자료 완독 · 비판적 분석 준비 · 09:00–12:00', color:'#1E4D8C', weight:'50%'},
+{date:'2026-05-09', type:'assign', course:'DBA212', label:'조직행동 과제', title:'조직행동 심층 토론 준비 및 발표 — 문형규 · 황용철', detail:'수업 전 지정 읽기자료 완독 · 비판적 분석 준비 · 09:00–12:00', color:'#1E4D8C', weight:'50%'},
+{date:'2026-05-30', type:'assign', course:'DBA212', label:'조직행동 과제', title:'조직행동 심층 토론 준비 및 발표 — 김영환 · 은경아', detail:'수업 전 지정 읽기자료 완독 · 비판적 분석 준비 · 09:00–12:00', color:'#1E4D8C', weight:'50%'},
+{date:'2026-06-13', type:'assign', course:'DBA212', label:'조직행동 과제', title:'조직행동 심층 토론 준비 및 발표 — 안재진 · 조수연', detail:'수업 전 지정 읽기자료 완독 · 비판적 분석 준비 · 16:00–19:00', color:'#1E4D8C', weight:'50%'},
 {date:'2026-06-27', type:'assign', course:'DBA212', label:'조직행동 과제', title:'조직행동 심층 토론 준비 8주차 — 조직행동의 미래 — Future of Organizational Behavior', detail:'수업 전 지정 읽기자료 완독 · 비판적 분석 준비 · 09:00–12:00', color:'#1E4D8C', weight:'50%'},
 {date:'2026-03-14', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — Advisor Discussion', detail:'지도교수 탐색 · 13:00–15:50', color:'#B8972A', weight:''},
 {date:'2026-03-28', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표, 안재진 원우 관련 특별수업으로 대체', detail:'발표자 다음 주로 연기 · 13:00–15:50', color:'#B8972A', weight:''},
-{date:'2026-04-11', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — 안재진', detail:'Research Q 발표 · 13:00–15:50', color:'#B8972A', weight:''},
 {date:'2026-04-25', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — 박유상 · 문형규', detail:'Research Q 발표 · 13:00–15:50', color:'#B8972A', weight:''},
 {date:'2026-05-09', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — 황용철 · 김영환', detail:'Research Q 발표 · 13:00–15:50', color:'#B8972A', weight:''},
 {date:'2026-06-13', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — 정효이 · 장우석', detail:'Research Q 발표 · 09:00–11:50', color:'#B8972A', weight:''},
@@ -3423,7 +3430,11 @@ var scheduleEvents = [
 {date:'2026-06-26', type:'assign', course:'DBA211', label:'전략 과제', title:'전략 시사점 보고서 8주차 — AI와 전략 — AI & Strategy', detail:'최대 2page · bullet 형식 · 수업 당일 제출', color:'#8B0029', weight:'50%'},
 {date:'2026-06-27', type:'assign', course:'DBA213', label:'마케팅 [최종]', title:'연구제안서 + Oral Defense', detail:'15분 발표 (8분+Q&A7분) · 최종 제출', color:'#FF3B30', weight:'60%'},
 {date:'2026-06-27', type:'assign', course:'DBA212', label:'조직행동 [최종]', title:'연구 설계 및 계획서 최종 제출', detail:'실증 연구 계획 · 이론+실무 연결', color:'#FF3B30', weight:'50%'},
-{date:'2026-06-27', type:'assign', course:'DBA211', label:'전략 [최종]', title:'전략적 시사점 보고서 최종 제출', detail:'매 수업 2p 누적 · bullet 형식', color:'#FF3B30', weight:'50%'}
+{date:'2026-06-27', type:'assign', course:'DBA211', label:'전략 [최종]', title:'전략적 시사점 보고서 최종 제출', detail:'매 수업 2p 누적 · bullet 형식', color:'#FF3B30', weight:'50%'},
+{date:'2026-07-11', type:'class', course:'DBA211', label:'여름특강', title:'여름학기 특강', detail:'09:00–19:00', color:'#8B0029'},
+{date:'2026-07-11', type:'class', course:'DBA212', label:'여름특강', title:'여름학기 특강', detail:'09:00–19:00', color:'#1E4D8C'},
+{date:'2026-07-11', type:'class', course:'DBA213', label:'여름특강', title:'여름학기 특강', detail:'09:00–19:00', color:'#1A6B3A'},
+{date:'2026-07-11', type:'class', course:'DBA103', label:'여름특강', title:'여름학기 특강', detail:'09:00–19:00', color:'#B8972A'}
 ];
 </script>
 
@@ -3547,12 +3558,6 @@ document.addEventListener('DOMContentLoaded', function() {
     { num:1, title:'일의 의미 — The Meaning of Work', date:'03/14 (토) 09:00–12:00',
       lec_material:{name:'1주차 강의자료', view:'https://drive.google.com/file/d/1ueySd3Y3XNB-Ea0rPkwhzMwl9QLQ8wp9/view?usp=drive_link', dl:'https://drive.google.com/uc?export=download&id=1ueySd3Y3XNB-Ea0rPkwhzMwl9QLQ8wp9'},
       note:'📝 매주 과제: 지정 읽기자료 완독 후 심층적인 토론 준비 (비판적 분석 · 실무 시사점 정리)',
-      presenter:'🎤 발제·진행: 안재진 · 조수연',
-      presenter:'🎤 발제·진행: 김영환 · 은경아',
-      presenter:'🎤 발제·진행: 문형규 · 황용철',
-      presenter:'🎤 발제·진행: 박성준 · 조제효',
-      presenter:'🎤 발제·진행: 정효이 · 장우석',
-      presenter:'🎤 발제·진행: 박유상 · 정영아',
       assigned:[
         {type:'academic', title:'Bailey & Madden (2016). What makes work meaningful—or meaningless.', journal:'MIT Sloan Management Review 57: 53–61', link:'https://drive.google.com/file/d/1WwfNQV_EOC_UjtabYuuCd3t0ljapdiHR/view?usp=drive_link'},
         {type:'academic', title:'Bunderson & Thompson (2009). The call of the wild: Zookeepers, callings, and the double-edged sword of deeply meaningful work.', journal:'Administrative Science Quarterly 54: 32–57', link:'https://drive.google.com/file/d/1TrJ2Gqistfb8P727MpgcyO_aSu477cdn/view?usp=drive_link'},
@@ -3564,7 +3569,9 @@ document.addEventListener('DOMContentLoaded', function() {
         {type:'academic', title:'Lepisto & Pratt (2017). Meaningful work as realization and justification.', journal:'Organizational Psychology Review 7: 99–121', link:'https://drive.google.com/file/d/1_9tKcSuYI7jACldYQppFt2gy6tMOnC1k/view?usp=drive_link'},
       ]},
     { num:2, title:'직장 내의 관계 — Relationships at Work', date:'03/28 (토) 09:00–12:00',
+      lec_material:{name:'2주차 강의자료', view:'https://drive.google.com/file/d/1Od_9KXcnyWkLyA7Y8YIkkaiBaMmMTNK9/view?usp=drive_link', dl:'https://drive.google.com/uc?export=download&id=1Od_9KXcnyWkLyA7Y8YIkkaiBaMmMTNK9'},
       note:'📝 매주 과제: 지정 읽기자료 완독 후 심층적인 토론 준비 (비판적 분석 · 실무 시사점 정리)',
+      presenters:'🎤 발제·진행: 박유상 · 정영아',
       assigned:[
         {type:'academic', title:'Dutton & Heaphy (2003). The power of high-quality connections.', journal:'In: Positive Organizational Scholarship (pp. 263–278)', link:'https://drive.google.com/file/d/14gmhoxP7-AKIJfvhmTWewt7Tl8u7K-vm/view?usp=drive_link'},
         {type:'academic', title:'Owens, Baker, Sumpter & Cameron (2016). Relational energy at work.', journal:'Journal of Applied Psychology 101: 35–49', link:'https://drive.google.com/file/d/1YOUi46j6brT0dCxmXYqvjPtQ4F_0cuyk/view?usp=drive_link'},
@@ -3577,6 +3584,7 @@ document.addEventListener('DOMContentLoaded', function() {
       ]},
     { num:3, title:'조직 내 정체성과 동일시 — Identity & Identification', date:'04/11 (토) 09:00–12:00',
       note:'📝 매주 과제: 지정 읽기자료 완독 후 심층적인 토론 준비 (비판적 분석 · 실무 시사점 정리)',
+      presenters:'🎤 발제·진행: 정효이 · 장우석',
       assigned:[
         {type:'nyt', title:'De Smet et al. (2021). Great attrition or great attraction? The choice is yours.', journal:'McKinsey Quarterly, September 8', link:'https://drive.google.com/file/d/1Qi0aiEIoNg6XeTmnIWx2K-6OV8TrZExD/view?usp=drive_link'},
         {type:'academic', title:'Dukerich, Golden & Shortell (2002). Beauty is in the eye of the beholder.', journal:'Administrative Science Quarterly 47: 507–533', link:'https://drive.google.com/file/d/1N6nNJpeJhtsnJPk-ZWh1YKHWLGqQdiEl/view?usp=drive_link'},
@@ -3589,6 +3597,7 @@ document.addEventListener('DOMContentLoaded', function() {
       ]},
     { num:4, title:'리더십 — Leadership', date:'04/25 (토) 09:00–12:00',
       note:'📝 매주 과제: 지정 읽기자료 완독 후 심층적인 토론 준비 (비판적 분석 · 실무 시사점 정리)',
+      presenters:'🎤 발제·진행: 박성준 · 조제효',
       assigned:[
         {type:'hbr', title:'Decker & Decker (2015). Communicating a corporate vision to your team.', journal:'Harvard Business Review, July 10', link:'https://drive.google.com/file/d/1MJpzJzOEqztfUVe37lNOZerkp5T6-xEz/view?usp=drive_link'},
         {type:'academic', title:'Carton (2018). I&#39;m not mopping the floors, I&#39;m putting a man on the moon.', journal:'Administrative Science Quarterly 63: 323–369', link:'https://drive.google.com/file/d/1hWcHH72gpT2GV4I0zNSwRu8bls7HyuIe/view?usp=drive_link'},
@@ -3601,6 +3610,7 @@ document.addEventListener('DOMContentLoaded', function() {
       ]},
     { num:5, title:'권력과 조직 정치 — Power & Organizational Politics', date:'05/09 (토) 09:00–12:00',
       note:'📝 매주 과제: 지정 읽기자료 완독 후 심층적인 토론 준비 (비판적 분석 · 실무 시사점 정리)',
+      presenters:'🎤 발제·진행: 문형규 · 황용철',
       assigned:[
         {type:'academic', title:'Pfeffer (1992). Understanding power in organizations.', journal:'California Management Review 34: 29–50', link:'https://drive.google.com/file/d/1uCg2pcEqUiRPvQa4HfGu5YbmYWcrOVIy/view?usp=drive_link'},
         {type:'academic', title:'Kaplan (2008). Framing contests: Strategy making under uncertainty.', journal:'Organization Science 19: 729–752', link:'https://drive.google.com/file/d/1S5VmIKArthSXpcs1VR9PF3tFisCQJfdR/view?usp=drive_link'},
@@ -3613,6 +3623,7 @@ document.addEventListener('DOMContentLoaded', function() {
       ]},
     { num:6, title:'협력과 갈등 — Collaboration & Conflict', date:'05/30 (토) 09:00–12:00',
       note:'📝 매주 과제: 지정 읽기자료 완독 후 심층적인 토론 준비 (비판적 분석 · 실무 시사점 정리)',
+      presenters:'🎤 발제·진행: 김영환 · 은경아',
       assigned:[
         {type:'hbr', title:'Eisenhardt, Kahwajy & Bourgeois (1997). How management teams can have a good fight.', journal:'Harvard Business Review 75: 77–85', link:'https://drive.google.com/file/d/1thPtK2kVMsP-VWU1KJpncKkGiv0VOu8I/view?usp=drive_link'},
         {type:'academic', title:'Sutton & Hargadon (1996). Brainstorming groups in context: Effectiveness in a product design firm.', journal:'Administrative Science Quarterly 41: 685–718', link:'https://drive.google.com/file/d/1T8DmNNJ1w9d9XqW_yP4hPPzYeF5N-i6C/view?usp=drive_link'},
@@ -3625,6 +3636,7 @@ document.addEventListener('DOMContentLoaded', function() {
       ]},
     { num:7, title:'조직문화와 조직풍토 — Organizational Culture & Climate', date:'06/13 (토) 16:00–19:00',
       note:'📝 매주 과제: 지정 읽기자료 완독 후 심층적인 토론 준비 (비판적 분석 · 실무 시사점 정리)',
+      presenters:'🎤 발제·진행: 안재진 · 조수연',
       assigned:[
         {type:'nyt', title:'Duhigg (2016). What Google learned from its quest to build the perfect team.', journal:'The New York Times Magazine, Feb 25', link:'https://drive.google.com/file/d/1skyGPdKiv0qCdrhJMg7jg2-ETfbOuoNk/view?usp=drive_link'},
         {type:'academic', title:'Edmondson (1999). Psychological safety and learning behavior in work teams.', journal:'Administrative Science Quarterly 44: 350–383', link:'https://drive.google.com/file/d/1GaGIe0vFz80C89krv-KhABVUTdGL4Erg/view?usp=drive_link'},
