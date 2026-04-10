@@ -1635,6 +1635,7 @@ table.sched td {
         <div style="display:flex;gap:8px;margin-bottom:16px;">
           <button id="signup-btn-date" onclick="switchSignupView('date')" style="padding:8px 18px;border-radius:7px;font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:700;cursor:pointer;background:#8B0029;color:white;border:none;">📅 일자별</button>
           <button id="signup-btn-subject" onclick="switchSignupView('subject')" style="padding:8px 18px;border-radius:7px;font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:700;cursor:pointer;background:transparent;color:#8E8E93;border:1.5px solid #D4CFC8;">📚 과목별</button>
+          <button id="signup-btn-member" onclick="switchSignupView('member')" style="padding:8px 18px;border-radius:7px;font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:700;cursor:pointer;background:transparent;color:#8E8E93;border:1.5px solid #D4CFC8;">👤 원우별</button>
         </div>
 
         <!-- ── 일자별 보기 ── -->
@@ -1664,18 +1665,17 @@ table.sched td {
           <!-- 3/28 -->
           <div style="border:1px solid #FFCDD0;border-radius:10px;overflow:hidden;">
             <div style="background:#8B0029;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;">
-              <span style="font-family:Montserrat,sans-serif;font-size:15px;font-weight:800;color:white;">3/28 ★ (토)</span>
+              <span style="font-family:Montserrat,sans-serif;font-size:15px;font-weight:800;color:white;">3/28 (토)</span>
               <span style="font-size:11px;color:rgba(255,255,255,0.8);">13:00–19:00 · 2주차</span>
             </div>
             <div style="padding:12px 16px;background:white;display:flex;flex-direction:column;gap:8px;">
               <div style="padding:8px 12px;background:#FDF8EE;border-radius:7px;border-left:3px solid #B8972A;">
                 <div style="font-size:10px;font-weight:700;color:#7A6020;margin-bottom:3px;">🏛 경영인사이트</div>
-                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">조제효 · 은경아</div>
+                <div style="font-size:13px;font-weight:600;color:#8E8E93;font-style:italic;">안재진 특별수업 대체</div>
               </div>
               <div style="padding:8px 12px;background:#F0FAF4;border-radius:7px;border-left:3px solid #1A6B3A;">
                 <div style="font-size:10px;font-weight:700;color:#1A6B3A;margin-bottom:3px;">📖 마케팅 기존문헌발제</div>
                 <div style="font-size:14px;font-weight:700;color:#1C1C1E;">문형규 · 황용철</div>
-                <div style="font-size:10px;color:#8E8E93;margin-top:2px;">* 조제효 출장으로 문형규 대체</div>
               </div>
               <div style="padding:8px 12px;background:#E8F5EE;border-radius:7px;border-left:3px solid #0D5A2E;">
                 <div style="font-size:10px;font-weight:700;color:#0D5A2E;margin-bottom:3px;">💡 마케팅 연구아이디어</div>
@@ -1693,7 +1693,7 @@ table.sched td {
             <div style="padding:12px 16px;background:white;display:flex;flex-direction:column;gap:8px;">
               <div style="padding:8px 12px;background:#FDF8EE;border-radius:7px;border-left:3px solid #B8972A;">
                 <div style="font-size:10px;font-weight:700;color:#7A6020;margin-bottom:3px;">🏛 경영인사이트</div>
-                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">안재진</div>
+                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">조제효 · 은경아, 안재진</div>
               </div>
               <div style="padding:8px 12px;background:#F0FAF4;border-radius:7px;border-left:3px solid #1A6B3A;">
                 <div style="font-size:10px;font-weight:700;color:#1A6B3A;margin-bottom:3px;">📖 마케팅 기존문헌발제</div>
@@ -1737,7 +1737,7 @@ table.sched td {
             <div style="padding:12px 16px;background:white;display:flex;flex-direction:column;gap:8px;">
               <div style="padding:8px 12px;background:#FDF8EE;border-radius:7px;border-left:3px solid #B8972A;">
                 <div style="font-size:10px;font-weight:700;color:#7A6020;margin-bottom:3px;">🏛 경영인사이트</div>
-                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">황용철 · 김영환</div>
+                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">김영환 · 황용철</div>
               </div>
               <div style="padding:8px 12px;background:#F0FAF4;border-radius:7px;border-left:3px solid #1A6B3A;">
                 <div style="font-size:10px;font-weight:700;color:#1A6B3A;margin-bottom:3px;">📖 마케팅 기존문헌발제</div>
@@ -1757,17 +1757,21 @@ table.sched td {
               <span style="font-size:11px;color:rgba(255,255,255,0.8);">09:00–19:00 · 6주차 ⚡종일</span>
             </div>
             <div style="padding:12px 16px;background:#F0FAF4;display:flex;flex-direction:column;gap:8px;">
-              <div style="padding:8px 12px;background:#FDF8EE;border-radius:7px;border-left:3px solid #B8972A;">
-                <div style="font-size:10px;font-weight:700;color:#7A6020;margin-bottom:3px;">🏛 경영인사이트</div>
-                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">정효이 · 장우석</div>
-              </div>
               <div style="padding:8px 12px;background:white;border-radius:7px;border-left:3px solid #1A6B3A;">
-                <div style="font-size:10px;font-weight:700;color:#1A6B3A;margin-bottom:3px;">📖 마케팅 기존문헌발제</div>
+                <div style="font-size:10px;font-weight:700;color:#1A6B3A;margin-bottom:3px;">📖 마케팅 기존문헌발제 (I)</div>
                 <div style="font-size:14px;font-weight:700;color:#1C1C1E;">박성준 · 박유상</div>
               </div>
+              <div style="padding:8px 12px;background:white;border-radius:7px;border-left:3px solid #1A6B3A;">
+                <div style="font-size:10px;font-weight:700;color:#1A6B3A;margin-bottom:3px;">📖 마케팅 기존문헌발제 (II)</div>
+                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">김영환 · 조제효</div>
+              </div>
               <div style="padding:8px 12px;background:white;border-radius:7px;border-left:3px solid #0D5A2E;">
-                <div style="font-size:10px;font-weight:700;color:#0D5A2E;margin-bottom:3px;">💡 마케팅 연구아이디어</div>
+                <div style="font-size:10px;font-weight:700;color:#0D5A2E;margin-bottom:3px;">💡 마케팅 연구아이디어 (I)</div>
                 <div style="font-size:14px;font-weight:700;color:#1C1C1E;">안재진 · 은경아 · 장우석 · 정영아</div>
+              </div>
+              <div style="padding:8px 12px;background:white;border-radius:7px;border-left:3px solid #0D5A2E;">
+                <div style="font-size:10px;font-weight:700;color:#0D5A2E;margin-bottom:3px;">💡 마케팅 연구아이디어 (II)</div>
+                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">정효이 · 조수연 · 조제효 · 황용철</div>
               </div>
             </div>
           </div>
@@ -1780,16 +1784,12 @@ table.sched td {
             </div>
             <div style="padding:12px 16px;background:white;display:flex;flex-direction:column;gap:8px;">
               <div style="padding:8px 12px;background:#FDF8EE;border-radius:7px;border-left:3px solid #B8972A;">
-                <div style="font-size:10px;font-weight:700;color:#7A6020;margin-bottom:3px;">🏛 경영인사이트</div>
+                <div style="font-size:10px;font-weight:700;color:#7A6020;margin-bottom:3px;">🏛 경영인사이트 (I)</div>
+                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">정효이 · 장우석</div>
+              </div>
+              <div style="padding:8px 12px;background:#FDF8EE;border-radius:7px;border-left:3px solid #B8972A;">
+                <div style="font-size:10px;font-weight:700;color:#7A6020;margin-bottom:3px;">🏛 경영인사이트 (II)</div>
                 <div style="font-size:14px;font-weight:700;color:#1C1C1E;">정영아 · 박성준</div>
-              </div>
-              <div style="padding:8px 12px;background:#F0FAF4;border-radius:7px;border-left:3px solid #1A6B3A;">
-                <div style="font-size:10px;font-weight:700;color:#1A6B3A;margin-bottom:3px;">📖 마케팅 기존문헌발제</div>
-                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">김영환 · 문형규</div>
-              </div>
-              <div style="padding:8px 12px;background:#E8F5EE;border-radius:7px;border-left:3px solid #0D5A2E;">
-                <div style="font-size:10px;font-weight:700;color:#0D5A2E;margin-bottom:3px;">💡 마케팅 연구아이디어</div>
-                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">정효이 · 조수연 · 조제효 · 황용철</div>
               </div>
             </div>
           </div>
@@ -1803,7 +1803,7 @@ table.sched td {
             <div style="padding:12px 16px;background:white;display:flex;flex-direction:column;gap:8px;">
               <div style="padding:8px 12px;background:#FDF8EE;border-radius:7px;border-left:3px solid #B8972A;">
                 <div style="font-size:10px;font-weight:700;color:#7A6020;margin-bottom:3px;">🏛 경영인사이트</div>
-                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">안재진</div>
+                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">조수연</div>
               </div>
               <div style="padding:8px 12px;background:#FFF0F0;border-radius:7px;border-left:3px solid #FF3B30;">
                 <div style="font-size:10px;font-weight:700;color:#FF3B30;margin-bottom:3px;">🎓 마케팅 최종발표</div>
@@ -1831,12 +1831,12 @@ table.sched td {
                   <span style="font-size:13px;font-weight:600;color:#1C1C1E;">Advisor Discussion</span>
                 </div>
                 <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #F0E8C8;padding:10px 16px;align-items:center;background:#FFF8EE;">
-                  <span style="font-size:12px;font-weight:700;color:#8B0029;font-family:monospace;">3/28 ★</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">조제효 · 은경아</span>
+                  <span style="font-size:12px;font-weight:700;color:#7A6020;font-family:monospace;">3/28</span>
+                  <span style="font-size:13px;font-weight:600;color:#8E8E93;font-style:italic;">안재진 특별수업 대체</span>
                 </div>
                 <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #F0E8C8;padding:10px 16px;align-items:center;">
                   <span style="font-size:12px;font-weight:700;color:#7A6020;font-family:monospace;">4/11</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">안재진</span>
+                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">조제효 · 은경아, 안재진</span>
                 </div>
                 <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #F0E8C8;padding:10px 16px;align-items:center;background:#FFF8EE;">
                   <span style="font-size:12px;font-weight:700;color:#7A6020;font-family:monospace;">4/25</span>
@@ -1844,14 +1844,14 @@ table.sched td {
                 </div>
                 <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #F0E8C8;padding:10px 16px;align-items:center;">
                   <span style="font-size:12px;font-weight:700;color:#7A6020;font-family:monospace;">5/9</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">황용철 · 김영환</span>
+                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">김영환 · 황용철</span>
                 </div>
                 <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #F0E8C8;padding:10px 16px;align-items:center;background:#FFF8EE;">
-                  <span style="font-size:12px;font-weight:700;color:#7A6020;font-family:monospace;">5/30</span>
+                  <span style="font-size:12px;font-weight:700;color:#7A6020;font-family:monospace;">6/13(I)</span>
                   <span style="font-size:13px;font-weight:700;color:#1C1C1E;">정효이 · 장우석</span>
                 </div>
                 <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #F0E8C8;padding:10px 16px;align-items:center;">
-                  <span style="font-size:12px;font-weight:700;color:#7A6020;font-family:monospace;">6/13</span>
+                  <span style="font-size:12px;font-weight:700;color:#7A6020;font-family:monospace;">6/13(II)</span>
                   <span style="font-size:13px;font-weight:700;color:#1C1C1E;">정영아 · 박성준</span>
                 </div>
                 <div style="display:grid;grid-template-columns:80px 1fr;padding:10px 16px;align-items:center;background:#FFF8EE;">
@@ -1868,29 +1868,29 @@ table.sched td {
                 <div style="font-size:11px;color:rgba(255,255,255,0.8);margin-top:2px;">토 16:00–19:00 (5/30은 13:00–16:00)</div>
               </div>
               <div style="background:#F0FAF4;">
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5E8D0;padding:10px 16px;align-items:center;background:#FFF8F8;">
-                  <span style="font-size:12px;font-weight:700;color:#8B0029;font-family:monospace;">3/28 ★</span>
-                  <div><span style="font-size:13px;font-weight:700;color:#1C1C1E;">문형규 · 황용철</span><br><span style="font-size:10px;color:#8E8E93;">*조제효 출장 대체</span></div>
-                </div>
                 <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5E8D0;padding:10px 16px;align-items:center;">
+                  <span style="font-size:12px;font-weight:700;color:#1A6B3A;font-family:monospace;">3/28</span>
+                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">문형규 · 황용철</span>
+                </div>
+                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5E8D0;padding:10px 16px;align-items:center;background:white;">
                   <span style="font-size:12px;font-weight:700;color:#1A6B3A;font-family:monospace;">4/11</span>
                   <span style="font-size:13px;font-weight:700;color:#1C1C1E;">정효이 · 조수연</span>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5E8D0;padding:10px 16px;align-items:center;background:white;">
+                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5E8D0;padding:10px 16px;align-items:center;">
                   <span style="font-size:12px;font-weight:700;color:#1A6B3A;font-family:monospace;">4/25</span>
                   <span style="font-size:13px;font-weight:700;color:#1C1C1E;">장우석 · 정영아</span>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5E8D0;padding:10px 16px;align-items:center;">
+                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5E8D0;padding:10px 16px;align-items:center;background:white;">
                   <span style="font-size:12px;font-weight:700;color:#1A6B3A;font-family:monospace;">5/9</span>
                   <span style="font-size:13px;font-weight:700;color:#1C1C1E;">안재진 · 은경아</span>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5E8D0;padding:10px 16px;align-items:center;background:white;">
-                  <span style="font-size:12px;font-weight:700;color:#1A6B3A;font-family:monospace;">5/30</span>
+                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5E8D0;padding:10px 16px;align-items:center;">
+                  <span style="font-size:12px;font-weight:700;color:#1A6B3A;font-family:monospace;">5/30(I)</span>
                   <span style="font-size:13px;font-weight:700;color:#1C1C1E;">박성준 · 박유상</span>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;padding:10px 16px;align-items:center;">
-                  <span style="font-size:12px;font-weight:700;color:#1A6B3A;font-family:monospace;">6/13</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">김영환 · 문형규</span>
+                <div style="display:grid;grid-template-columns:80px 1fr;padding:10px 16px;align-items:center;background:white;">
+                  <span style="font-size:12px;font-weight:700;color:#1A6B3A;font-family:monospace;">5/30(II)</span>
+                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">김영환 · 조제효</span>
                 </div>
               </div>
             </div>
@@ -1899,11 +1899,11 @@ table.sched td {
             <div style="border:1px solid #B8D4C0;border-radius:10px;overflow:hidden;">
               <div style="background:#0D5A2E;padding:12px 16px;">
                 <div style="font-size:13px;font-weight:800;color:white;">💡 마케팅 연구아이디어 (유시진 교수님)</div>
-                <div style="font-size:11px;color:rgba(255,255,255,0.8);margin-top:2px;">토 16:00–19:00 (5/30은 16:00–19:00)</div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.8);margin-top:2px;">토 16:00–19:00</div>
               </div>
               <div style="background:#E8F5EE;">
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #B8D4C0;padding:10px 16px;align-items:center;background:#FFF8F8;">
-                  <span style="font-size:12px;font-weight:700;color:#8B0029;font-family:monospace;">3/28 ★</span>
+                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #B8D4C0;padding:10px 16px;align-items:center;">
+                  <span style="font-size:12px;font-weight:700;color:#0D5A2E;font-family:monospace;">3/28</span>
                   <span style="font-size:13px;font-weight:700;color:#1C1C1E;">김영환 · 문형규 · 박성준 · 박유상</span>
                 </div>
                 <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #B8D4C0;padding:10px 16px;align-items:center;background:white;">
@@ -1919,11 +1919,11 @@ table.sched td {
                   <span style="font-size:13px;font-weight:700;color:#1C1C1E;">김영환 · 문형규 · 박성준 · 박유상</span>
                 </div>
                 <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #B8D4C0;padding:10px 16px;align-items:center;">
-                  <span style="font-size:12px;font-weight:700;color:#0D5A2E;font-family:monospace;">5/30</span>
+                  <span style="font-size:12px;font-weight:700;color:#0D5A2E;font-family:monospace;">5/30(I)</span>
                   <span style="font-size:13px;font-weight:700;color:#1C1C1E;">안재진 · 은경아 · 장우석 · 정영아</span>
                 </div>
                 <div style="display:grid;grid-template-columns:80px 1fr;padding:10px 16px;align-items:center;background:white;">
-                  <span style="font-size:12px;font-weight:700;color:#0D5A2E;font-family:monospace;">6/13</span>
+                  <span style="font-size:12px;font-weight:700;color:#0D5A2E;font-family:monospace;">5/30(II)</span>
                   <span style="font-size:13px;font-weight:700;color:#1C1C1E;">정효이 · 조수연 · 조제효 · 황용철</span>
                 </div>
               </div>
@@ -1931,6 +1931,156 @@ table.sched td {
 
           </div>
         </div><!-- /signup-view-subject -->
+
+        <!-- ── 원우별 보기 ── -->
+        <div id="signup-view-member" style="display:none;">
+          <div style="display:flex;flex-direction:column;gap:10px;">
+
+            <!-- 범례 -->
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:4px;">
+              <span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;"><span style="width:10px;height:10px;background:#1E4D8C;border-radius:2px;display:inline-block;"></span>조직행동</span>
+              <span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;"><span style="width:10px;height:10px;background:#B8972A;border-radius:2px;display:inline-block;"></span>경영인사이트</span>
+              <span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;"><span style="width:10px;height:10px;background:#1A6B3A;border-radius:2px;display:inline-block;"></span>마케팅 기존문헌발제</span>
+              <span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;"><span style="width:10px;height:10px;background:#0D5A2E;border-radius:2px;display:inline-block;"></span>마케팅 연구아이디어</span>
+            </div>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px;">
+
+            <!-- 김영환 -->
+            <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden;">
+              <div style="background:#48484A;padding:10px 16px;"><div style="font-size:14px;font-weight:800;color:white;">김영환</div></div>
+              <div style="padding:12px 16px;background:white;display:flex;flex-direction:column;gap:6px;">
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#1E4D8C;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#1E4D8C;width:100px;">조직행동</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">5/30</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#B8972A;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#7A6020;width:100px;">경영인사이트</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">5/9</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#1A6B3A;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#1A6B3A;width:100px;">마케팅 문헌발제</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">5/30(II)</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#0D5A2E;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#0D5A2E;width:100px;">마케팅 아이디어</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">3/28 · 5/9</span></div>
+              </div>
+            </div>
+
+            <!-- 문형규 -->
+            <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden;">
+              <div style="background:#48484A;padding:10px 16px;"><div style="font-size:14px;font-weight:800;color:white;">문형규</div></div>
+              <div style="padding:12px 16px;background:white;display:flex;flex-direction:column;gap:6px;">
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#1E4D8C;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#1E4D8C;width:100px;">조직행동</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">5/9</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#B8972A;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#7A6020;width:100px;">경영인사이트</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">4/25</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#1A6B3A;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#1A6B3A;width:100px;">마케팅 문헌발제</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">3/28</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#0D5A2E;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#0D5A2E;width:100px;">마케팅 아이디어</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">3/28 · 5/9</span></div>
+              </div>
+            </div>
+
+            <!-- 박성준 -->
+            <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden;">
+              <div style="background:#48484A;padding:10px 16px;"><div style="font-size:14px;font-weight:800;color:white;">박성준</div></div>
+              <div style="padding:12px 16px;background:white;display:flex;flex-direction:column;gap:6px;">
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#1E4D8C;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#1E4D8C;width:100px;">조직행동</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">4/25</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#B8972A;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#7A6020;width:100px;">경영인사이트</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">6/13(II)</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#1A6B3A;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#1A6B3A;width:100px;">마케팅 문헌발제</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">5/30(I)</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#0D5A2E;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#0D5A2E;width:100px;">마케팅 아이디어</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">3/28 · 5/9</span></div>
+              </div>
+            </div>
+
+            <!-- 박유상 -->
+            <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden;">
+              <div style="background:#48484A;padding:10px 16px;"><div style="font-size:14px;font-weight:800;color:white;">박유상</div></div>
+              <div style="padding:12px 16px;background:white;display:flex;flex-direction:column;gap:6px;">
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#1E4D8C;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#1E4D8C;width:100px;">조직행동</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">3/14 · 3/28</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#B8972A;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#7A6020;width:100px;">경영인사이트</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">4/25</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#1A6B3A;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#1A6B3A;width:100px;">마케팅 문헌발제</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">5/30(I)</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#0D5A2E;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#0D5A2E;width:100px;">마케팅 아이디어</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">3/28 · 5/9</span></div>
+              </div>
+            </div>
+
+            <!-- 안재진 -->
+            <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden;">
+              <div style="background:#48484A;padding:10px 16px;"><div style="font-size:14px;font-weight:800;color:white;">안재진</div></div>
+              <div style="padding:12px 16px;background:white;display:flex;flex-direction:column;gap:6px;">
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#1E4D8C;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#1E4D8C;width:100px;">조직행동</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">6/13</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#B8972A;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#7A6020;width:100px;">경영인사이트</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">4/11</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#1A6B3A;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#1A6B3A;width:100px;">마케팅 문헌발제</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">5/9</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#0D5A2E;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#0D5A2E;width:100px;">마케팅 아이디어</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">4/11 · 5/30(I)</span></div>
+              </div>
+            </div>
+
+            <!-- 은경아 -->
+            <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden;">
+              <div style="background:#48484A;padding:10px 16px;"><div style="font-size:14px;font-weight:800;color:white;">은경아</div></div>
+              <div style="padding:12px 16px;background:white;display:flex;flex-direction:column;gap:6px;">
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#1E4D8C;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#1E4D8C;width:100px;">조직행동</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">5/30</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#B8972A;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#7A6020;width:100px;">경영인사이트</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">4/11</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#1A6B3A;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#1A6B3A;width:100px;">마케팅 문헌발제</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">5/9</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#0D5A2E;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#0D5A2E;width:100px;">마케팅 아이디어</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">4/11 · 5/30(I)</span></div>
+              </div>
+            </div>
+
+            <!-- 장우석 -->
+            <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden;">
+              <div style="background:#48484A;padding:10px 16px;"><div style="font-size:14px;font-weight:800;color:white;">장우석</div></div>
+              <div style="padding:12px 16px;background:white;display:flex;flex-direction:column;gap:6px;">
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#1E4D8C;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#1E4D8C;width:100px;">조직행동</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">4/11</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#B8972A;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#7A6020;width:100px;">경영인사이트</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">6/13(I)</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#1A6B3A;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#1A6B3A;width:100px;">마케팅 문헌발제</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">4/25</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#0D5A2E;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#0D5A2E;width:100px;">마케팅 아이디어</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">4/11 · 5/30(I)</span></div>
+              </div>
+            </div>
+
+            <!-- 정영아 -->
+            <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden;">
+              <div style="background:#48484A;padding:10px 16px;"><div style="font-size:14px;font-weight:800;color:white;">정영아</div></div>
+              <div style="padding:12px 16px;background:white;display:flex;flex-direction:column;gap:6px;">
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#1E4D8C;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#1E4D8C;width:100px;">조직행동</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">3/14 · 3/28</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#B8972A;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#7A6020;width:100px;">경영인사이트</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">6/13(II)</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#1A6B3A;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#1A6B3A;width:100px;">마케팅 문헌발제</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">4/25</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#0D5A2E;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#0D5A2E;width:100px;">마케팅 아이디어</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">4/11 · 5/30(I)</span></div>
+              </div>
+            </div>
+
+            <!-- 정효이 -->
+            <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden;">
+              <div style="background:#48484A;padding:10px 16px;"><div style="font-size:14px;font-weight:800;color:white;">정효이</div></div>
+              <div style="padding:12px 16px;background:white;display:flex;flex-direction:column;gap:6px;">
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#1E4D8C;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#1E4D8C;width:100px;">조직행동</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">4/11</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#B8972A;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#7A6020;width:100px;">경영인사이트</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">6/13(I)</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#1A6B3A;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#1A6B3A;width:100px;">마케팅 문헌발제</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">4/11</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#0D5A2E;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#0D5A2E;width:100px;">마케팅 아이디어</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">4/25 · 5/30(II)</span></div>
+              </div>
+            </div>
+
+            <!-- 조수연 -->
+            <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden;">
+              <div style="background:#48484A;padding:10px 16px;"><div style="font-size:14px;font-weight:800;color:white;">조수연</div></div>
+              <div style="padding:12px 16px;background:white;display:flex;flex-direction:column;gap:6px;">
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#1E4D8C;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#1E4D8C;width:100px;">조직행동</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">6/13</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#B8972A;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#7A6020;width:100px;">경영인사이트</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">6/27</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#1A6B3A;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#1A6B3A;width:100px;">마케팅 문헌발제</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">4/11</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#0D5A2E;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#0D5A2E;width:100px;">마케팅 아이디어</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">4/25 · 5/30(II)</span></div>
+              </div>
+            </div>
+
+            <!-- 조제효 -->
+            <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden;">
+              <div style="background:#48484A;padding:10px 16px;"><div style="font-size:14px;font-weight:800;color:white;">조제효</div></div>
+              <div style="padding:12px 16px;background:white;display:flex;flex-direction:column;gap:6px;">
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#1E4D8C;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#1E4D8C;width:100px;">조직행동</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">4/25</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#B8972A;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#7A6020;width:100px;">경영인사이트</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">4/11</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#1A6B3A;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#1A6B3A;width:100px;">마케팅 문헌발제</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">5/30(II)</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#0D5A2E;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#0D5A2E;width:100px;">마케팅 아이디어</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">4/25 · 5/30(II)</span></div>
+              </div>
+            </div>
+
+            <!-- 황용철 -->
+            <div style="border:1px solid var(--border);border-radius:10px;overflow:hidden;">
+              <div style="background:#48484A;padding:10px 16px;"><div style="font-size:14px;font-weight:800;color:white;">황용철</div></div>
+              <div style="padding:12px 16px;background:white;display:flex;flex-direction:column;gap:6px;">
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#1E4D8C;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#1E4D8C;width:100px;">조직행동</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">5/9</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#B8972A;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#7A6020;width:100px;">경영인사이트</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">5/9</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#1A6B3A;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#1A6B3A;width:100px;">마케팅 문헌발제</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">3/28</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;background:#0D5A2E;border-radius:2px;display:inline-block;flex-shrink:0;"></span><span style="font-size:12px;font-weight:700;color:#0D5A2E;width:100px;">마케팅 아이디어</span><span style="font-size:13px;font-weight:600;color:#1C1C1E;">4/25 · 5/30(II)</span></div>
+              </div>
+            </div>
+
+            </div><!-- /grid -->
+          </div>
+        </div><!-- /signup-view-member -->
 
       </div>
     </div>
@@ -2228,7 +2378,7 @@ table.sched td {
     <p style="font-size:13px;color:#8E8E93;margin:0 0 16px 0;line-height:1.6;">
       필요하신 주차를 선택하시면, 주차별로 해당하는 읽기자료와 강의자료를 보실 수 있습니다.
     </p>
-    <div id="sessions-dba103"><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#B8972A">1</div><div class="session-info"><div class="session-title">지도교수 탐색 — Advisor Discussion</div><div class="session-date">03/14 (토) 13:00–15:50</div></div><div class="session-count">발표</div><div class="session-arrow">▼</div></div><div class="session-body"><div style="margin-bottom:12px;padding:12px 14px;background:#FDF8EE;border:1px solid #E5D49A;border-radius:8px;display:flex;align-items:center;justify-content:space-between;"><div><span style="font-size:11px;font-weight:700;color:#B8972A;letter-spacing:1px;">강의자료</span><div style="font-size:14px;font-weight:700;color:#1C1C1E;margin-top:2px;">지도교수 추천안 (김태규 교수님)</div></div><div style="display:flex;gap:8px;"><a href="https://drive.google.com/file/d/19Sfkl8o0q7LBiCnC501yKlcwYxG8ryv1/view?usp=drive_link" target="_blank" style="padding:8px 14px;background:#B8972A;color:white;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;">열기</a><a href="https://drive.google.com/uc?export=download&id=19Sfkl8o0q7LBiCnC501yKlcwYxG8ryv1" target="_blank" style="padding:8px 14px;border:1.5px solid #B8972A;color:#B8972A;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;background:white;">다운로드</a></div></div><div style="font-size:12px;background:#FFF5E6;border:1px solid #F0D49A;border-radius:6px;padding:8px 12px;margin-bottom:8px;color:#7A6020;font-weight:700;">🎤 Advisor Discussion</div><div style="font-size:11px;background:#F8F4FF;border:1px solid #D8C8F0;border-radius:4px;padding:6px 10px;margin-bottom:8px;color:#5B3DA8;line-height:1.6;">수업 전 필독: 교수진 탐색 후 Research Question 정리</div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#B8972A">2</div><div class="session-info"><div class="session-title">Research Question 발표</div><div class="session-date">03/28 (토) 13:00–15:50</div></div><div class="session-count">발표</div><div class="session-arrow">▼</div></div><div class="session-body"><div style="font-size:12px;background:#FFF5E6;border:1px solid #F0D49A;border-radius:6px;padding:8px 12px;margin-bottom:8px;color:#7A6020;font-weight:700;">✨ 안재진 원우 관련 특별수업으로 대체 — 발표자 다음 주로 연기</div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#B8972A">3</div><div class="session-info"><div class="session-title">Research Question 발표</div><div class="session-date">04/11 (토) 13:00–15:50</div></div><div class="session-count">발표</div><div class="session-arrow">▼</div></div><div class="session-body"><div style="font-size:12px;background:#FFF5E6;border:1px solid #F0D49A;border-radius:6px;padding:8px 12px;margin-bottom:8px;color:#7A6020;font-weight:700;">🎤 발표자: 조제효 · 은경아</div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#B8972A">4</div><div class="session-info"><div class="session-title">Research Question 발표</div><div class="session-date">04/25 (토) 13:00–15:50</div></div><div class="session-count">발표</div><div class="session-arrow">▼</div></div><div class="session-body"><div style="font-size:12px;background:#FFF5E6;border:1px solid #F0D49A;border-radius:6px;padding:8px 12px;margin-bottom:8px;color:#7A6020;font-weight:700;">🎤 발표자: 박유상 · 문형규</div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#B8972A">5</div><div class="session-info"><div class="session-title">Research Question 발표</div><div class="session-date">05/09 (토) 13:00–15:50</div></div><div class="session-count">발표</div><div class="session-arrow">▼</div></div><div class="session-body"><div style="font-size:12px;background:#FFF5E6;border:1px solid #F0D49A;border-radius:6px;padding:8px 12px;margin-bottom:8px;color:#7A6020;font-weight:700;">🎤 발표자: 황용철 · 김영환</div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#B8972A">6</div><div class="session-info"><div class="session-title">Research Question 발표</div><div class="session-date">06/13 (토) 1부 09:00–11:50</div></div><div class="session-count">발표</div><div class="session-arrow">▼</div></div><div class="session-body"><div style="font-size:12px;background:#FFF5E6;border:1px solid #F0D49A;border-radius:6px;padding:8px 12px;margin-bottom:8px;color:#7A6020;font-weight:700;">🎤 발표자: 정효이 · 장우석</div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#B8972A">7</div><div class="session-info"><div class="session-title">Research Question 발표</div><div class="session-date">06/13 (토) 2부 13:00–15:50</div></div><div class="session-count">발표</div><div class="session-arrow">▼</div></div><div class="session-body"><div style="font-size:12px;background:#FFF5E6;border:1px solid #F0D49A;border-radius:6px;padding:8px 12px;margin-bottom:8px;color:#7A6020;font-weight:700;">🎤 발표자: 정영아 · 박성준</div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#B8972A">8</div><div class="session-info"><div class="session-title">Research Question 발표</div><div class="session-date">06/27 (토) 13:00–15:50</div></div><div class="session-count">발표</div><div class="session-arrow">▼</div></div><div class="session-body"><div style="font-size:12px;background:#FFF5E6;border:1px solid #F0D49A;border-radius:6px;padding:8px 12px;margin-bottom:8px;color:#7A6020;font-weight:700;">🎤 발표자: 조수연</div></div></div></div></div><!-- /r4 -->
+    <div id="sessions-dba103"><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#B8972A">1</div><div class="session-info"><div class="session-title">지도교수 탐색 — Advisor Discussion</div><div class="session-date">03/14 (토) 13:00–15:50</div></div><div class="session-count">발표</div><div class="session-arrow">▼</div></div><div class="session-body"><div style="margin-bottom:12px;padding:12px 14px;background:#FDF8EE;border:1px solid #E5D49A;border-radius:8px;display:flex;align-items:center;justify-content:space-between;"><div><span style="font-size:11px;font-weight:700;color:#B8972A;letter-spacing:1px;">강의자료</span><div style="font-size:14px;font-weight:700;color:#1C1C1E;margin-top:2px;">지도교수 추천안 (김태규 교수님)</div></div><div style="display:flex;gap:8px;"><a href="https://drive.google.com/file/d/19Sfkl8o0q7LBiCnC501yKlcwYxG8ryv1/view?usp=drive_link" target="_blank" style="padding:8px 14px;background:#B8972A;color:white;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;">열기</a><a href="https://drive.google.com/uc?export=download&id=19Sfkl8o0q7LBiCnC501yKlcwYxG8ryv1" target="_blank" style="padding:8px 14px;border:1.5px solid #B8972A;color:#B8972A;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;background:white;">다운로드</a></div></div><div style="font-size:12px;background:#FFF5E6;border:1px solid #F0D49A;border-radius:6px;padding:8px 12px;margin-bottom:8px;color:#7A6020;font-weight:700;">🎤 Advisor Discussion</div><div style="font-size:11px;background:#F8F4FF;border:1px solid #D8C8F0;border-radius:4px;padding:6px 10px;margin-bottom:8px;color:#5B3DA8;line-height:1.6;">수업 전 필독: 교수진 탐색 후 Research Question 정리</div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#B8972A">2</div><div class="session-info"><div class="session-title">Research Question 발표</div><div class="session-date">03/28 (토) 13:00–15:50</div></div><div class="session-count">발표</div><div class="session-arrow">▼</div></div><div class="session-body"><div style="font-size:12px;background:#FFF5E6;border:1px solid #F0D49A;border-radius:6px;padding:8px 12px;margin-bottom:8px;color:#7A6020;font-weight:700;">✨ 안재진 원우 관련 특별수업으로 대체 — 발표자 다음 주로 연기</div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#B8972A">3</div><div class="session-info"><div class="session-title">Research Question 발표</div><div class="session-date">04/11 (토) 13:00–15:50</div></div><div class="session-count">발표</div><div class="session-arrow">▼</div></div><div class="session-body"><div style="font-size:12px;background:#FFF5E6;border:1px solid #F0D49A;border-radius:6px;padding:8px 12px;margin-bottom:8px;color:#7A6020;font-weight:700;">🎤 발표자: 조제효 · 은경아, 안재진</div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#B8972A">4</div><div class="session-info"><div class="session-title">Research Question 발표</div><div class="session-date">04/25 (토) 13:00–15:50</div></div><div class="session-count">발표</div><div class="session-arrow">▼</div></div><div class="session-body"><div style="font-size:12px;background:#FFF5E6;border:1px solid #F0D49A;border-radius:6px;padding:8px 12px;margin-bottom:8px;color:#7A6020;font-weight:700;">🎤 발표자: 박유상 · 문형규</div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#B8972A">5</div><div class="session-info"><div class="session-title">Research Question 발표</div><div class="session-date">05/09 (토) 13:00–15:50</div></div><div class="session-count">발표</div><div class="session-arrow">▼</div></div><div class="session-body"><div style="font-size:12px;background:#FFF5E6;border:1px solid #F0D49A;border-radius:6px;padding:8px 12px;margin-bottom:8px;color:#7A6020;font-weight:700;">🎤 발표자: 김영환 · 황용철</div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#B8972A">6</div><div class="session-info"><div class="session-title">Research Question 발표</div><div class="session-date">06/13 (토) 1부 09:00–11:50</div></div><div class="session-count">발표</div><div class="session-arrow">▼</div></div><div class="session-body"><div style="font-size:12px;background:#FFF5E6;border:1px solid #F0D49A;border-radius:6px;padding:8px 12px;margin-bottom:8px;color:#7A6020;font-weight:700;">🎤 발표자: 정효이 · 장우석</div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#B8972A">7</div><div class="session-info"><div class="session-title">Research Question 발표</div><div class="session-date">06/13 (토) 2부 13:00–15:50</div></div><div class="session-count">발표</div><div class="session-arrow">▼</div></div><div class="session-body"><div style="font-size:12px;background:#FFF5E6;border:1px solid #F0D49A;border-radius:6px;padding:8px 12px;margin-bottom:8px;color:#7A6020;font-weight:700;">🎤 발표자: 정영아 · 박성준</div></div></div><div class="session-block"><div class="session-header" data-toggle="session"><div class="session-num" style="background:#B8972A">8</div><div class="session-info"><div class="session-title">Research Question 발표</div><div class="session-date">06/27 (토) 13:00–15:50</div></div><div class="session-count">발표</div><div class="session-arrow">▼</div></div><div class="session-body"><div style="font-size:12px;background:#FFF5E6;border:1px solid #F0D49A;border-radius:6px;padding:8px 12px;margin-bottom:8px;color:#7A6020;font-weight:700;">🎤 발표자: 조수연</div></div></div></div></div><!-- /r4 -->
   <div style="margin-top:16px;"></div>
 </section>
 
@@ -3292,21 +3442,21 @@ function selectSubject(id, el) {
   }
 }
 
-// ── switchSignupView: 일자별/과목별 보기 전환 ──
+// ── switchSignupView: 일자별/과목별/원우별 보기 전환 ──
 function switchSignupView(v) {
   document.getElementById('signup-view-date').style.display = (v==='date') ? 'block' : 'none';
   document.getElementById('signup-view-subject').style.display = (v==='subject') ? 'block' : 'none';
-  var btnDate = document.getElementById('signup-btn-date');
-  var btnSubj = document.getElementById('signup-btn-subject');
-  if (btnDate) {
-    btnDate.style.background = (v==='date') ? '#8B0029' : 'transparent';
-    btnDate.style.color = (v==='date') ? 'white' : '#8E8E93';
-    btnDate.style.border = (v==='date') ? 'none' : '1.5px solid #D4CFC8';
-  }
-  if (btnSubj) {
-    btnSubj.style.background = (v==='subject') ? '#8B0029' : 'transparent';
-    btnSubj.style.color = (v==='subject') ? 'white' : '#8E8E93';
-    btnSubj.style.border = (v==='subject') ? 'none' : '1.5px solid #D4CFC8';
+  document.getElementById('signup-view-member').style.display = (v==='member') ? 'block' : 'none';
+  var btns = ['signup-btn-date','signup-btn-subject','signup-btn-member'];
+  var keys = ['date','subject','member'];
+  for (var i=0; i<btns.length; i++) {
+    var btn = document.getElementById(btns[i]);
+    if (btn) {
+      var isActive = (v === keys[i]);
+      btn.style.background = isActive ? '#8B0029' : 'transparent';
+      btn.style.color = isActive ? 'white' : '#8E8E93';
+      btn.style.border = isActive ? 'none' : '1.5px solid #D4CFC8';
+    }
   }
 }
 </script>
@@ -3379,7 +3529,7 @@ var scheduleEvents = [
 {date:'2026-05-08', type:'class', course:'DBA211', label:'전략', title:'전략 (이재민 교수님) · 5주차', detail:'이사회 / 상층부 이론 — Upper Echelons · 15:00–18:00', color:'#8B0029'},
 {date:'2026-05-09', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 5주차', detail:'권력과 조직 정치 — Power & Organizational Politics · 09:00–12:00 · 📝 심층적인 토론 준비 · 🎤 문형규 · 황용철', color:'#1E4D8C'},
 {date:'2026-05-09', type:'class', course:'DBA213', label:'마케팅', title:'마케팅 (유시진 교수님) · 5주차', detail:'고객가치와 기업가치 · 16:00–19:00 · 💭 고객가치 측정 방법 · 구성 요소', color:'#1A6B3A'},
-{date:'2026-05-09', type:'class', course:'DBA103', label:'인사이트', title:'경영인사이트 (김태규 교수님) · 5주차', detail:'발표: 황용철 · 김영환 · 13:00–15:50', color:'#B8972A'},
+{date:'2026-05-09', type:'class', course:'DBA103', label:'인사이트', title:'경영인사이트 (김태규 교수님) · 5주차', detail:'발표: 김영환 · 황용철 · 13:00–15:50', color:'#B8972A'},
 {date:'2026-05-29', type:'class', course:'DBA211', label:'전략', title:'전략 (이재민 교수님) · 6주차', detail:'기업집단 — Business Groups · 15:00–18:00', color:'#8B0029'},
 {date:'2026-05-30', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 6주차', detail:'협력과 갈등 — Collaboration & Conflict · 09:00–12:00 · 📝 심층적인 토론 준비 · 🎤 김영환 · 은경아', color:'#1E4D8C'},
 {date:'2026-05-30', type:'class', course:'DBA213', label:'마케팅', title:'마케팅 (유시진 교수님) · 6주차', detail:'소셜미디어와 구전 · 13:00–16:00 · 💭 구전의 마케팅 역할 · 소셜미디어 연구주제', color:'#1A6B3A'},
@@ -3404,7 +3554,7 @@ var scheduleEvents = [
 {date:'2026-03-14', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — Advisor Discussion', detail:'지도교수 탐색 · 13:00–15:50', color:'#B8972A', weight:''},
 {date:'2026-03-28', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표, 안재진 원우 관련 특별수업으로 대체', detail:'발표자 다음 주로 연기 · 13:00–15:50', color:'#B8972A', weight:''},
 {date:'2026-04-25', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — 박유상 · 문형규', detail:'Research Q 발표 · 13:00–15:50', color:'#B8972A', weight:''},
-{date:'2026-05-09', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — 황용철 · 김영환', detail:'Research Q 발표 · 13:00–15:50', color:'#B8972A', weight:''},
+{date:'2026-05-09', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — 김영환 · 황용철', detail:'Research Q 발표 · 13:00–15:50', color:'#B8972A', weight:''},
 {date:'2026-06-13', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — 정효이 · 장우석', detail:'Research Q 발표 · 09:00–11:50', color:'#B8972A', weight:''},
 {date:'2026-06-13', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — 정영아 · 박성준', detail:'Research Q 발표 · 13:00–15:50', color:'#B8972A', weight:''},
 {date:'2026-06-27', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — 조수연', detail:'Research Q 발표 · 13:00–15:50', color:'#B8972A', weight:''},
@@ -3418,7 +3568,7 @@ var scheduleEvents = [
 {date:'2026-05-09', type:'assign', course:'DBA213', label:'마케팅 ②아이디어', title:'마케팅 연구아이디어 발표 — 김영환·문형규·박성준·박유상', detail:'연구아이디어 4명 · 세션5 · 16:00–19:00', color:'#0D5A2E', weight:'20%'},
 {date:'2026-05-30', type:'assign', course:'DBA213', label:'마케팅 ①발제', title:'마케팅 기존문헌발제 — 박성준·박유상', detail:'문헌 발제 2명 · 세션6 · 13:00–16:00', color:'#1A6B3A', weight:'20%'},
 {date:'2026-05-30', type:'assign', course:'DBA213', label:'마케팅 ②아이디어', title:'마케팅 연구아이디어 발표 — 안재진·은경아·장우석·정영아', detail:'연구아이디어 4명 · 세션6 · 13:00–16:00', color:'#0D5A2E', weight:'20%'},
-{date:'2026-05-30', type:'assign', course:'DBA213', label:'마케팅 ①발제', title:'마케팅 기존문헌발제 — 김영환·문형규', detail:'문헌 발제 2명 · 세션7 · 16:00–19:00', color:'#1A6B3A', weight:'20%'},
+{date:'2026-05-30', type:'assign', course:'DBA213', label:'마케팅 ①발제', title:'마케팅 기존문헌발제 — 김영환·조제효', detail:'문헌 발제 2명 · 세션7 · 16:00–19:00', color:'#1A6B3A', weight:'20%'},
 {date:'2026-05-30', type:'assign', course:'DBA213', label:'마케팅 ②아이디어', title:'마케팅 연구아이디어 발표 — 정효이·조수연·조제효·황용철', detail:'연구아이디어 4명 · 세션7 · 16:00–19:00', color:'#0D5A2E', weight:'20%'},
 {date:'2026-03-13', type:'assign', course:'DBA211', label:'전략 과제', title:'전략 시사점 보고서 1주차 — 경쟁전략 — Competitive Strategy', detail:'최대 2page · bullet 형식 · 수업 당일 제출', color:'#8B0029', weight:'50%'},
 {date:'2026-03-27', type:'assign', course:'DBA211', label:'전략 과제', title:'전략 시사점 보고서 2주차 — M&A / 전략적 제휴', detail:'최대 2page · bullet 형식 · 수업 당일 제출', color:'#8B0029', weight:'50%'},
@@ -3732,7 +3882,7 @@ document.addEventListener('DOMContentLoaded', function() {
       ],
       questions:['구전이 기업의 마케팅에 더욱 중요한 역할을 하는 이유는 무엇일까요?','소셜미디어와 관련된 새로운 연구주제는 어떤 것이 있을까요?']},
     { num:7, title:'마케팅 애널리틱스와 AI', date:'05/30 (토) 2부 16:00–19:00',
-      presenters:'기존문헌발제: 김영환·문형규 | 연구아이디어: 정효이·조수연·조제효·황용철',
+      presenters:'기존문헌발제: 김영환·조제효 | 연구아이디어: 정효이·조수연·조제효·황용철',
       papers:[
         {type:'academic', title:'Lee & Yoo (2012). Return on marketing investment: Pizza Hut Korea&#39;s case.', journal:'Management Decision 50(9): 1661–1685', link:'https://drive.google.com/file/d/1MkwtgFkjra1kVczoH_tUKuFR5BLN0Cxk/view?usp=drive_link'},
         {type:'academic', title:'Huang & Rust (2021). A strategic framework for artificial intelligence in marketing.', journal:'JAMS 49(1): 30–50', link:'https://drive.google.com/file/d/101kAt08jSWAd4x5u3NOrIeC0LKJfX8DK/view?usp=drive_link'},
