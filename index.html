@@ -1,5 +1,14 @@
 <!DOCTYPE html>
-<html lang="ko"><head><meta charset="UTF-8">
+<html lang="ko"><head>
+  <!-- 보안: 검색엔진 인덱싱 차단 (개인정보 보호) -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="naverbot" content="noindex, nofollow">
+  <meta name="yeti" content="noindex, nofollow">
+  <!-- 추가 보안 헤더 -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="no-referrer">
+  <meta name="referrer" content="no-referrer"><meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KUBS DBA 25학번 원우 전용 HUB (자료 및 정보관리)</title>
@@ -1631,6 +1640,23 @@ table.sched td {
         <div class="session-arrow">▼</div>
       </div>
       <div class="session-body open">
+        <!-- 📌 핵심 안내 박스 -->
+        <div style="background:linear-gradient(135deg,#FFF8F8 0%,#FFFBF0 100%);border:1.5px solid #8B0029;border-radius:10px;padding:14px 16px;margin-bottom:14px;">
+          <div style="display:flex;align-items:flex-start;gap:8px;">
+            <span style="font-size:18px;line-height:1;">📢</span>
+            <div style="flex:1;">
+              <div style="font-size:13px;font-weight:800;color:#8B0029;margin-bottom:6px;">발표 Sign-up 핵심 안내</div>
+              <div style="font-size:12px;color:#1C1C1E;line-height:1.7;">
+                <strong style="color:#8B0029;">[전략 시사점 보고서]</strong> 매주차 <strong>정오 12:00</strong>까지 메일 제출 (최대 2page · bullet 형식)<br>
+                <strong style="color:#1E4D8C;">[조직행동 발제]</strong> 토 09:00–12:00 · 발제자는 수업 전 지정 자료 완독 + 비판적 분석 준비<br>
+                <strong style="color:#B8972A;">[경영인사이트]</strong> 토 13:00–15:50 · Research Q 발표<br>
+                <strong style="color:#1A6B3A;">[마케팅]</strong> 토 16:00–19:00 (5/30 세션6은 13:00–16:00) · 기존문헌발제 + 연구아이디어<br>
+                <strong style="color:#FF3B30;">[6/27 최종]</strong> 마케팅 Oral Defense · 조직행동 연구계획서 Due · 전략 누적본 제출
+              </div>
+            </div>
+          </div>
+        </div>
+        
         <!-- 뷰 전환 버튼 -->
         <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;">
           <button id="signup-btn-date" onclick="switchSignupView('date')" style="padding:8px 18px;border-radius:7px;font-family:'Noto Sans KR',sans-serif;font-size:13px;font-weight:700;cursor:pointer;background:#8B0029;color:white;border:none;">📅 일자별</button>
@@ -1644,9 +1670,11 @@ table.sched td {
 
           <!-- 범례 -->
           <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:4px;">
+            <span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;"><span style="width:10px;height:10px;background:#1E4D8C;border-radius:2px;display:inline-block;"></span>조직행동 발제</span>
             <span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;"><span style="width:10px;height:10px;background:#B8972A;border-radius:2px;display:inline-block;"></span>경영인사이트</span>
             <span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;"><span style="width:10px;height:10px;background:#1A6B3A;border-radius:2px;display:inline-block;"></span>마케팅 기존문헌발제</span>
             <span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;"><span style="width:10px;height:10px;background:#0D5A2E;border-radius:2px;display:inline-block;"></span>마케팅 연구아이디어</span>
+            <span style="display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;"><span style="width:10px;height:10px;background:#8B0029;border-radius:2px;display:inline-block;"></span>전략 시사점 보고서 (매주 정오 메일)</span>
           </div>
 
           <!-- 3/14 -->
@@ -1663,15 +1691,20 @@ table.sched td {
           </div>
 
           <!-- 3/28 -->
-          <div style="border:1px solid #FFCDD0;border-radius:10px;overflow:hidden;">
-            <div style="background:#8B0029;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;">
-              <span style="font-family:Montserrat,sans-serif;font-size:15px;font-weight:800;color:white;">3/28 ★ (토)</span>
+          <div style="border:1px solid #E5E0D8;border-radius:10px;overflow:hidden;">
+            <div style="background:#48484A;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;">
+              <span style="font-family:Montserrat,sans-serif;font-size:15px;font-weight:800;color:white;">3/28 (토)</span>
               <span style="font-size:11px;color:rgba(255,255,255,0.8);">13:00–19:00 · 2주차</span>
             </div>
             <div style="padding:12px 16px;background:white;display:flex;flex-direction:column;gap:8px;">
+                            <div style="padding:8px 12px;background:#E8F2FB;border-radius:7px;border-left:3px solid #1E4D8C;">
+                <div style="font-size:10px;font-weight:700;color:#1E4D8C;margin-bottom:3px;">🎤 조직행동 발제</div>
+                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">박유상 · 정영아</div>
+              </div>
               <div style="padding:8px 12px;background:#FDF8EE;border-radius:7px;border-left:3px solid #B8972A;">
                 <div style="font-size:10px;font-weight:700;color:#7A6020;margin-bottom:3px;">🏛 경영인사이트</div>
-                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">조제효 · 은경아</div>
+                <div style="font-size:13px;font-weight:600;color:#1C1C1E;font-style:italic;">안재진 원우 관련 특별수업으로 대체</div>
+                <div style="font-size:11px;color:#8B0029;font-weight:700;margin-top:3px;">↪ 정규 발표 없음 · 조제효·은경아 4/11로 연기</div>
               </div>
               <div style="padding:8px 12px;background:#F0FAF4;border-radius:7px;border-left:3px solid #1A6B3A;">
                 <div style="font-size:10px;font-weight:700;color:#1A6B3A;margin-bottom:3px;">📖 마케팅 기존문헌발제</div>
@@ -1692,9 +1725,13 @@ table.sched td {
               <span style="font-size:11px;color:rgba(255,255,255,0.8);">13:00–19:00 · 3주차</span>
             </div>
             <div style="padding:12px 16px;background:white;display:flex;flex-direction:column;gap:8px;">
+                            <div style="padding:8px 12px;background:#E8F2FB;border-radius:7px;border-left:3px solid #1E4D8C;">
+                <div style="font-size:10px;font-weight:700;color:#1E4D8C;margin-bottom:3px;">🎤 조직행동 발제</div>
+                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">정효이 · 장우석</div>
+              </div>
               <div style="padding:8px 12px;background:#FDF8EE;border-radius:7px;border-left:3px solid #B8972A;">
                 <div style="font-size:10px;font-weight:700;color:#7A6020;margin-bottom:3px;">🏛 경영인사이트</div>
-                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">안재진</div>
+                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">조제효 · 은경아</div>
               </div>
               <div style="padding:8px 12px;background:#F0FAF4;border-radius:7px;border-left:3px solid #1A6B3A;">
                 <div style="font-size:10px;font-weight:700;color:#1A6B3A;margin-bottom:3px;">📖 마케팅 기존문헌발제</div>
@@ -1702,7 +1739,7 @@ table.sched td {
               </div>
               <div style="padding:8px 12px;background:#E8F5EE;border-radius:7px;border-left:3px solid #0D5A2E;">
                 <div style="font-size:10px;font-weight:700;color:#0D5A2E;margin-bottom:3px;">💡 마케팅 연구아이디어</div>
-                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">안재진 · 은경아 · 장우석 · 정영아</div>
+                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">은경아 · 장우석 · 정영아</div>
               </div>
             </div>
           </div>
@@ -1714,6 +1751,10 @@ table.sched td {
               <span style="font-size:11px;color:rgba(255,255,255,0.8);">13:00–19:00 · 4주차</span>
             </div>
             <div style="padding:12px 16px;background:white;display:flex;flex-direction:column;gap:8px;">
+                            <div style="padding:8px 12px;background:#E8F2FB;border-radius:7px;border-left:3px solid #1E4D8C;">
+                <div style="font-size:10px;font-weight:700;color:#1E4D8C;margin-bottom:3px;">🎤 조직행동 발제</div>
+                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">박성준 · 조제효</div>
+              </div>
               <div style="padding:8px 12px;background:#FDF8EE;border-radius:7px;border-left:3px solid #B8972A;">
                 <div style="font-size:10px;font-weight:700;color:#7A6020;margin-bottom:3px;">🏛 경영인사이트</div>
                 <div style="font-size:14px;font-weight:700;color:#1C1C1E;">박유상 · 문형규</div>
@@ -1736,9 +1777,13 @@ table.sched td {
               <span style="font-size:11px;color:rgba(255,255,255,0.8);">13:00–19:00 · 5주차</span>
             </div>
             <div style="padding:12px 16px;background:white;display:flex;flex-direction:column;gap:8px;">
+                            <div style="padding:8px 12px;background:#E8F2FB;border-radius:7px;border-left:3px solid #1E4D8C;">
+                <div style="font-size:10px;font-weight:700;color:#1E4D8C;margin-bottom:3px;">🎤 조직행동 발제</div>
+                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">문형규 · 황용철</div>
+              </div>
               <div style="padding:8px 12px;background:#FDF8EE;border-radius:7px;border-left:3px solid #B8972A;">
                 <div style="font-size:10px;font-weight:700;color:#7A6020;margin-bottom:3px;">🏛 경영인사이트</div>
-                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">황용철 · 김영환</div>
+                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">김영환 · 황용철</div>
               </div>
               <div style="padding:8px 12px;background:#F0FAF4;border-radius:7px;border-left:3px solid #1A6B3A;">
                 <div style="font-size:10px;font-weight:700;color:#1A6B3A;margin-bottom:3px;">📖 마케팅 기존문헌발제</div>
@@ -1758,17 +1803,25 @@ table.sched td {
               <span style="font-size:11px;color:rgba(255,255,255,0.8);">09:00–19:00 · 6주차 ⚡종일</span>
             </div>
             <div style="padding:12px 16px;background:#F0FAF4;display:flex;flex-direction:column;gap:8px;">
-              <div style="padding:8px 12px;background:#FDF8EE;border-radius:7px;border-left:3px solid #B8972A;">
-                <div style="font-size:10px;font-weight:700;color:#7A6020;margin-bottom:3px;">🏛 경영인사이트</div>
-                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">정효이 · 장우석</div>
+                            <div style="padding:8px 12px;background:#E8F2FB;border-radius:7px;border-left:3px solid #1E4D8C;">
+                <div style="font-size:10px;font-weight:700;color:#1E4D8C;margin-bottom:3px;">🎤 조직행동 발제</div>
+                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">김영환 · 은경아</div>
               </div>
               <div style="padding:8px 12px;background:white;border-radius:7px;border-left:3px solid #1A6B3A;">
-                <div style="font-size:10px;font-weight:700;color:#1A6B3A;margin-bottom:3px;">📖 마케팅 기존문헌발제</div>
+                <div style="font-size:10px;font-weight:700;color:#1A6B3A;margin-bottom:3px;">📖 마케팅 기존문헌발제 (세션6)</div>
                 <div style="font-size:14px;font-weight:700;color:#1C1C1E;">박성준 · 박유상</div>
               </div>
               <div style="padding:8px 12px;background:white;border-radius:7px;border-left:3px solid #0D5A2E;">
-                <div style="font-size:10px;font-weight:700;color:#0D5A2E;margin-bottom:3px;">💡 마케팅 연구아이디어</div>
+                <div style="font-size:10px;font-weight:700;color:#0D5A2E;margin-bottom:3px;">💡 마케팅 연구아이디어 (세션6)</div>
                 <div style="font-size:14px;font-weight:700;color:#1C1C1E;">안재진 · 은경아 · 장우석 · 정영아</div>
+              </div>
+              <div style="padding:8px 12px;background:white;border-radius:7px;border-left:3px solid #1A6B3A;">
+                <div style="font-size:10px;font-weight:700;color:#1A6B3A;margin-bottom:3px;">📖 마케팅 기존문헌발제 (세션7)</div>
+                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">김영환 · 조제효</div>
+              </div>
+              <div style="padding:8px 12px;background:white;border-radius:7px;border-left:3px solid #0D5A2E;">
+                <div style="font-size:10px;font-weight:700;color:#0D5A2E;margin-bottom:3px;">💡 마케팅 연구아이디어 (세션7)</div>
+                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">정효이 · 조수연 · 조제효 · 황용철</div>
               </div>
             </div>
           </div>
@@ -1781,16 +1834,16 @@ table.sched td {
             </div>
             <div style="padding:12px 16px;background:white;display:flex;flex-direction:column;gap:8px;">
               <div style="padding:8px 12px;background:#FDF8EE;border-radius:7px;border-left:3px solid #B8972A;">
-                <div style="font-size:10px;font-weight:700;color:#7A6020;margin-bottom:3px;">🏛 경영인사이트</div>
+                <div style="font-size:10px;font-weight:700;color:#7A6020;margin-bottom:3px;">🏛 경영인사이트 (세션 I · 09:00–11:50)</div>
+                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">정효이 · 장우석</div>
+              </div>
+              <div style="padding:8px 12px;background:#FDF8EE;border-radius:7px;border-left:3px solid #B8972A;">
+                <div style="font-size:10px;font-weight:700;color:#7A6020;margin-bottom:3px;">🏛 경영인사이트 (세션 II · 13:00–15:50)</div>
                 <div style="font-size:14px;font-weight:700;color:#1C1C1E;">정영아 · 박성준</div>
               </div>
-              <div style="padding:8px 12px;background:#F0FAF4;border-radius:7px;border-left:3px solid #1A6B3A;">
-                <div style="font-size:10px;font-weight:700;color:#1A6B3A;margin-bottom:3px;">📖 마케팅 기존문헌발제</div>
-                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">김영환 · 문형규</div>
-              </div>
-              <div style="padding:8px 12px;background:#E8F5EE;border-radius:7px;border-left:3px solid #0D5A2E;">
-                <div style="font-size:10px;font-weight:700;color:#0D5A2E;margin-bottom:3px;">💡 마케팅 연구아이디어</div>
-                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">정효이 · 조수연 · 조제효 · 황용철</div>
+              <div style="padding:8px 12px;background:#E8F2FB;border-radius:7px;border-left:3px solid #1E4D8C;">
+                <div style="font-size:10px;font-weight:700;color:#1E4D8C;margin-bottom:3px;">🎤 조직행동 발제 (16:00–19:00)</div>
+                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">안재진 · 조수연</div>
               </div>
             </div>
           </div>
@@ -1804,11 +1857,15 @@ table.sched td {
             <div style="padding:12px 16px;background:white;display:flex;flex-direction:column;gap:8px;">
               <div style="padding:8px 12px;background:#FDF8EE;border-radius:7px;border-left:3px solid #B8972A;">
                 <div style="font-size:10px;font-weight:700;color:#7A6020;margin-bottom:3px;">🏛 경영인사이트</div>
-                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">안재진</div>
+                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">조수연 · 안재진</div>
               </div>
               <div style="padding:8px 12px;background:#FFF0F0;border-radius:7px;border-left:3px solid #FF3B30;">
                 <div style="font-size:10px;font-weight:700;color:#FF3B30;margin-bottom:3px;">🎓 마케팅 최종발표</div>
                 <div style="font-size:14px;font-weight:700;color:#1C1C1E;">연구제안서 Oral Defense — 전원</div>
+              </div>
+              <div style="padding:8px 12px;background:#E8F2FB;border-radius:7px;border-left:3px solid #1E4D8C;">
+                <div style="font-size:10px;font-weight:700;color:#1E4D8C;margin-bottom:3px;">📋 조직행동 연구계획서</div>
+                <div style="font-size:14px;font-weight:700;color:#1C1C1E;">최종 제출 (Due) · 전원</div>
               </div>
             </div>
           </div>
@@ -1820,146 +1877,200 @@ table.sched td {
         <div id="signup-view-subject" style="display:none;">
           <div style="display:flex;flex-direction:column;gap:16px;">
 
-            <!-- 조직행동 -->
-            <div style="border:1px solid #C5D5EB;border-radius:10px;overflow:hidden;">
+            <!-- 조직행동 발제 (장진욱 교수님) -->
+            <div class="signup-card" data-card-id="jik" style="border:1px solid #C5D5EB;border-radius:10px;overflow:hidden;">
               <div style="background:#1E4D8C;padding:12px 16px;">
-                <div style="font-size:13px;font-weight:800;color:white;">📖 조직행동 (장진욱 교수님)</div>
+                <div style="font-size:13px;font-weight:800;color:white;">🎤 조직행동 발제 (장진욱 교수님)</div>
                 <div style="font-size:11px;color:rgba(255,255,255,0.8);margin-top:2px;">토 09:00–12:00 · 발제 &amp; 토론 진행자</div>
               </div>
               <div style="background:#F5F8FF;">
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #DCE8F8;padding:10px 16px;align-items:center;">
-                  <span style="font-size:12px;font-weight:700;color:#1E4D8C;font-family:monospace;">3/28</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">박유상 · 정영아</span>
+                <div class="signup-row" data-date="2026-03-28" data-card="jik" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5D5EB;padding:10px 16px;align-items:center;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#1E4D8C;font-family:monospace;">3/28</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">박유상 · 정영아</span>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #DCE8F8;padding:10px 16px;align-items:center;background:#EEF4FF;">
-                  <span style="font-size:12px;font-weight:700;color:#1E4D8C;font-family:monospace;">4/11</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">정효이 · 장우석</span>
+                <div class="signup-row" data-date="2026-04-11" data-card="jik" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5D5EB;padding:10px 16px;align-items:center;background:#EEF4FF;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#1E4D8C;font-family:monospace;">4/11</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">정효이 · 장우석</span>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #DCE8F8;padding:10px 16px;align-items:center;">
-                  <span style="font-size:12px;font-weight:700;color:#1E4D8C;font-family:monospace;">4/25</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">박성준 · 조제효</span>
+                <div class="signup-row" data-date="2026-04-25" data-card="jik" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5D5EB;padding:10px 16px;align-items:center;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#1E4D8C;font-family:monospace;">4/25</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">박성준 · 조제효</span>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #DCE8F8;padding:10px 16px;align-items:center;background:#EEF4FF;">
-                  <span style="font-size:12px;font-weight:700;color:#1E4D8C;font-family:monospace;">5/9</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">문형규 · 황용철</span>
+                <div class="signup-row" data-date="2026-05-09" data-card="jik" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5D5EB;padding:10px 16px;align-items:center;background:#EEF4FF;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#1E4D8C;font-family:monospace;">5/9</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">문형규 · 황용철</span>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #DCE8F8;padding:10px 16px;align-items:center;">
-                  <span style="font-size:12px;font-weight:700;color:#1E4D8C;font-family:monospace;">5/30</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">김영환 · 은경아</span>
+                <div class="signup-row" data-date="2026-05-30" data-card="jik" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5D5EB;padding:10px 16px;align-items:center;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#1E4D8C;font-family:monospace;">5/30</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">김영환 · 은경아</span>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;padding:10px 16px;align-items:center;background:#EEF4FF;">
-                  <span style="font-size:12px;font-weight:700;color:#1E4D8C;font-family:monospace;">6/13</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">안재진 · 조수연</span>
+                <div class="signup-row" data-date="2026-06-13" data-card="jik" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5D5EB;padding:10px 16px;align-items:center;background:#EEF4FF;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#1E4D8C;font-family:monospace;">6/13</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">안재진 · 조수연</span>
+                </div>
+                <div class="signup-row" data-date="2026-06-27" data-card="jik" style="display:grid;grid-template-columns:80px 1fr;padding:10px 16px;align-items:center;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#1E4D8C;font-family:monospace;">6/27</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">연구계획서 최종 제출 (Due) — 전원</span>
                 </div>
               </div>
             </div>
 
-            <!-- 경영인사이트 -->
-            <div style="border:1px solid #E5D49A;border-radius:10px;overflow:hidden;">
+            <!-- 경영인사이트 (김태규 교수님) -->
+            <div class="signup-card" data-card-id="insight" style="border:1px solid #E5D49A;border-radius:10px;overflow:hidden;">
               <div style="background:#B8972A;padding:12px 16px;">
                 <div style="font-size:13px;font-weight:800;color:white;">🏛 경영인사이트 (김태규 교수님)</div>
                 <div style="font-size:11px;color:rgba(255,255,255,0.8);margin-top:2px;">토 13:00–15:50</div>
               </div>
               <div style="background:#FFFBF0;">
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #F0E8C8;padding:10px 16px;align-items:center;">
-                  <span style="font-size:12px;font-weight:700;color:#7A6020;font-family:monospace;">3/14</span>
-                  <span style="font-size:13px;font-weight:600;color:#1C1C1E;">Advisor Discussion</span>
+                <div class="signup-row" data-date="2026-03-14" data-card="insight" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #E5D49A;padding:10px 16px;align-items:center;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#7A6020;font-family:monospace;">3/14</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">Advisor Discussion</span>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #F0E8C8;padding:10px 16px;align-items:center;background:#FFF8EE;">
-                  <span style="font-size:12px;font-weight:700;color:#8B0029;font-family:monospace;">3/28 ★</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">조제효 · 은경아</span>
+                <div class="signup-row" data-date="2026-03-28" data-card="insight" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #E5D49A;padding:10px 16px;align-items:center;background:#FFF8EE;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#7A6020;font-family:monospace;">3/28</span>
+                  <div><span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">안재진 원우 관련 특별수업으로 대체</span><br><span style="font-size:10px;color:#8E8E93;">정규 발표 없음 · 조제효·은경아 4/11로 연기</span></div>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #F0E8C8;padding:10px 16px;align-items:center;">
-                  <span style="font-size:12px;font-weight:700;color:#7A6020;font-family:monospace;">4/11</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">안재진</span>
+                <div class="signup-row" data-date="2026-04-11" data-card="insight" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #E5D49A;padding:10px 16px;align-items:center;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#7A6020;font-family:monospace;">4/11</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">조제효 · 은경아</span>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #F0E8C8;padding:10px 16px;align-items:center;background:#FFF8EE;">
-                  <span style="font-size:12px;font-weight:700;color:#7A6020;font-family:monospace;">4/25</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">박유상 · 문형규</span>
+                <div class="signup-row" data-date="2026-04-25" data-card="insight" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #E5D49A;padding:10px 16px;align-items:center;background:#FFF8EE;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#7A6020;font-family:monospace;">4/25</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">박유상 · 문형규</span>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #F0E8C8;padding:10px 16px;align-items:center;">
-                  <span style="font-size:12px;font-weight:700;color:#7A6020;font-family:monospace;">5/9</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">황용철 · 김영환</span>
+                <div class="signup-row" data-date="2026-05-09" data-card="insight" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #E5D49A;padding:10px 16px;align-items:center;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#7A6020;font-family:monospace;">5/9</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">김영환 · 황용철</span>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #F0E8C8;padding:10px 16px;align-items:center;background:#FFF8EE;">
-                  <span style="font-size:12px;font-weight:700;color:#7A6020;font-family:monospace;">5/30</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">정효이 · 장우석</span>
+                <div class="signup-row" data-date="2026-06-13" data-card="insight" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #E5D49A;padding:10px 16px;align-items:center;background:#FFF8EE;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#7A6020;font-family:monospace;">6/13</span>
+                  <div><span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">정효이 · 장우석</span><br><span style="font-size:10px;color:#8E8E93;">세션 I · 09:00–11:50</span></div>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #F0E8C8;padding:10px 16px;align-items:center;">
-                  <span style="font-size:12px;font-weight:700;color:#7A6020;font-family:monospace;">6/13</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">정영아 · 박성준</span>
+                <div class="signup-row" data-date="2026-06-13" data-card="insight" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #E5D49A;padding:10px 16px;align-items:center;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#7A6020;font-family:monospace;">6/13</span>
+                  <div><span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">정영아 · 박성준</span><br><span style="font-size:10px;color:#8E8E93;">세션 II · 13:00–15:50</span></div>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;padding:10px 16px;align-items:center;background:#FFF8EE;">
-                  <span style="font-size:12px;font-weight:700;color:#7A6020;font-family:monospace;">6/27</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">조수연</span>
+                <div class="signup-row" data-date="2026-06-27" data-card="insight" style="display:grid;grid-template-columns:80px 1fr;padding:10px 16px;align-items:center;background:#FFF8EE;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#7A6020;font-family:monospace;">6/27</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">조수연 · 안재진</span>
                 </div>
               </div>
             </div>
 
-            <!-- 마케팅 기존문헌발제 -->
-            <div style="border:1px solid #C5E8D0;border-radius:10px;overflow:hidden;">
+            <!-- 마케팅 기존문헌발제 (유시진 교수님) -->
+            <div class="signup-card" data-card-id="mkt1" style="border:1px solid #C5E8D0;border-radius:10px;overflow:hidden;">
               <div style="background:#1A6B3A;padding:12px 16px;">
                 <div style="font-size:13px;font-weight:800;color:white;">📖 마케팅 기존문헌발제 (유시진 교수님)</div>
-                <div style="font-size:11px;color:rgba(255,255,255,0.8);margin-top:2px;">토 16:00–19:00 (5/30은 13:00–16:00)</div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.8);margin-top:2px;">토 16:00–19:00 (5/30 세션6은 13:00–16:00)</div>
               </div>
               <div style="background:#F0FAF4;">
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5E8D0;padding:10px 16px;align-items:center;background:#FFF8F8;">
-                  <span style="font-size:12px;font-weight:700;color:#8B0029;font-family:monospace;">3/28 ★</span>
-                  <div><span style="font-size:13px;font-weight:700;color:#1C1C1E;">문형규 · 황용철</span><br><span style="font-size:10px;color:#8E8E93;">*조제효 출장 대체</span></div>
+                <div class="signup-row" data-date="2026-03-28" data-card="mkt1" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5E8D0;padding:10px 16px;align-items:center;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#1A6B3A;font-family:monospace;">3/28</span>
+                  <div><span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">문형규 · 황용철</span><br><span style="font-size:10px;color:#8E8E93;">*조제효 출장 대체</span></div>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5E8D0;padding:10px 16px;align-items:center;">
-                  <span style="font-size:12px;font-weight:700;color:#1A6B3A;font-family:monospace;">4/11</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">정효이 · 조수연</span>
+                <div class="signup-row" data-date="2026-04-11" data-card="mkt1" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5E8D0;padding:10px 16px;align-items:center;background:white;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#1A6B3A;font-family:monospace;">4/11</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">정효이 · 조수연</span>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5E8D0;padding:10px 16px;align-items:center;background:white;">
-                  <span style="font-size:12px;font-weight:700;color:#1A6B3A;font-family:monospace;">4/25</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">장우석 · 정영아</span>
+                <div class="signup-row" data-date="2026-04-25" data-card="mkt1" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5E8D0;padding:10px 16px;align-items:center;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#1A6B3A;font-family:monospace;">4/25</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">장우석 · 정영아</span>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5E8D0;padding:10px 16px;align-items:center;">
-                  <span style="font-size:12px;font-weight:700;color:#1A6B3A;font-family:monospace;">5/9</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">안재진 · 은경아</span>
+                <div class="signup-row" data-date="2026-05-09" data-card="mkt1" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5E8D0;padding:10px 16px;align-items:center;background:white;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#1A6B3A;font-family:monospace;">5/9</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">안재진 · 은경아</span>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5E8D0;padding:10px 16px;align-items:center;background:white;">
-                  <span style="font-size:12px;font-weight:700;color:#1A6B3A;font-family:monospace;">5/30</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">박성준 · 박유상</span>
+                <div class="signup-row" data-date="2026-05-30" data-card="mkt1" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #C5E8D0;padding:10px 16px;align-items:center;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#1A6B3A;font-family:monospace;">5/30</span>
+                  <div><span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">박성준 · 박유상</span><br><span style="font-size:10px;color:#8E8E93;">세션 6</span></div>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;padding:10px 16px;align-items:center;">
-                  <span style="font-size:12px;font-weight:700;color:#1A6B3A;font-family:monospace;">6/13</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">김영환 · 문형규</span>
+                <div class="signup-row" data-date="2026-05-30" data-card="mkt1" style="display:grid;grid-template-columns:80px 1fr;padding:10px 16px;align-items:center;background:white;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#1A6B3A;font-family:monospace;">5/30</span>
+                  <div><span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">김영환 · 조제효</span><br><span style="font-size:10px;color:#8E8E93;">세션 7</span></div>
                 </div>
               </div>
             </div>
 
-            <!-- 마케팅 연구아이디어 -->
-            <div style="border:1px solid #B8D4C0;border-radius:10px;overflow:hidden;">
+            <!-- 마케팅 연구아이디어 (유시진 교수님) -->
+            <div class="signup-card" data-card-id="mkt2" style="border:1px solid #B8D4C0;border-radius:10px;overflow:hidden;">
               <div style="background:#0D5A2E;padding:12px 16px;">
                 <div style="font-size:13px;font-weight:800;color:white;">💡 마케팅 연구아이디어 (유시진 교수님)</div>
-                <div style="font-size:11px;color:rgba(255,255,255,0.8);margin-top:2px;">토 16:00–19:00 (5/30은 16:00–19:00)</div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.8);margin-top:2px;">토 16:00–19:00 (5/30 세션6은 13:00–16:00)</div>
               </div>
               <div style="background:#E8F5EE;">
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #B8D4C0;padding:10px 16px;align-items:center;background:#FFF8F8;">
-                  <span style="font-size:12px;font-weight:700;color:#8B0029;font-family:monospace;">3/28 ★</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">김영환 · 문형규 · 박성준 · 박유상</span>
+                <div class="signup-row" data-date="2026-03-28" data-card="mkt2" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #B8D4C0;padding:10px 16px;align-items:center;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#0D5A2E;font-family:monospace;">3/28</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">김영환 · 문형규 · 박성준 · 박유상</span>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #B8D4C0;padding:10px 16px;align-items:center;background:white;">
-                  <span style="font-size:12px;font-weight:700;color:#0D5A2E;font-family:monospace;">4/11</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">안재진 · 은경아 · 장우석 · 정영아</span>
+                <div class="signup-row" data-date="2026-04-11" data-card="mkt2" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #B8D4C0;padding:10px 16px;align-items:center;background:white;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#0D5A2E;font-family:monospace;">4/11</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">은경아 · 장우석 · 정영아</span>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #B8D4C0;padding:10px 16px;align-items:center;">
-                  <span style="font-size:12px;font-weight:700;color:#0D5A2E;font-family:monospace;">4/25</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">정효이 · 조수연 · 조제효 · 황용철</span>
+                <div class="signup-row" data-date="2026-04-25" data-card="mkt2" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #B8D4C0;padding:10px 16px;align-items:center;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#0D5A2E;font-family:monospace;">4/25</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">정효이 · 조수연 · 조제효 · 황용철 · 안재진</span>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #B8D4C0;padding:10px 16px;align-items:center;background:white;">
-                  <span style="font-size:12px;font-weight:700;color:#0D5A2E;font-family:monospace;">5/9</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">김영환 · 문형규 · 박성준 · 박유상</span>
+                <div class="signup-row" data-date="2026-05-09" data-card="mkt2" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #B8D4C0;padding:10px 16px;align-items:center;background:white;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#0D5A2E;font-family:monospace;">5/9</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">김영환 · 문형규 · 박성준 · 박유상</span>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #B8D4C0;padding:10px 16px;align-items:center;">
-                  <span style="font-size:12px;font-weight:700;color:#0D5A2E;font-family:monospace;">5/30</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">안재진 · 은경아 · 장우석 · 정영아</span>
+                <div class="signup-row" data-date="2026-05-30" data-card="mkt2" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #B8D4C0;padding:10px 16px;align-items:center;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#0D5A2E;font-family:monospace;">5/30</span>
+                  <div><span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">안재진 · 은경아 · 장우석 · 정영아</span><br><span style="font-size:10px;color:#8E8E93;">세션 6</span></div>
                 </div>
-                <div style="display:grid;grid-template-columns:80px 1fr;padding:10px 16px;align-items:center;background:white;">
-                  <span style="font-size:12px;font-weight:700;color:#0D5A2E;font-family:monospace;">6/13</span>
-                  <span style="font-size:13px;font-weight:700;color:#1C1C1E;">정효이 · 조수연 · 조제효 · 황용철</span>
+                <div class="signup-row" data-date="2026-05-30" data-card="mkt2" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #B8D4C0;padding:10px 16px;align-items:center;background:white;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#0D5A2E;font-family:monospace;">5/30</span>
+                  <div><span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">정효이 · 조수연 · 조제효 · 황용철</span><br><span style="font-size:10px;color:#8E8E93;">세션 7</span></div>
+                </div>
+                <div class="signup-row" data-date="2026-06-27" data-card="mkt2" style="display:grid;grid-template-columns:80px 1fr;padding:10px 16px;align-items:center;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#0D5A2E;font-family:monospace;">6/27</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">연구제안서 발표 Oral Defense — 전원</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 전략 시사점 보고서 (이재민 교수님) -->
+            <div class="signup-card" data-card-id="strategy" style="border:1px solid #FFCDD0;border-radius:10px;overflow:hidden;">
+              <div style="background:#8B0029;padding:12px 16px;">
+                <div style="font-size:13px;font-weight:800;color:white;">📊 전략 시사점 보고서 (이재민 교수님)</div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.8);margin-top:2px;">매주차 정오 12:00 메일 제출 · 최대 2page · bullet 형식</div>
+              </div>
+              <div style="background:white;">
+                <div class="signup-row" data-date="2026-03-13" data-card="strategy" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #FFCDD0;padding:10px 16px;align-items:center;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#8B0029;font-family:monospace;">3/13</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">1주차 — 경쟁전략 (Competitive Strategy)</span>
+                </div>
+                <div class="signup-row" data-date="2026-03-27" data-card="strategy" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #FFCDD0;padding:10px 16px;align-items:center;background:#FFF8F8;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#8B0029;font-family:monospace;">3/27</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">2주차 — M&A / 전략적 제휴</span>
+                </div>
+                <div class="signup-row" data-date="2026-04-10" data-card="strategy" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #FFCDD0;padding:10px 16px;align-items:center;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#8B0029;font-family:monospace;">4/10</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">3주차 — 사업 매각 (Divestitures)</span>
+                </div>
+                <div class="signup-row" data-date="2026-04-24" data-card="strategy" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #FFCDD0;padding:10px 16px;align-items:center;background:#FFF8F8;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#8B0029;font-family:monospace;">4/24</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">4주차 — CEO 승계 (Succession)</span>
+                </div>
+                <div class="signup-row" data-date="2026-05-08" data-card="strategy" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #FFCDD0;padding:10px 16px;align-items:center;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#8B0029;font-family:monospace;">5/8</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">5주차 — 이사회 / 상층부 이론</span>
+                </div>
+                <div class="signup-row" data-date="2026-05-29" data-card="strategy" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #FFCDD0;padding:10px 16px;align-items:center;background:#FFF8F8;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#8B0029;font-family:monospace;">5/29</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">6주차 — 기업집단 (Business Groups)</span>
+                </div>
+                <div class="signup-row" data-date="2026-06-12" data-card="strategy" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #FFCDD0;padding:10px 16px;align-items:center;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#8B0029;font-family:monospace;">6/12</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">7주차 — 신사업 개발 (Corporate Entrepreneurship)</span>
+                </div>
+                <div class="signup-row" data-date="2026-06-26" data-card="strategy" style="display:grid;grid-template-columns:80px 1fr;border-bottom:1px solid #FFCDD0;padding:10px 16px;align-items:center;background:#FFF8F8;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#8B0029;font-family:monospace;">6/26</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">8주차 — AI와 전략 (AI & Strategy)</span>
+                </div>
+                <div class="signup-row" data-date="2026-06-27" data-card="strategy" style="display:grid;grid-template-columns:80px 1fr;padding:10px 16px;align-items:center;">
+                  <span class="signup-row-date" style="font-size:12px;font-weight:700;color:#8B0029;font-family:monospace;">6/27</span>
+                  <span class="signup-row-name" style="font-size:13px;font-weight:700;color:#1C1C1E;">최종 누적본 제출 (Due)</span>
                 </div>
               </div>
             </div>
@@ -3372,10 +3483,75 @@ function selectSubject(id, el) {
   }
 }
 
+
+// ── ★ 자동 동기화: 페이지 보는 날짜 기준, 가장 가까운 미래 행에 ★ 부여 ──
+// 발표 종료 시 다음 주차로 자동 이동 (오늘 날짜가 발표일을 지나면 그 다음 행에 ★)
+function syncSubjectStars() {
+  try {
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+    var todayStr = today.getFullYear() + '-' + String(today.getMonth()+1).padStart(2,'0') + '-' + String(today.getDate()).padStart(2,'0');
+    
+    // 모든 카드별로 그룹핑하여 처리
+    var cards = document.querySelectorAll('.signup-card');
+    cards.forEach(function(card) {
+      var rows = card.querySelectorAll('.signup-row');
+      var firstUpcomingDate = null;
+      
+      // 1단계: 미래(또는 오늘)의 가장 빠른 날짜 찾기
+      rows.forEach(function(row) {
+        var rowDate = row.getAttribute('data-date');
+        if (rowDate && rowDate >= todayStr) {
+          if (!firstUpcomingDate || rowDate < firstUpcomingDate) {
+            firstUpcomingDate = rowDate;
+          }
+        }
+      });
+      
+      // 2단계: 모든 행의 ★ 표시 초기화
+      rows.forEach(function(row) {
+        var dateSpan = row.querySelector('.signup-row-date');
+        if (!dateSpan) return;
+        // 기존 ★ 제거
+        var txt = dateSpan.textContent.replace(/\s*★\s*/g, '').trim();
+        dateSpan.textContent = txt;
+        // 빨간색 강조 제거 (원래 색으로 복귀는 인라인 스타일이 우선이므로 별도 클래스)
+        row.classList.remove('signup-row-active');
+      });
+      
+      // 3단계: 가장 가까운 미래 행에 ★ 부여
+      if (firstUpcomingDate) {
+        rows.forEach(function(row) {
+          if (row.getAttribute('data-date') === firstUpcomingDate) {
+            var dateSpan = row.querySelector('.signup-row-date');
+            if (dateSpan) {
+              dateSpan.textContent = dateSpan.textContent + ' ★';
+              dateSpan.style.color = '#8B0029';
+            }
+            row.classList.add('signup-row-active');
+            // 행 전체에 살짝 강조 배경
+            row.style.background = 'linear-gradient(90deg, #FFF8F8 0%, transparent 100%)';
+            row.style.boxShadow = 'inset 3px 0 0 #8B0029';
+          }
+        });
+      }
+    });
+  } catch(e) {
+    console.warn('syncSubjectStars error:', e);
+  }
+}
+
+// 페이지 로드 시 + 과목별 뷰 전환 시 실행
+document.addEventListener('DOMContentLoaded', function() {
+  syncSubjectStars();
+});
+
 // ── switchSignupView: 일자별/과목별 보기 전환 ──
 function switchSignupView(v) {
   document.getElementById('signup-view-date').style.display = (v==='date') ? 'block' : 'none';
   document.getElementById('signup-view-subject').style.display = (v==='subject') ? 'block' : 'none';
+  // 과목별 뷰 전환 시 ★ 자동 동기화 (오늘 날짜 기준)
+  if (v === 'subject') { syncSubjectStars(); }
   var memberView = document.getElementById('signup-view-member');
   if (memberView) memberView.style.display = (v==='member') ? 'block' : 'none';
   var btnDate = document.getElementById('signup-btn-date');
@@ -3508,12 +3684,11 @@ var scheduleEvents = [
 {date:'2026-03-27', type:'class', course:'DBA211', label:'전략', title:'전략 (이재민 교수님) · 2주차', detail:'M&A / 전략적 제휴 · 15:00–18:00', color:'#8B0029'},
 {date:'2026-03-28', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 2주차', detail:'직장 내의 관계 — Relationships at Work · 09:00–12:00 · 📝 심층적인 토론 준비 · 🎤 박유상 · 정영아', color:'#1E4D8C'},
 {date:'2026-03-28', type:'class', course:'DBA213', label:'마케팅', title:'마케팅 (유시진 교수님) · 2주차', detail:'고객 의사결정과 소비자 행동 · 16:00–19:00 · 💭 고객의사결정 단계 구분 · 소비자 행동 연구문제', color:'#1A6B3A'},
-{date:'2026-03-28', type:'class', course:'DBA103', label:'인사이트', title:'경영인사이트 (김태규 교수님) · 2주차', detail:'경영인사이트 발표, 안재진 원우 관련 특별수업으로 대체 · 발표자 다음 주로 연기 · 13:00–15:50', color:'#B8972A'},
+{date:'2026-03-28', type:'class', course:'DBA103', label:'인사이트', title:'경영인사이트 (김태규 교수님) · 2주차', detail:'안재진 원우 관련 특별수업으로 대체 · 정규 발표 없음 · 13:00–15:50', color:'#B8972A'},
 {date:'2026-04-10', type:'class', course:'DBA211', label:'전략', title:'전략 (이재민 교수님) · 3주차', detail:'사업 매각 — Divestitures · 15:00–18:00', color:'#8B0029'},
 {date:'2026-04-11', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 3주차', detail:'조직 내 정체성과 동일시 — Identity & Identification · 09:00–12:00 · 📝 심층적인 토론 준비 · 🎤 정효이 · 장우석', color:'#1E4D8C'},
 {date:'2026-04-11', type:'class', course:'DBA213', label:'마케팅', title:'마케팅 (유시진 교수님) · 3주차', detail:'브랜드 가치와 기업 평판 · 16:00–19:00 · 💭 브랜드 가치 측정 방법 · 산업에서의 브랜드 영향', color:'#1A6B3A'},
 {date:'2026-04-11', type:'class', course:'DBA103', label:'인사이트', title:'경영인사이트 (김태규 교수님) · 3주차', detail:'발표: 조제효 · 은경아 · 13:00–15:50', color:'#B8972A'},
-{date:'2026-04-11', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — 안재진', detail:'Research Q 발표 · 13:00–15:50', color:'#B8972A', weight:''},
 {date:'2026-04-11', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — 조제효 · 은경아', detail:'Research Q 발표 · 13:00–15:50', color:'#B8972A', weight:'—'},
 {date:'2026-04-24', type:'class', course:'DBA211', label:'전략', title:'전략 (이재민 교수님) · 4주차', detail:'CEO 승계 — Succession · 15:00–18:00', color:'#8B0029'},
 {date:'2026-04-25', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 4주차', detail:'리더십 — Leadership · 09:00–12:00 · 📝 심층적인 토론 준비 · 🎤 박성준 · 조제효', color:'#1E4D8C'},
@@ -3522,7 +3697,7 @@ var scheduleEvents = [
 {date:'2026-05-08', type:'class', course:'DBA211', label:'전략', title:'전략 (이재민 교수님) · 5주차', detail:'이사회 / 상층부 이론 — Upper Echelons · 15:00–18:00', color:'#8B0029'},
 {date:'2026-05-09', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 5주차', detail:'권력과 조직 정치 — Power & Organizational Politics · 09:00–12:00 · 📝 심층적인 토론 준비 · 🎤 문형규 · 황용철', color:'#1E4D8C'},
 {date:'2026-05-09', type:'class', course:'DBA213', label:'마케팅', title:'마케팅 (유시진 교수님) · 5주차', detail:'고객가치와 기업가치 · 16:00–19:00 · 💭 고객가치 측정 방법 · 구성 요소', color:'#1A6B3A'},
-{date:'2026-05-09', type:'class', course:'DBA103', label:'인사이트', title:'경영인사이트 (김태규 교수님) · 5주차', detail:'발표: 황용철 · 김영환 · 13:00–15:50', color:'#B8972A'},
+{date:'2026-05-09', type:'class', course:'DBA103', label:'인사이트', title:'경영인사이트 (김태규 교수님) · 5주차', detail:'발표: 김영환 · 황용철 · 13:00–15:50', color:'#B8972A'},
 {date:'2026-05-29', type:'class', course:'DBA211', label:'전략', title:'전략 (이재민 교수님) · 6주차', detail:'기업집단 — Business Groups · 15:00–18:00', color:'#8B0029'},
 {date:'2026-05-30', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 6주차', detail:'협력과 갈등 — Collaboration & Conflict · 09:00–12:00 · 📝 심층적인 토론 준비 · 🎤 김영환 · 은경아', color:'#1E4D8C'},
 {date:'2026-05-30', type:'class', course:'DBA213', label:'마케팅', title:'마케팅 (유시진 교수님) · 6주차', detail:'소셜미디어와 구전 · 13:00–16:00 · 💭 구전의 마케팅 역할 · 소셜미디어 연구주제', color:'#1A6B3A'},
@@ -3535,8 +3710,7 @@ var scheduleEvents = [
 {date:'2026-06-27', type:'assign', course:'DBA212', label:'조직행동 연구계획서', title:'조직행동 연구계획서 제출 (Due)', detail:'연구주제 자율선정 · 15매 내외 · 실증연구 계획', color:'#1E4D8C', weight:'30%'},
 {date:'2026-06-27', type:'class', course:'DBA212', label:'조직행동', title:'조직행동 (장진욱 교수님) · 8주차', detail:'조직행동의 미래 — Future of Organizational Behavior · 09:00–12:00 · 📝 심층적인 토론 준비', color:'#1E4D8C'},
 {date:'2026-06-27', type:'class', course:'DBA213', label:'마케팅', title:'마케팅 (유시진 교수님) · 8주차', detail:'연구제안서 발표 및 Oral Defense · 16:00–19:00 · 💭 연구제안서 발표 — 독창성·공헌도·방법론 검증', color:'#1A6B3A'},
-{date:'2026-06-27', type:'class', course:'DBA103', label:'인사이트', title:'경영인사이트 (김태규 교수님) · 8주차', detail:'발표: 조수연 · 13:00–15:50', color:'#B8972A'},
-{date:'2026-03-14', type:'assign', course:'DBA212', label:'조직행동 과제', title:'조직행동 심층 토론 준비 및 발표 — 박유상 · 정영아', detail:'수업 전 지정 읽기자료 완독 · 비판적 분석 준비 · 09:00–12:00', color:'#1E4D8C', weight:'50%'},
+{date:'2026-06-27', type:'class', course:'DBA103', label:'인사이트', title:'경영인사이트 (김태규 교수님) · 8주차', detail:'발표: 조수연 · 안재진 · 13:00–15:50', color:'#B8972A'},
 {date:'2026-03-28', type:'assign', course:'DBA212', label:'조직행동 과제', title:'조직행동 심층 토론 준비 및 발표 — 박유상 · 정영아', detail:'수업 전 지정 읽기자료 완독 · 비판적 분석 준비 · 09:00–12:00', color:'#1E4D8C', weight:'50%'},
 {date:'2026-04-11', type:'assign', course:'DBA212', label:'조직행동 과제', title:'조직행동 심층 토론 준비 및 발표 — 정효이 · 장우석', detail:'수업 전 지정 읽기자료 완독 · 비판적 분석 준비 · 09:00–12:00', color:'#1E4D8C', weight:'50%'},
 {date:'2026-04-25', type:'assign', course:'DBA212', label:'조직행동 과제', title:'조직행동 심층 토론 준비 및 발표 — 박성준 · 조제효', detail:'수업 전 지정 읽기자료 완독 · 비판적 분석 준비 · 09:00–12:00', color:'#1E4D8C', weight:'50%'},
@@ -3545,32 +3719,32 @@ var scheduleEvents = [
 {date:'2026-06-13', type:'assign', course:'DBA212', label:'조직행동 과제', title:'조직행동 심층 토론 준비 및 발표 — 안재진 · 조수연', detail:'수업 전 지정 읽기자료 완독 · 비판적 분석 준비 · 16:00–19:00', color:'#1E4D8C', weight:'50%'},
 {date:'2026-06-27', type:'assign', course:'DBA212', label:'조직행동 과제', title:'조직행동 심층 토론 준비 8주차 — 조직행동의 미래 — Future of Organizational Behavior', detail:'수업 전 지정 읽기자료 완독 · 비판적 분석 준비 · 09:00–12:00', color:'#1E4D8C', weight:'50%'},
 {date:'2026-03-14', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — Advisor Discussion', detail:'지도교수 탐색 · 13:00–15:50', color:'#B8972A', weight:''},
-{date:'2026-03-28', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표, 안재진 원우 관련 특별수업으로 대체', detail:'발표자 다음 주로 연기 · 13:00–15:50', color:'#B8972A', weight:''},
+{date:'2026-03-28', type:'assign', course:'DBA103', label:'특별수업', title:'경영인사이트 — 안재진 원우 관련 특별수업으로 대체 (발표 없음)', detail:'정규 발표 없음 · 발표자(조제효·은경아) 4/11로 연기 · 13:00–15:50', color:'#B8972A', weight:''},
 {date:'2026-04-25', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — 박유상 · 문형규', detail:'Research Q 발표 · 13:00–15:50', color:'#B8972A', weight:''},
-{date:'2026-05-09', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — 황용철 · 김영환', detail:'Research Q 발표 · 13:00–15:50', color:'#B8972A', weight:''},
+{date:'2026-05-09', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — 김영환 · 황용철', detail:'Research Q 발표 · 13:00–15:50', color:'#B8972A', weight:''},
 {date:'2026-06-13', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — 정효이 · 장우석', detail:'Research Q 발표 · 09:00–11:50', color:'#B8972A', weight:''},
 {date:'2026-06-13', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — 정영아 · 박성준', detail:'Research Q 발표 · 13:00–15:50', color:'#B8972A', weight:''},
-{date:'2026-06-27', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — 조수연', detail:'Research Q 발표 · 13:00–15:50', color:'#B8972A', weight:''},
+{date:'2026-06-27', type:'assign', course:'DBA103', label:'인사이트 발표', title:'경영인사이트 발표 — 조수연 · 안재진', detail:'Research Q 발표 · 13:00–15:50', color:'#B8972A', weight:''},
 {date:'2026-03-28', type:'assign', course:'DBA213', label:'마케팅 ①발제', title:'마케팅 기존문헌발제 — 문형규·황용철', detail:'문헌 발제 2명 · 세션2 · 16:00–19:00', color:'#1A6B3A', weight:'20%'},
 {date:'2026-03-28', type:'assign', course:'DBA213', label:'마케팅 ②아이디어', title:'마케팅 연구아이디어 발표 — 김영환·문형규·박성준·박유상', detail:'연구아이디어 4명 · 세션2 · 16:00–19:00', color:'#0D5A2E', weight:'20%'},
 {date:'2026-04-11', type:'assign', course:'DBA213', label:'마케팅 ①발제', title:'마케팅 기존문헌발제 — 정효이·조수연', detail:'문헌 발제 2명 · 세션3 · 16:00–19:00', color:'#1A6B3A', weight:'20%'},
-{date:'2026-04-11', type:'assign', course:'DBA213', label:'마케팅 ②아이디어', title:'마케팅 연구아이디어 발표 — 안재진·은경아·장우석·정영아', detail:'연구아이디어 4명 · 세션3 · 16:00–19:00', color:'#0D5A2E', weight:'20%'},
+{date:'2026-04-11', type:'assign', course:'DBA213', label:'마케팅 ②아이디어', title:'마케팅 연구아이디어 발표 — 은경아·장우석·정영아', detail:'연구아이디어 3명 · 세션3 · 16:00–19:00', color:'#0D5A2E', weight:'20%'},
 {date:'2026-04-25', type:'assign', course:'DBA213', label:'마케팅 ①발제', title:'마케팅 기존문헌발제 — 장우석·정영아', detail:'문헌 발제 2명 · 세션4 · 16:00–19:00', color:'#1A6B3A', weight:'20%'},
-{date:'2026-04-25', type:'assign', course:'DBA213', label:'마케팅 ②아이디어', title:'마케팅 연구아이디어 발표 — 정효이·조수연·조제효·황용철', detail:'연구아이디어 4명 · 세션4 · 16:00–19:00', color:'#0D5A2E', weight:'20%'},
+{date:'2026-04-25', type:'assign', course:'DBA213', label:'마케팅 ②아이디어', title:'마케팅 연구아이디어 발표 — 정효이·조수연·조제효·황용철·안재진', detail:'연구아이디어 5명 · 세션4 · 16:00–19:00', color:'#0D5A2E', weight:'20%'},
 {date:'2026-05-09', type:'assign', course:'DBA213', label:'마케팅 ①발제', title:'마케팅 기존문헌발제 — 안재진·은경아', detail:'문헌 발제 2명 · 세션5 · 16:00–19:00', color:'#1A6B3A', weight:'20%'},
 {date:'2026-05-09', type:'assign', course:'DBA213', label:'마케팅 ②아이디어', title:'마케팅 연구아이디어 발표 — 김영환·문형규·박성준·박유상', detail:'연구아이디어 4명 · 세션5 · 16:00–19:00', color:'#0D5A2E', weight:'20%'},
 {date:'2026-05-30', type:'assign', course:'DBA213', label:'마케팅 ①발제', title:'마케팅 기존문헌발제 — 박성준·박유상', detail:'문헌 발제 2명 · 세션6 · 13:00–16:00', color:'#1A6B3A', weight:'20%'},
 {date:'2026-05-30', type:'assign', course:'DBA213', label:'마케팅 ②아이디어', title:'마케팅 연구아이디어 발표 — 안재진·은경아·장우석·정영아', detail:'연구아이디어 4명 · 세션6 · 13:00–16:00', color:'#0D5A2E', weight:'20%'},
-{date:'2026-05-30', type:'assign', course:'DBA213', label:'마케팅 ①발제', title:'마케팅 기존문헌발제 — 김영환·문형규', detail:'문헌 발제 2명 · 세션7 · 16:00–19:00', color:'#1A6B3A', weight:'20%'},
+{date:'2026-05-30', type:'assign', course:'DBA213', label:'마케팅 ①발제', title:'마케팅 기존문헌발제 — 김영환·조제효', detail:'문헌 발제 2명 · 세션7 · 16:00–19:00', color:'#1A6B3A', weight:'20%'},
 {date:'2026-05-30', type:'assign', course:'DBA213', label:'마케팅 ②아이디어', title:'마케팅 연구아이디어 발표 — 정효이·조수연·조제효·황용철', detail:'연구아이디어 4명 · 세션7 · 16:00–19:00', color:'#0D5A2E', weight:'20%'},
-{date:'2026-03-13', type:'assign', course:'DBA211', label:'전략 과제', title:'전략 시사점 보고서 1주차 — 경쟁전략 — Competitive Strategy', detail:'최대 2page · bullet 형식 · 수업 당일 제출', color:'#8B0029', weight:'50%'},
-{date:'2026-03-27', type:'assign', course:'DBA211', label:'전략 과제', title:'전략 시사점 보고서 2주차 — M&A / 전략적 제휴', detail:'최대 2page · bullet 형식 · 수업 당일 제출', color:'#8B0029', weight:'50%'},
-{date:'2026-04-10', type:'assign', course:'DBA211', label:'전략 과제', title:'전략 시사점 보고서 3주차 — 사업 매각 — Divestitures', detail:'최대 2page · bullet 형식 · 수업 당일 제출', color:'#8B0029', weight:'50%'},
-{date:'2026-04-24', type:'assign', course:'DBA211', label:'전략 과제', title:'전략 시사점 보고서 4주차 — CEO 승계 — Succession', detail:'최대 2page · bullet 형식 · 수업 당일 제출', color:'#8B0029', weight:'50%'},
-{date:'2026-05-08', type:'assign', course:'DBA211', label:'전략 과제', title:'전략 시사점 보고서 5주차 — 이사회 / 상층부 이론 — Upper Echelons', detail:'최대 2page · bullet 형식 · 수업 당일 제출', color:'#8B0029', weight:'50%'},
-{date:'2026-05-29', type:'assign', course:'DBA211', label:'전략 과제', title:'전략 시사점 보고서 6주차 — 기업집단 — Business Groups', detail:'최대 2page · bullet 형식 · 수업 당일 제출', color:'#8B0029', weight:'50%'},
-{date:'2026-06-12', type:'assign', course:'DBA211', label:'전략 과제', title:'전략 시사점 보고서 7주차 — 신사업 개발 — Corporate Entrepreneurship', detail:'최대 2page · bullet 형식 · 수업 당일 제출', color:'#8B0029', weight:'50%'},
-{date:'2026-06-26', type:'assign', course:'DBA211', label:'전략 과제', title:'전략 시사점 보고서 8주차 — AI와 전략 — AI & Strategy', detail:'최대 2page · bullet 형식 · 수업 당일 제출', color:'#8B0029', weight:'50%'},
+{date:'2026-03-13', type:'assign', course:'DBA211', label:'전략 과제', title:'전략 시사점 보고서 1주차 — 경쟁전략 — Competitive Strategy', detail:'최대 2page · bullet 형식 · 매주차 정오12시 메일 제출', color:'#8B0029', weight:'50%'},
+{date:'2026-03-27', type:'assign', course:'DBA211', label:'전략 과제', title:'전략 시사점 보고서 2주차 — M&A / 전략적 제휴', detail:'최대 2page · bullet 형식 · 매주차 정오12시 메일 제출', color:'#8B0029', weight:'50%'},
+{date:'2026-04-10', type:'assign', course:'DBA211', label:'전략 과제', title:'전략 시사점 보고서 3주차 — 사업 매각 — Divestitures', detail:'최대 2page · bullet 형식 · 매주차 정오12시 메일 제출', color:'#8B0029', weight:'50%'},
+{date:'2026-04-24', type:'assign', course:'DBA211', label:'전략 과제', title:'전략 시사점 보고서 4주차 — CEO 승계 — Succession', detail:'최대 2page · bullet 형식 · 매주차 정오12시 메일 제출', color:'#8B0029', weight:'50%'},
+{date:'2026-05-08', type:'assign', course:'DBA211', label:'전략 과제', title:'전략 시사점 보고서 5주차 — 이사회 / 상층부 이론 — Upper Echelons', detail:'최대 2page · bullet 형식 · 매주차 정오12시 메일 제출', color:'#8B0029', weight:'50%'},
+{date:'2026-05-29', type:'assign', course:'DBA211', label:'전략 과제', title:'전략 시사점 보고서 6주차 — 기업집단 — Business Groups', detail:'최대 2page · bullet 형식 · 매주차 정오12시 메일 제출', color:'#8B0029', weight:'50%'},
+{date:'2026-06-12', type:'assign', course:'DBA211', label:'전략 과제', title:'전략 시사점 보고서 7주차 — 신사업 개발 — Corporate Entrepreneurship', detail:'최대 2page · bullet 형식 · 매주차 정오12시 메일 제출', color:'#8B0029', weight:'50%'},
+{date:'2026-06-26', type:'assign', course:'DBA211', label:'전략 과제', title:'전략 시사점 보고서 8주차 — AI와 전략 — AI & Strategy', detail:'최대 2page · bullet 형식 · 매주차 정오12시 메일 제출', color:'#8B0029', weight:'50%'},
 {date:'2026-06-27', type:'assign', course:'DBA213', label:'마케팅 [최종]', title:'연구제안서 + Oral Defense', detail:'15분 발표 (8분+Q&A7분) · 최종 제출', color:'#FF3B30', weight:'60%'},
 {date:'2026-06-27', type:'assign', course:'DBA212', label:'조직행동 [최종]', title:'연구 설계 및 계획서 최종 제출', detail:'실증 연구 계획 · 이론+실무 연결', color:'#FF3B30', weight:'50%'},
 {date:'2026-06-27', type:'assign', course:'DBA211', label:'전략 [최종]', title:'전략적 시사점 보고서 최종 제출', detail:'매 수업 2p 누적 · bullet 형식', color:'#FF3B30', weight:'50%'},
