@@ -2349,7 +2349,7 @@ table.sched td {
 
 <div class="reading-section active" id="r1">
     <!-- 강의계획서/강의자료 안내 -->
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+    <div id="r1-btns" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
       <a href="https://drive.google.com/file/d/1DLWANW9-wVaLnjc_JERhkSJT2_vAb7iJ/view?usp=drivesdk" target="_blank"
          style="display:inline-flex;align-items:center;gap:6px;padding:9px 15px;background:#8B0029;color:white;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;">
         📄 강의계획서
@@ -2377,7 +2377,7 @@ table.sched td {
   <!-- 조직행동 -->
   <div class="reading-section" id="r2">
     <!-- 강의계획서/강의자료 안내 -->
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;">
+    <div id="r2-btns" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;">
       <a href="https://drive.google.com/file/d/1vV2FWOKubLnaXReXG6plMpP0RQdsYtwk/view?usp=drivesdk" target="_blank"
          style="display:inline-flex;align-items:center;gap:6px;padding:9px 16px;background:#1E4D8C;color:white;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;">
         📄 강의계획서
@@ -2404,7 +2404,7 @@ table.sched td {
 
 <div class="reading-section" id="r3">
     <!-- 강의계획서 / 강의자료 / 읽기자료 안내 -->
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;">
+    <div id="r3-btns" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;">
       <a href="https://drive.google.com/file/d/1IQVTtSu4Lx0hlncOXVTh-SLl50m6S7ZM/view?usp=drivesdk" target="_blank"
          style="display:inline-flex;align-items:center;gap:6px;padding:9px 16px;background:#1A6B3A;color:white;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;">
         📄 강의계획서
@@ -2436,7 +2436,7 @@ table.sched td {
   <!-- 경영인사이트 -->
 <div class="reading-section" id="r4">
     <!-- 강의계획서 버튼 -->
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;">
+    <div id="r4-btns" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;">
       <a href="https://drive.google.com/file/d/1Z2ugz4Jj62-nObDtkoTbDVHOAC9NG0nY/view?usp=drive_link" target="_blank"
          style="display:inline-flex;align-items:center;gap:6px;padding:9px 16px;background:#B8972A;color:white;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;">
         📄 강의계획서
@@ -3379,11 +3379,25 @@ function renderTTCal() {
         var dt = new Date(ds); 
         dc.innerHTML = '<div style="font-size:13px;color:#8E8E93;margin-bottom:12px;font-weight:600;">'+ds.replace('2026-','')+ ' (' + dayNames[dt.getDay()] + ')</div>' +
           evts.map(function(e) {
+            // 강의자료 링크 자동 표시 (subject에서 과목코드 추론)
+            var lecBtn = '';
+            if (typeof courseLinks !== 'undefined') {
+              var courseKey = null;
+              if (e.subject.indexOf('전략') >= 0) courseKey = 'DBA211';
+              else if (e.subject.indexOf('조직행동') >= 0) courseKey = 'DBA212';
+              else if (e.subject.indexOf('마케팅') >= 0) courseKey = 'DBA213';
+              else if (e.subject.indexOf('경영인사이트') >= 0) courseKey = 'DBA103';
+              if (courseKey && courseLinks[courseKey] && courseLinks[courseKey].lecMaterials && courseLinks[courseKey].lecMaterials[ds]) {
+                var lm = courseLinks[courseKey].lecMaterials[ds];
+                lecBtn = '<a href="'+lm.url+'" target="_blank" rel="noopener" style="display:inline-block;margin-top:6px;padding:5px 10px;background:'+e.color+';color:white;border-radius:5px;font-size:11px;font-weight:700;text-decoration:none;">📂 '+lm.name+'</a>';
+              }
+            }
             return '<div style="display:flex;align-items:center;gap:12px;padding:12px;border-radius:8px;background:#F8FFFE;margin-bottom:8px;border-left:4px solid '+e.color+';">'
               + '<div style="font-family:monospace;font-size:12px;color:#8E8E93;white-space:nowrap;">'+e.time+'</div>'
               + '<div style="flex:1;">'
               + '<div style="font-size:14px;font-weight:700;color:'+e.color+';">'+e.subject+'</div>'
-              + '<div style="font-size:12px;color:#8E8E93;">'+e.prof+' · '+e.room+'</div>'
+              + '<div style="font-size:12px;color:#8E8E93;">'+(e.prof||'') + (e.prof?' · ':'') +e.room+'</div>'
+              + lecBtn
               + '</div></div>';
           }).join('');
       };
@@ -3525,8 +3539,33 @@ function selectSubject(id, el) {
     document.getElementById('selected-subject-code').textContent = m.code;
     document.getElementById('selected-subject-name').textContent = m.name;
     document.getElementById('selected-subject-prof').innerHTML = '<strong style="font-size:14px;">' + m.prof + '</strong>' + (m.profDetail ? '<span style="font-size:13px;font-weight:600;opacity:0.9;margin-left:10px;">· ' + m.profDetail + '</span>' : '');
-    // 버튼들 (강의계획서/강의자료는 각 주차 세션에서 확인)
+    
+    // ── 강의계획서/강의자료 빠른 링크는 하단 reading-section 영역에 이미 표시되므로
+    //    상단 빨간 막대에서는 중복을 피하기 위해 비워둠 ──
     document.getElementById('selected-subject-btns').innerHTML = '';
+  }
+  
+  // ── 하단 reading-section의 버튼들을 lecMaterials 데이터로 자동 재생성 ──
+  // 메모리 규칙: 강의자료는 항상 lecMaterials 객체에서 자동 동기화
+  var btnsContainer = document.getElementById(id + '-btns');
+  if (btnsContainer && typeof courseLinks !== 'undefined' && courseLinks[m.code]) {
+    var ckLink = courseLinks[m.code];
+    var html = '';
+    // 강의계획서 (channel 색상 배경)
+    if (ckLink.syllabus || m.syllabus) {
+      var syl = ckLink.syllabus || m.syllabus;
+      html += '<a href="' + syl + '" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:9px 16px;background:' + m.color + ';color:white;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;">📄 강의계획서</a>';
+    }
+    // 모든 주차 강의자료 버튼 (날짜 정렬 순)
+    var lecs = ckLink.lecMaterials || {};
+    var sorted = Object.keys(lecs).sort();
+    sorted.forEach(function(date) {
+      var item = lecs[date];
+      if (item && item.url) {
+        html += '<a href="' + item.url + '" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border:2px solid ' + m.color + ';color:' + m.color + ';background:white;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;">📂 ' + (item.name || date) + '</a>';
+      }
+    });
+    btnsContainer.innerHTML = html;
   }
 }
 
@@ -3686,7 +3725,8 @@ var courseLinks = {
       lecMaterials: {
         '2026-03-13': { url: 'https://drive.google.com/file/d/1IPK-TBhLeWO7KTBR5zbt8PI9lPqu5Vk0/view?usp=drive_link', name: '1주차 강의자료' },
         '2026-03-27': { url: 'https://drive.google.com/file/d/1NfKakIKt8M0sxIXv2CjkEN_B1nk8NI3T/view?usp=drive_link', name: '2주차 강의자료' },
-        '2026-04-10': { url: 'https://drive.google.com/file/d/1bjMkbd1Hs4rYqcdKWWU_iS2-MBKEDJAd/view?usp=drive_link', name: '3주차 강의자료' }
+        '2026-04-10': { url: 'https://drive.google.com/file/d/1bjMkbd1Hs4rYqcdKWWU_iS2-MBKEDJAd/view?usp=drive_link', name: '3주차 강의자료' },
+        '2026-04-24': { url: 'https://drive.google.com/file/d/1gWLwgzYDtE-mQizcMLzpzlf1U-VCzP1c/view?usp=drive_link', name: '4주차 강의자료' }
       },
       papers: 'papers',
       assign: 'assignments'
@@ -3695,7 +3735,9 @@ var courseLinks = {
     'DBA212': {
       syllabus: 'https://drive.google.com/file/d/1vV2FWOKubLnaXReXG6plMpP0RQdsYtwk/view?usp=drivesdk',
       lecMaterials: {'2026-03-14': {url: 'https://drive.google.com/file/d/1ueySd3Y3XNB-Ea0rPkwhzMwl9QLQ8wp9/view?usp=drive_link', name: '1주차 강의자료'}, '2026-03-28': {url: 'https://drive.google.com/file/d/1Od_9KXcnyWkLyA7Y8YIkkaiBaMmMTNK9/view?usp=drive_link', name: '2주차 강의자료'},
-        '2026-04-11': {url: 'https://drive.google.com/file/d/1NZ1Czr43LTkyrkPBr-k3yT0sGwtdr49X/view?usp=drive_link', name: '3주차 강의자료'}},
+        '2026-04-11': {url: 'https://drive.google.com/file/d/1NZ1Czr43LTkyrkPBr-k3yT0sGwtdr49X/view?usp=drive_link', name: '3주차 강의자료'},
+        '2026-04-25': {url: 'https://drive.google.com/file/d/1qQPNNTEt1kgYy5z2BPwXiE2Ubjf0s22E/view?usp=drive_link', name: '4주차 강의자료'},
+        '2026-05-09': {url: 'https://drive.google.com/file/d/1LcpsngmDMrhNVdxd4zLJW5LuxdPVfa6k/view?usp=drive_link', name: '5주차 강의자료'}},
 
       papers: 'papers',
       assign: 'assignments'
@@ -3888,6 +3930,7 @@ document.addEventListener('DOMContentLoaded', function() {
       ]},
     { num:4, title:'CEO 승계 — Succession', date:'04/24 (금) 15:00–18:00',
       note:'📝 과제: 전략적 시사점 보고서 4주차 — CEO 승계 (최대 2page, bullet 형식, 수업 당일 제출)',
+      lec_material:{name:'4주차 강의자료 PDF', view:'https://drive.google.com/file/d/1gWLwgzYDtE-mQizcMLzpzlf1U-VCzP1c/view?usp=drive_link', dl:'https://drive.google.com/uc?export=download&id=1gWLwgzYDtE-mQizcMLzpzlf1U-VCzP1c'},
       papers:[
         {type:'academic', title:'Zhang & Rajagopalan (2010). Once an Outsider, Always an Outsider?', journal:'Strategic Management Journal, 31(3): 334–346', link:'https://drive.google.com/file/d/1kQA5sHWMX6rAt60W5RmGWSJrLHHa_zv_/view?usp=drive_link'},
         {type:'hbr', title:'Bower (2007). Solve the Succession Crisis by Growing Inside-Outside Leaders.', journal:'HBR, November', link:'https://drive.google.com/file/d/1QrniWPZYstzrG9g7NEpF2e8x5mVsuaUD/view?usp=drive_link'},
@@ -3968,6 +4011,7 @@ document.addEventListener('DOMContentLoaded', function() {
     { num:4, title:'리더십 — Leadership', date:'04/25 (토) 09:00–12:00',
       note:'📝 매주 과제: 지정 읽기자료 완독 후 심층적인 토론 준비 (비판적 분석 · 실무 시사점 정리)',
       presenters:'🎤 발제·진행: 박성준 · 조제효',
+      lec_material:{name:'4주차 강의자료 PDF', view:'https://drive.google.com/file/d/1qQPNNTEt1kgYy5z2BPwXiE2Ubjf0s22E/view?usp=drive_link', dl:'https://drive.google.com/uc?export=download&id=1qQPNNTEt1kgYy5z2BPwXiE2Ubjf0s22E'},
       assigned:[
         {type:'hbr', title:'Decker & Decker (2015). Communicating a corporate vision to your team.', journal:'Harvard Business Review, July 10', link:'https://drive.google.com/file/d/1MJpzJzOEqztfUVe37lNOZerkp5T6-xEz/view?usp=drive_link'},
         {type:'academic', title:'Carton (2018). I&#39;m not mopping the floors, I&#39;m putting a man on the moon.', journal:'Administrative Science Quarterly 63: 323–369', link:'https://drive.google.com/file/d/1hWcHH72gpT2GV4I0zNSwRu8bls7HyuIe/view?usp=drive_link'},
@@ -3981,6 +4025,7 @@ document.addEventListener('DOMContentLoaded', function() {
     { num:5, title:'권력과 조직 정치 — Power & Organizational Politics', date:'05/09 (토) 09:00–12:00',
       note:'📝 매주 과제: 지정 읽기자료 완독 후 심층적인 토론 준비 (비판적 분석 · 실무 시사점 정리)',
       presenters:'🎤 발제·진행: 문형규 · 황용철',
+      lec_material:{name:'5주차 강의자료 PDF', view:'https://drive.google.com/file/d/1LcpsngmDMrhNVdxd4zLJW5LuxdPVfa6k/view?usp=drive_link', dl:'https://drive.google.com/uc?export=download&id=1LcpsngmDMrhNVdxd4zLJW5LuxdPVfa6k'},
       assigned:[
         {type:'academic', title:'Pfeffer (1992). Understanding power in organizations.', journal:'California Management Review 34: 29–50', link:'https://drive.google.com/file/d/1uCg2pcEqUiRPvQa4HfGu5YbmYWcrOVIy/view?usp=drive_link'},
         {type:'academic', title:'Kaplan (2008). Framing contests: Strategy making under uncertainty.', journal:'Organization Science 19: 729–752', link:'https://drive.google.com/file/d/1S5VmIKArthSXpcs1VR9PF3tFisCQJfdR/view?usp=drive_link'},
@@ -4326,11 +4371,18 @@ function renderCalendar() {
         detail.style.display = 'block';
         dc.innerHTML = '<div style="font-size:13px;color:#8E8E93;margin-bottom:12px;">'+ds+'</div>' +
           evts.map(function(e) {
+            // 강의자료 자동 표시
+            var lecBtn = '';
+            if (typeof courseLinks !== 'undefined' && e.course && courseLinks[e.course] && courseLinks[e.course].lecMaterials && courseLinks[e.course].lecMaterials[ds]) {
+              var lm = courseLinks[e.course].lecMaterials[ds];
+              lecBtn = '<a href="'+lm.url+'" target="_blank" rel="noopener" style="display:inline-block;margin-top:6px;padding:5px 10px;background:'+e.color+';color:white;border-radius:5px;font-size:11px;font-weight:700;text-decoration:none;">📂 '+lm.name+'</a>';
+            }
             return '<div style="display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:8px;background:'+(e.type==='assign'?'#FFF4F4':'#F8FFFE')+';margin-bottom:8px;border-left:4px solid '+e.color+';">' +
               '<div style="flex:1;">' +
               '<div style="font-size:13px;font-weight:700;color:'+e.color+';">'+e.label+(e.weight?' · '+e.weight:'')+'</div>' +
               '<div style="font-size:15px;font-weight:700;color:#1C1C1E;margin:4px 0;">'+e.title+'</div>' +
               '<div style="font-size:13px;color:#8E8E93;">'+e.detail+'</div>' +
+              lecBtn +
               '</div></div>';
           }).join('');
       };
